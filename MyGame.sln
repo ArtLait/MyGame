@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame", "MyWebGame\MyWebGame.csproj", "{56E05F61-5172-4E2E-87EB-EB992663CFCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame.EF", "MyWebGame.EF\MyWebGame.EF.csproj", "{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame.Localization", "MyWebGame.Localization\MyWebGame.Localization.csproj", "{0DDB7598-DC7E-40D4-BC2B-1EB93DF1D394}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56E05F61-5172-4E2E-87EB-EB992663CFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E05F61-5172-4E2E-87EB-EB992663CFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E05F61-5172-4E2E-87EB-EB992663CFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E05F61-5172-4E2E-87EB-EB992663CFCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDB7598-DC7E-40D4-BC2B-1EB93DF1D394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDB7598-DC7E-40D4-BC2B-1EB93DF1D394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDB7598-DC7E-40D4-BC2B-1EB93DF1D394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDB7598-DC7E-40D4-BC2B-1EB93DF1D394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
