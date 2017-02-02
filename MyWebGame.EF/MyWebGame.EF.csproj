@@ -7,7 +7,7 @@
     <ProjectGuid>{E0B65690-718D-4EDB-AD1A-0DCC14B604B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyWebGame.EF</RootNamespace>
+    <RootNamespace>MyWebGam.EF</RootNamespace>
     <AssemblyName>MyWebGame.EF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,14 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UserContext.cs" />
+    <Compile Include="Migrations\201702021159534_delete password.cs" />
+    <Compile Include="Migrations\201702021159534_delete password.Designer.cs">
+      <DependentUpon>201702021159534_delete password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity\" />
+    <EmbeddedResource Include="Migrations\201702021159534_delete password.resx">
+      <DependentUpon>201702021159534_delete password.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
