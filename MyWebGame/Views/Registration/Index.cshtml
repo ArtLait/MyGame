@@ -2,16 +2,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-        <div class="container-fluid jumbotron">
-            @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                <input type="text" name="login" placeholder="Введите login" required />
+<div>
+    <h1>@ViewBag.name</h1>
+    <h1>@ViewBag.password</h1>
+    <h1>@ViewBag.date</h1>    
+</div>
 
-                <input type="text" name="password" placeholder="Введите password" required />
+<div class="container-fluid jumbotron">
+    @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <input type="text" name="login" placeholder="Введите login" required />
 
-                <input type="text" name="email" placeholder="Введите email" required />
-                
-                <input type="submit" value="ок" />
-            }
-        </div>
+        <input type="text" name="password" placeholder="Введите password" required />
+        
+        <input type="text" name="email" placeholder="Введите емэил" required />
 
+        <input type="submit" value="ок" />
+    }
+</div>

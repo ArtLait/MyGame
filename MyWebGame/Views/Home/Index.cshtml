@@ -1,12 +1,12 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";    
 }
-  
+
 <div class="container-fluid jumbotron">
     @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <input type="text" name="nickName" placeholder="Введите nickName" required />
-
+    
         <input type="submit" value="ок" />
     }
 </div>
