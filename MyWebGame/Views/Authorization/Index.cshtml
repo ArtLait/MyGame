@@ -1,16 +1,29 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model MyWebGam.Models.AuthorizationViewModel
 
-<div class="container-fluid jumbotron">
-    @using (Html.BeginForm("Index", "Authorization", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<div class="container-fluid">
+    @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <input type="text" name="login" placeholder="Введите login" required />
 
-        <input type="text" name="password" placeholder="Введите password" required />
+        <div>
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div>
+            @Html.TextBoxFor(model => model.Name, new { required = "true" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
 
-        <input type="submit" value="ок" />
+        <div>
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div>
+            @Html.PasswordFor(model => model.Password, new { required = "true" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+            
+        <input type="submit" value="Зарегистрироваться" />
     }
 </div>
-
-
