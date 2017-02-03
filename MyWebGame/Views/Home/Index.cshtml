@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";    
 }
-
+<h1>@ViewBag.userLogin</h1>
 <div class="container-fluid jumbotron">
     @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {

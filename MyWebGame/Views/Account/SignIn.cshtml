@@ -4,9 +4,10 @@
 @model MyWebGam.Models.AuthorizationViewModel
 
 <div class="container-fluid">
-    @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    <h1>@ViewBag.userIn</h1>
+    @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-
+        @Html.AntiForgeryToken()
         <div>
             @Html.LabelFor(model => model.Name)
         </div>
@@ -23,7 +24,7 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
-            
-        <input type="submit" value="Зарегистрироваться" />
+
+        <input type="submit" value="Войти" class="btn btn-default" />
     }
 </div>
