@@ -8,6 +8,7 @@
     @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
         <div>
             @Html.LabelFor(model => model.Name)
         </div>

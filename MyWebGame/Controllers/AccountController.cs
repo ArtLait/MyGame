@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using MyWebGam.EF.Entity;
 using MyWebGam.Models;
-using System.Web;
 using System.Net;
-using MyWebGame.AddFunctionality;
+using MyWebGam.AddFunctionality;
 using System.Web.Security;
+using MyWebGam.Filters;
 
 namespace MyWebGam.Controllers
 {
+    [Culture]
     public class AccountController : Controller
     {
         UserRepository repo;
@@ -72,10 +73,9 @@ namespace MyWebGam.Controllers
                     ModelState.AddModelError("", "Пользователя с таким логином и паролем - нету");
                 }
                 return View();
-            }
-
+            }     
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return View();
+            return View();            
 
         }
     }

@@ -32,6 +32,10 @@ namespace MyWebGam.EF.Entity
         {
             return db.Users.Find(id);
         }
+        public User GetAuthorizateUser(string name, string PasswordHash){
+
+            return db.Users.FirstOrDefault(u => u.Name == name && u.PasswordHash == PasswordHash);
+        }
         protected void Dispose(bool disposing)
         {
             if (disposing)

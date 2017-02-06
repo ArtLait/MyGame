@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography; 
 
-namespace MyWebGame.AddFunctionality
+namespace MyWebGam.AddFunctionality
 {
     public class CollectionOfMethods
     { 
