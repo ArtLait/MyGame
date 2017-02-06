@@ -29,3 +29,16 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\System.Web.Mvc.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGame.csprojResolveAssemblyReference.cache
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.EF.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.EF.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.SqlServer.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.SqlServer.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.resources.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.SqlServer.resources.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.Migrations.InitialCreate.resources
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGame.csproj.GenerateResource.Cache
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.Migrations.MigrateDB.resources
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb

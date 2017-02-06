@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyWebGame.Localization.resources {
+namespace MyWebGam.Localization.resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MyWebGame.Localization.resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyWebGame.Localization.resources.Web", typeof(Web).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyWebGam.Localization.resources.Web", typeof(Web).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
