@@ -1,0 +1,12 @@
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\MyWebGame.EF.dll.config
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\MyWebGame.EF.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\MyWebGame.EF.pdb
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.SqlServer.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.xml
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.SqlServer.xml
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\ru\EntityFramework.resources.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.dll
+D:\aps_net\MyGame\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.pdb

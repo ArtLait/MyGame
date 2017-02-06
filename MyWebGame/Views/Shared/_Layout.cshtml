@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>    
+    @Styles.Render("~/Content/css")  
+  
+</head>
+<body>
+    
+    <div class="container-fluid">
+       
+        <div id="reg-auth-block" class="min-padding-blockk clearfix ">
+            <a href="@Url.Action("Index", "Authorization")">Ввойти</a>
+            @Html.ActionLink("Зарегистрироваться", "Index", "Registration")            
+        </div>
+
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
