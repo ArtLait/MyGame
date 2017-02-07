@@ -35,8 +35,6 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.SqlServer.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.SqlServer.xml
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.resources.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.SqlServer.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.Localization.dll
@@ -89,3 +87,8 @@ D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MailKit.dll
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MimeKit.dll
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MailKit.xml
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MimeKit.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\BouncyCastle.Crypto.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MailKit.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MimeKit.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MailKit.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MimeKit.xml
