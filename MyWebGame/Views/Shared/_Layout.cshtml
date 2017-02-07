@@ -12,8 +12,8 @@
     
     <div class="container-fluid color-main-container">
         <div class="reg-auth-block min-padding-block clearfix ">
-            <a href="@Url.Action("SignIn", "Account")">Ввойти</a>
-            @Html.ActionLink("Registration", "Registration", "Account")
+            <a href="@Url.Action("SignIn", "Account")">@Resources.Web.SignIn</a>
+            @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
             </div>
         <div>
             @using (Html.BeginForm("ChangeCulture", "Home"))

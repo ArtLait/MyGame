@@ -39,6 +39,6 @@ new { @class = "form-horizontal", role = "form" }))
             @Html.TextBoxFor(model => model.Email, new { required = "true" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
-        <input type="submit" value="Зарегистрироваться" class="btn btn-default" />
+        <input type="submit" value=@Resources.Web.RegisterSubmit class="btn btn-default" />
     }
 </div>

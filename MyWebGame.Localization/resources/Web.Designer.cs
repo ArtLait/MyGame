@@ -133,11 +133,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Зарегистрироваться.
+        /// </summary>
+        public static string RegisterSubmit {
+            get {
+                return ResourceManager.GetString("RegisterSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на зарегистрироваться.
+        /// </summary>
+        public static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Повторите, пожалуйста, пароль.
         /// </summary>
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на войти.
+        /// </summary>
+        public static string SignIn {
+            get {
+                return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Войти.
+        /// </summary>
+        public static string SignInSubmit {
+            get {
+                return ResourceManager.GetString("SignInSubmit", resourceCulture);
             }
         }
     }

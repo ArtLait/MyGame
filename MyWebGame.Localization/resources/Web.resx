@@ -141,7 +141,19 @@
   <data name="Password" xml:space="preserve">
     <value>Введите пароль</value>
   </data>
+  <data name="RegisterSubmit" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>зарегистрироваться</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Повторите, пожалуйста, пароль</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>войти</value>
+  </data>
+  <data name="SignInSubmit" xml:space="preserve">
+    <value>Войти</value>
   </data>
 </root>
