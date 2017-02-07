@@ -5,19 +5,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>    
-    @Styles.Render("~/Content/css")  
-  
+    @Styles.Render("~/Content/css")     
+      
 </head>
 <body>
     
     <div class="container-fluid color-main-container">
-       
-        <div id="reg-auth-block" class="min-padding-blockk clearfix ">
-            <a href="@Url.Action("SignIn", "Account")">Ввойти</a>
-            @Html.ActionLink("Зарегистрироваться", "Registration", "Account")            
+        <div class="reg-auth-block min-padding-block clearfix ">
+            <a href="@Url.Action("SignIn", "Account")">@Resources.Web.SignIn</a>
+            @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
+            </div>
+        <div>
+            @using (Html.BeginForm("ChangeCulture", "Home"))
+            {
+                <select name="lang">
+                    <option disabled selected>@Resources.Web.ChooseLang</option>
+                    <option value="ru">Русский</option>
+                    <option value="en">Английский</option>
+                </select>
+                <input type="submit" value="Choose lang" />
+            }
         </div>
 
         @RenderBody()
+
+        
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")

@@ -22,9 +22,44 @@ select,
 textarea {
     max-width: 280px;
 }
-#clearfix:before::after {
+.clearfix:before::after {
   content: " ";
   clear: both;
   display: table;
 }
+
+body {
+    background: gray;
+}
+.reg-auth-block{
+    float:right;   
+}
+.min-padding-block{
+    padding: 40px;
+}
+.color-main-container{
+    background:white;
+}
+.field-validation-error {
+    color: #f00;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #f00;
+}
+ 
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+ 
+.validation-summary-valid {
+    display: none;
+}
+
 

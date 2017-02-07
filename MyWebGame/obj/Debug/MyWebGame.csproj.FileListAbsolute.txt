@@ -37,8 +37,55 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\EntityFramework.SqlServer.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\EntityFramework.SqlServer.resources.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.Migrations.InitialCreate.resources
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGame.csproj.GenerateResource.Cache
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.Migrations.MigrateDB.resources
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.Localization.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.Localization.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\en\MyWebGame.Localization.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGam.dll.config
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGam.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGam.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\Antlr3.Runtime.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\EntityFramework.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\EntityFramework.SqlServer.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.AddFunctionality.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.EF.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.Localization.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\Newtonsoft.Json.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Helpers.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Mvc.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Optimization.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Razor.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.Deployment.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.Razor.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\WebGrease.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.EF.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MyWebGame.Localization.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\Antlr3.Runtime.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\EntityFramework.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\EntityFramework.SqlServer.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\Newtonsoft.Json.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Optimization.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Razor.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.Deployment.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Webpages.Razor.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Helpers.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\System.Web.Mvc.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\en\MyWebGame.Localization.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Razor.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Webpages.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Helpers.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\ru\System.Web.Mvc.resources.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\obj\Debug\MyWebGame.csprojResolveAssemblyReference.cache
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\obj\Debug\MyWebGam.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\obj\Debug\MyWebGam.pdb
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\BouncyCastle.Crypto.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MailKit.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MimeKit.dll
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MailKit.xml
+D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame\bin\MimeKit.xml

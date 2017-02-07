@@ -5,15 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using MyWebGam.EF.Entity;
 using MyWebGam.Models;
-using System.Web;
 using System.Net;
-using MyWebGame.AddFunctionality;
+using MyWebGam.AddFunctionality;
 using System.Web.Security;
+using System.Threading;
+using System.Globalization;
+using System.Web.Mvc.Async;
 
 namespace MyWebGam.Controllers
 {
-    public class AccountController : Controller
-    {
+    public class AccountController : UnAuthorizedController 
+    {      
         UserRepository repo;
         // GET: Account
         public AccountController()
@@ -30,19 +32,17 @@ namespace MyWebGam.Controllers
         {
             if (ModelState.IsValid)
             {
-                User newUser = new User();
-                newUser.Name = registerData.Name;
-                int b = 15;
-                var newVariable = b.GetHashCode();
-                newUser.PasswordHash = CollectionOfMethods.GetHashString(registerData.Password);
-                newUser.Email = registerData.Email;
-                DateTime dateNow = DateTime.Now;
-                newUser.Date = dateNow;
-                repo.Save(newUser);
-                ViewBag.name = newUser.Name;
-                ViewBag.password = newUser.PasswordHash;
-                ViewBag.date = newUser.Date;
-                return RedirectToAction("SignIn", "Account");
+                User newUser = new User
+                {
+                    Name = registerData.Name,
+                    PasswordHash = CollectionOfMethods.GetHashString(registerData.Password),
+                    Email = registerData.Email,
+                    Date  = DateTime.UtcNow
+                };
+                
+                repo.Save(newUser);               
+                FormsAuthentication.SetAuthCookie(newUser.Name, true);
+                return RedirectToAction("Index", "Home");
             }
 
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -62,8 +62,7 @@ namespace MyWebGam.Controllers
             {
                 if (repo.GetAuthorizateUser(authorizationUser.Name,
                     CollectionOfMethods.GetHashString(authorizationUser.Password)) != null)
-                {
-                    ViewBag.userIn = "User in";
+                {                    
                     FormsAuthentication.SetAuthCookie(authorizationUser.Name, true);
                     return RedirectToAction("Index", "Home");
                 }
@@ -72,10 +71,9 @@ namespace MyWebGam.Controllers
                     ModelState.AddModelError("", "Пользователя с таким логином и паролем - нету");
                 }
                 return View();
-            }
-
+            }     
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return View();
+            return View();            
 
         }
     }
