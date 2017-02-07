@@ -26,11 +26,10 @@ namespace MyWebGam.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            string result = "Вы не авторизованы";
+            string result = @Resources.Web.NotAuthorized;
             if (User.Identity.IsAuthenticated)
             {
-                result = "Ваш логин: " + User.Identity.Name;
-//                return RedirectToAction("Index")
+                result = @Resources.Web.UserIn + User.Identity.Name;                
             }
             ViewBag.userLogin = result;          
             return View();

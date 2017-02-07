@@ -10,7 +10,6 @@ namespace MyWebGam.Controllers
 {
     public class UnAuthorizedController : Controller
     {
-        // GET: UnAuthorized
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
             string cultureNameKey = null;
@@ -23,13 +22,12 @@ namespace MyWebGam.Controllers
             Dictionary<string, string> culturesMap = new Dictionary<string, string>();
             culturesMap.Add("ru", "RU-ru");
             culturesMap.Add("en", "EN-US");
-            //if (!cultures.Contains(cultureName))
             if (!culturesMap.ContainsKey(cultureNameKey))
             {
                 cultureNameKey = "ru";
             }
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(culturesMap[cultureNameKey]);// CultureInfo.CreateSpecificCulture(cultureName);
-            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture; //CultureInfo.CreateSpecificCulture(cultureName);                                   
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culturesMap[cultureNameKey]);
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture; 
             return base.BeginExecuteCore(callback, state);
         }
     }

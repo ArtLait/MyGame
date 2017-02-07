@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пожалуйста, авторизируйтесь.
+        /// </summary>
+        public static string NotAuthorized {
+            get {
+                return ResourceManager.GetString("NotAuthorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Введите пароль.
         /// </summary>
         public static string Password {
@@ -174,6 +183,15 @@ namespace Resources {
         public static string SignInSubmit {
             get {
                 return ResourceManager.GetString("SignInSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Спасибо,что зашли к нам .
+        /// </summary>
+        public static string UserIn {
+            get {
+                return ResourceManager.GetString("UserIn", resourceCulture);
             }
         }
     }

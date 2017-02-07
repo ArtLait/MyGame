@@ -32,19 +32,17 @@ namespace MyWebGam.Controllers
         {
             if (ModelState.IsValid)
             {
-                User newUser = new User();
-                newUser.Name = registerData.Name;
-                int b = 15;
-                var newVariable = b.GetHashCode();
-                newUser.PasswordHash = CollectionOfMethods.GetHashString(registerData.Password);
-                newUser.Email = registerData.Email;
-                DateTime dateNow = DateTime.Now;
-                newUser.Date = dateNow;
-                repo.Save(newUser);
-                ViewBag.name = newUser.Name;
-                ViewBag.password = newUser.PasswordHash;
-                ViewBag.date = newUser.Date;
-                return RedirectToAction("SignIn", "Account");
+                User newUser = new User
+                {
+                    Name = registerData.Name,
+                    PasswordHash = CollectionOfMethods.GetHashString(registerData.Password),
+                    Email = registerData.Email,
+                    Date  = DateTime.UtcNow
+                };
+                
+                repo.Save(newUser);               
+                FormsAuthentication.SetAuthCookie(newUser.Name, true);
+                return RedirectToAction("Index", "Home");
             }
 
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -64,8 +62,7 @@ namespace MyWebGam.Controllers
             {
                 if (repo.GetAuthorizateUser(authorizationUser.Name,
                     CollectionOfMethods.GetHashString(authorizationUser.Password)) != null)
-                {
-                    ViewBag.userIn = "User in";
+                {                    
                     FormsAuthentication.SetAuthCookie(authorizationUser.Name, true);
                     return RedirectToAction("Index", "Home");
                 }

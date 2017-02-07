@@ -138,6 +138,9 @@
   <data name="Name" xml:space="preserve">
     <value>Введите имя</value>
   </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Пожалуйста, авторизируйтесь</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Введите пароль</value>
   </data>
@@ -155,5 +158,8 @@
   </data>
   <data name="SignInSubmit" xml:space="preserve">
     <value>Войти</value>
+  </data>
+  <data name="UserIn" xml:space="preserve">
+    <value>Спасибо,что зашли к нам </value>
   </data>
 </root>
