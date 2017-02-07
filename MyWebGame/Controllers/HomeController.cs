@@ -4,15 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyWebGam.Models;
-using MyWebGam.Filters;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
 
 
 namespace MyWebGam.Controllers
 {
-    [Culture]
-    public class HomeController : Controller
-    {
+    public class HomeController : UnAuthorizedController
+    {       
         public ActionResult StartPage()
         {
             ViewBag.testVariable = "ok";
@@ -33,12 +33,6 @@ namespace MyWebGam.Controllers
 //                return RedirectToAction("Index")
             }
             ViewBag.userLogin = result;          
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Index(FormCollection collection)
-        {
-
             return View();
         }
         public ActionResult ChangeCulture(string lang)

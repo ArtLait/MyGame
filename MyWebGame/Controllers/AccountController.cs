@@ -8,13 +8,14 @@ using MyWebGam.Models;
 using System.Net;
 using MyWebGam.AddFunctionality;
 using System.Web.Security;
-using MyWebGam.Filters;
+using System.Threading;
+using System.Globalization;
+using System.Web.Mvc.Async;
 
 namespace MyWebGam.Controllers
 {
-    [Culture]
-    public class AccountController : Controller
-    {
+    public class AccountController : UnAuthorizedController 
+    {      
         UserRepository repo;
         // GET: Account
         public AccountController()
