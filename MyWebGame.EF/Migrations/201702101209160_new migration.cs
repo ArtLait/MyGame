@@ -17,7 +17,8 @@ namespace MyWebGam.EF.Migrations
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.Users", t => t.UserId)
-                .Index(t => t.UserId);
+                .Index(t => t.UserId)
+                .Index(t => t.Key);
             
             CreateTable(
                 "dbo.Users",

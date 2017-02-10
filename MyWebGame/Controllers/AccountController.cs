@@ -28,7 +28,21 @@ namespace MyWebGam.Controllers
         {
             repo = new UserRepository();
             repoForEmail = new UserForConfirmedEmailRepository();            
+        }     
+        public ActionResult OnlyEmail()
+        {
+            return View();
         }
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordViewModel model)
+        {
+            return View();
+        }
+
         public ActionResult Registration()
         {
             return View();
@@ -81,7 +95,7 @@ namespace MyWebGam.Controllers
                 message = @Resources.Web.RegistrationSuccesfull;
                 repoForEmail.DeleteKey(user.Id);
             }
-            ViewBag.message = message;
+            ViewBag.message = message;            
             return View();
         }
 

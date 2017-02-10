@@ -120,6 +120,9 @@
   <data name="Administration" xml:space="preserve">
     <value>Администрация сайта</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Сменить пароль</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Изменить язык</value>
   </data>

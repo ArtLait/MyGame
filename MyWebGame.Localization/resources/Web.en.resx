@@ -120,6 +120,9 @@
   <data name="Administration" xml:space="preserve">
     <value>Site administraion </value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>change password</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>choose lang</value>
   </data>
