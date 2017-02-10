@@ -61,5 +61,8 @@ body {
 .validation-summary-valid {
     display: none;
 }
+.btn-color{
+    background: #ddd;
+}
 
 

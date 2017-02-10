@@ -150,6 +150,9 @@
   <data name="Registration" xml:space="preserve">
     <value>зарегистрироваться</value>
   </data>
+  <data name="RegistrationSuccesfull" xml:space="preserve">
+    <value>Регистрация прошла успешно</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Повторите, пожалуйста, пароль</value>
   </data>
@@ -161,5 +164,8 @@
   </data>
   <data name="UserIn" xml:space="preserve">
     <value>Спасибо,что зашли к нам </value>
+  </data>
+  <data name="WaitingForPasswordConfirmation" xml:space="preserve">
+    <value>Пожалуйста, подтвердите регистрацию через емаил</value>
   </data>
 </root>

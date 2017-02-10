@@ -38,6 +38,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,14 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\User.cs" />
-    <Compile Include="Entity\UserContext.cs" />
-    <Compile Include="Migrations\201702021159534_delete password.cs" />
-    <Compile Include="Migrations\201702021159534_delete password.Designer.cs">
-      <DependentUpon>201702021159534_delete password.cs</DependentUpon>
+    <Compile Include="Migrations\201702100903302_delete company.cs" />
+    <Compile Include="Migrations\201702100903302_delete company.Designer.cs">
+      <DependentUpon>201702100903302_delete company.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserContext.cs" />
+    <Compile Include="Models\UserForConfirmedEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UserForConfirmedEmailRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -66,8 +73,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702021159534_delete password.resx">
-      <DependentUpon>201702021159534_delete password.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702100903302_delete company.resx">
+      <DependentUpon>201702100903302_delete company.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

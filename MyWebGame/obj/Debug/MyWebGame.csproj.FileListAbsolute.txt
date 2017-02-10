@@ -92,3 +92,7 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MailKit.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MimeKit.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MailKit.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MimeKit.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.xml

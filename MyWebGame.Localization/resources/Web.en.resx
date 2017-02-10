@@ -150,6 +150,9 @@
   <data name="Registration" xml:space="preserve">
     <value>register</value>
   </data>
+  <data name="RegistrationSuccesfull" xml:space="preserve">
+    <value>Registration Successful</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
   </data>
@@ -161,5 +164,8 @@
   </data>
   <data name="UserIn" xml:space="preserve">
     <value>welcome </value>
+  </data>
+  <data name="WaitingForPasswordConfirmation" xml:space="preserve">
+    <value>Please, confirm the registration via email</value>
   </data>
 </root>

@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Регистрация прошла успешно.
+        /// </summary>
+        public static string RegistrationSuccesfull {
+            get {
+                return ResourceManager.GetString("RegistrationSuccesfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Повторите, пожалуйста, пароль.
         /// </summary>
         public static string RepeatPassword {
@@ -192,6 +201,15 @@ namespace Resources {
         public static string UserIn {
             get {
                 return ResourceManager.GetString("UserIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пожалуйста, подтвердите регистрацию через емаил.
+        /// </summary>
+        public static string WaitingForPasswordConfirmation {
+            get {
+                return ResourceManager.GetString("WaitingForPasswordConfirmation", resourceCulture);
             }
         }
     }

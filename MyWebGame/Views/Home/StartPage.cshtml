@@ -3,12 +3,11 @@
 }
 @model MyWebGam.Models.NickNameViewModel
 
-       
 
 <h1>@ViewBag.userLogin</h1>
 
 <div class="container-fluid jumbotron">
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("StartPage", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <div>
             @Html.LabelFor(model => model.NickName)
