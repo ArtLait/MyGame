@@ -7,13 +7,13 @@ namespace MyWebGam.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class deletecompany : IMigrationMetadata
+    public sealed partial class newmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(deletecompany));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702100903302_delete company"; }
+            get { return "201702101209160_new migration"; }
         }
         
         string IMigrationMetadata.Source

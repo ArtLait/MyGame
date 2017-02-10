@@ -15,14 +15,8 @@ namespace MyWebGam.Controllers
 {
     public class HomeController : UnAuthorizedController
     {
-
-        UserForConfirmedEmailRepository repoForEmail;
-        UserRepository repo;
-
         public HomeController()
-        {
-            repoForEmail = new UserForConfirmedEmailRepository();
-            repo = new UserRepository();           
+        {               
         }
         public ActionResult StartPage()
         {

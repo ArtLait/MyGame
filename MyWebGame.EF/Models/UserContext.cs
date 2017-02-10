@@ -16,7 +16,7 @@ namespace MyWebGam.EF
         public DbSet<UserForConfirmedEmail> UserForConfirmedEmails { get; set; }      
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserForConfirmedEmail>().HasOptional(u => u.User);
+            modelBuilder.Entity<UserForConfirmedEmail>().HasOptional(u => u.User);                
             //modelBuilder.Entity<User>().HasOptional(u => u.UserForEmail)
             //    .WithRequired(u => u.User);
         }

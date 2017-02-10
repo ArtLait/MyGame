@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201702100903302_delete company.cs" />
-    <Compile Include="Migrations\201702100903302_delete company.Designer.cs">
-      <DependentUpon>201702100903302_delete company.cs</DependentUpon>
+    <Compile Include="Migrations\201702101209160_new migration.cs" />
+    <Compile Include="Migrations\201702101209160_new migration.Designer.cs">
+      <DependentUpon>201702101209160_new migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
@@ -73,8 +73,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702100903302_delete company.resx">
-      <DependentUpon>201702100903302_delete company.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702101209160_new migration.resx">
+      <DependentUpon>201702101209160_new migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

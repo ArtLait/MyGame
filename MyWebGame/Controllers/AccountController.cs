@@ -53,20 +53,15 @@ namespace MyWebGam.Controllers
                     }
                 };
                 repoForEmail.Save(newUser);
-
-                var user = new ApplicationUser() { UserName = registerData.Name};
-                user.Email = registerData.Email;
-                user.ConfirmedEmail = false;
-
                 EmailService emailService = new EmailService();
-                await emailService.SendEmailAsync(registerData.Email, "Подтверждение регистрации", 
-                    EmailService.Href(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));
+                await emailService.SendEmailAsync(registerData.Email, "Подтверждение регистрации",
+                    EmailService.Href(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
 
                 FormsAuthentication.SetAuthCookie(registerData.Email, true);
-                return RedirectToAction("WaitingForConfirm", "Account", new { Email = user.Email });
-                             
+                //return RedirectToAction("WaitingForConfirm", "Account", new { Email = registerData.Email });
+                return View("WaitingForConfirm");
             }
-
+            
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
             return View(registerData);
         }
@@ -74,15 +69,15 @@ namespace MyWebGam.Controllers
         public ActionResult WaitingForConfirm(string Email)
         {
             ViewBag.Email = Email;
-            return View();       
+            return View();
         }
         public ActionResult ConfirmEmail(string key)
         {
             UserForConfirmedEmail user = repoForEmail.CheckKey(key);
-            string message = "Вы прошли не по своей ссылке, регистрация не подтверждена";
+            string message = Resources.Web.WaitingForPasswordConfirmation;
             if (user != null)
             {
-                repoForEmail.Confirmed(user.UserId);
+                repoForEmail.SetUserConfirmed(user.UserId);
                 message = @Resources.Web.RegistrationSuccesfull;
                 repoForEmail.DeleteKey(user.Id);
             }
@@ -101,16 +96,17 @@ namespace MyWebGam.Controllers
         public ActionResult SignIn(AuthorizationViewModel authorizationUser)
         {
             if (ModelState.IsValid)
-            {
-                if (repo.GetAuthorizateUser(authorizationUser.Name,
-                    CollectionOfMethods.GetHashString(authorizationUser.Password)) != null)
+            {   
+                User user = repo.GetAuthorizateUser(authorizationUser.Name,
+                    CollectionOfMethods.GetHashString(authorizationUser.Password));
+                if (user != null)
                 {                    
-                    FormsAuthentication.SetAuthCookie(authorizationUser.Name, true);
+                    FormsAuthentication.SetAuthCookie((user.Id).ToString(), true);                    
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Пользователя с таким логином и паролем - нету");
+                    ModelState.AddModelError("", Resources.Web.NoSuchUser);
                 }
                 return View();
             }     

@@ -9,22 +9,7 @@ using System.Text.RegularExpressions;
 namespace MyWebGam.AddFunctionality
 {
     public class CollectionOfMethods
-    { 
-            private static Regex reGuid =   
-        new Regex(  
-        @"^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$",  
-        RegexOptions.Compiled  
-                    );  
-  
-        public static Guid StringToGuid(string id)  
-        {  
-            if (id == null || id.Length != 36 ) return Guid.Empty;  
-            if (reGuid.IsMatch(id))  
-                return new Guid(id);  
-            else  
-                return Guid.Empty;  
-        }  
-  
+    {              
         public static string GetHashString(string s)  
             {  
               //переводим строку в байт-массим  

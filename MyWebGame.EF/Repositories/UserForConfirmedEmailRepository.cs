@@ -27,7 +27,7 @@ namespace MyWebGam.EF
         {
             return db.UserForConfirmedEmails.FirstOrDefault(u => u.Key == key);
         }
-        public void Confirmed(int id)
+        public void SetUserConfirmed(int id)
         {
             db.Users.Find(id).Confirmed = true;
             db.SaveChanges();

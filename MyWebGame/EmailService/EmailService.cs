@@ -3,11 +3,13 @@ using MailKit.Net.Smtp;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System;
+using System.Web.Mvc;
+
 
 namespace MyWebGam.Service
 {
-    public class EmailService
-    {
+    public  class EmailService : Controller
+    {   
         public async Task SendEmailAsync(string email, string subject, string message)
         {
             var emailMessage = new MimeMessage();
@@ -15,7 +17,7 @@ namespace MyWebGam.Service
             string emailServer = WebConfigurationManager.AppSettings["email"];
             string smtpServer = WebConfigurationManager.AppSettings["smtp"];
             string passwordEmailServer = WebConfigurationManager.AppSettings["passwordEmail"];
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", emailServer));
+            emailMessage.From.Add(new MailboxAddress(Resources.Web.Administration, emailServer));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
@@ -36,7 +38,7 @@ namespace MyWebGam.Service
         {
             return string.Format("Для завершения регистрации перейдите по ссылке:" +
                             "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
-                url);
+                url);            
         }
     }
 }

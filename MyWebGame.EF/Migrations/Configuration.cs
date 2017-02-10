@@ -11,6 +11,7 @@ namespace MyWebGam.EF.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
+
         protected override void Seed(MyWebGam.EF.UserContext context)
         {
             //  This method will be called after migrating to the latest version.

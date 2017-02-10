@@ -214,7 +214,6 @@
     </Compile>
     <Compile Include="Models\AccountUserViewModel.cs" />
     <Compile Include="Models\AuthorizationViewModel.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\NickNameViewModel.cs" />
     <Compile Include="Models\RegisteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

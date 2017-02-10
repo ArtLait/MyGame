@@ -6,5 +6,5 @@
 <div class="container-fluid">
     <h1>@ViewBag.message</h1>
     
-    @Html.ActionLink("Вступить в игру", "Index", "Home", new { }, new { @class = "btn btn-color"})
+    @Html.ActionLink(@Resources.Web.JoinTheGame, "Index", "Home", new { }, new { @class = "btn btn-color"})
 </div>

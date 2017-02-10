@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Администрация сайта.
+        /// </summary>
+        public static string Administration {
+            get {
+                return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Изменить язык.
         /// </summary>
         public static string ChooseLang {
@@ -84,6 +93,15 @@ namespace Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вступить в игру.
+        /// </summary>
+        public static string JoinTheGame {
+            get {
+                return ResourceManager.GetString("JoinTheGame", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace Resources {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователя с таким логином и паролем - нету.
+        /// </summary>
+        public static string NoSuchUser {
+            get {
+                return ResourceManager.GetString("NoSuchUser", resourceCulture);
             }
         }
         
