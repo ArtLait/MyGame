@@ -12,6 +12,7 @@ namespace MyWebGam.EF
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [MaxLength(450)]
         public string Key { get; set; }
         [Key, ForeignKey("User")]
         public int UserId { get; set; }

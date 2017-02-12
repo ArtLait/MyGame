@@ -101,7 +101,7 @@ namespace MyWebGam.Controllers
                     CollectionOfMethods.GetHashString(authorizationUser.Password));
                 if (user != null)
                 {                    
-                    FormsAuthentication.SetAuthCookie((user.Id).ToString(), true);                    
+                    FormsAuthentication.SetAuthCookie((user.Email).ToString(), true);                    
                     return RedirectToAction("Index", "Home");
                 }
                 else

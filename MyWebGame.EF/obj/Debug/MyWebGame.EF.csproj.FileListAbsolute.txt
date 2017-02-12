@@ -34,5 +34,5 @@ D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame.EF\obj\Debug\MyWebGame.EF.cs
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache
-D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.newmigration.resources
+D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.Initialcreate.resources
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csproj.GenerateResource.Cache

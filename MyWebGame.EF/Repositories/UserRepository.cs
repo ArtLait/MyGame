@@ -31,6 +31,7 @@ namespace MyWebGam.EF
         {
             return db.Users.FirstOrDefault(u => u.Name == name && u.PasswordHash == PasswordHash);
         }
+ 
         protected void Dispose(bool disposing)
         {
             if (disposing)

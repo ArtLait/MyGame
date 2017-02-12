@@ -19,6 +19,7 @@ namespace MyWebGam.EF
         public string Status { get; set; }
         public bool Confirmed { get; set; }      
         public DateTime Date { get; set; }
+        public virtual UserForConfirmedEmail UserForConfirmedEmail { get; set; }
    }
 
 }

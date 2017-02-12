@@ -3,7 +3,7 @@ namespace MyWebGam.EF.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newmigration : DbMigration
+    public partial class Initialcreate : DbMigration
     {
         public override void Up()
         {
@@ -13,17 +13,16 @@ namespace MyWebGam.EF.Migrations
                     {
                         UserId = c.Int(nullable: false),
                         Id = c.Int(nullable: false, identity: true),
-                        Key = c.String(),
+                        Key = c.String(maxLength: 450),
                     })
                 .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.Users", t => t.UserId)
-                .Index(t => t.UserId);
+                .Index(t => t.Key);
             
             CreateTable(
                 "dbo.Users",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         Name = c.String(),
                         Email = c.String(),
                         PasswordHash = c.String(),
@@ -32,14 +31,16 @@ namespace MyWebGam.EF.Migrations
                         Confirmed = c.Boolean(nullable: false),
                         Date = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.UserForConfirmedEmails", t => t.Id)
+                .Index(t => t.Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.UserForConfirmedEmails", "UserId", "dbo.Users");
-            DropIndex("dbo.UserForConfirmedEmails", new[] { "UserId" });
+            DropForeignKey("dbo.Users", "Id", "dbo.UserForConfirmedEmails");
+            DropIndex("dbo.Users", new[] { "Id" });
             DropTable("dbo.Users");
             DropTable("dbo.UserForConfirmedEmails");
         }
