@@ -19,26 +19,7 @@ namespace MyWebGam.Controllers
         {               
         }
         public ActionResult StartPage()
-        {
-            UserContext db = new UserContext();
-            UserForConfirmedEmail user = new UserForConfirmedEmail()
-            {
-                Id = 1,
-                Key = "33333",
-                UserId = 2,
-                User = new User()
-                {
-                    Id = 2,
-                    Name = "Artem",
-                    PasswordHash = "asdsadsad",
-                    Email = "@mail.com",
-                    Date = DateTime.UtcNow,
-                    Confirmed = false
-                }
-            };
-
-            db.UserForConfirmedEmails.Add(user);
-            db.SaveChanges();
+        {           
             return View();
         }
         [HttpPost]
