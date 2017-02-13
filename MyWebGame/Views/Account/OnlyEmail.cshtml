@@ -3,12 +3,11 @@
 }
 @model MyWebGam.Models.OnlyEmailViewModel
 <div class="container-fluid">
-    @using (Html.BeginForm("ResetPassword", "Account", FormMethod.Post,
-
-new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("ResetPassword", "Account", FormMethod.Post, 
+        new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-
+        @Html.ValidationSummary()
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>

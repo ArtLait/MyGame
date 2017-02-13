@@ -33,8 +33,26 @@ namespace MyWebGam.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task <ActionResult> OnlyEmail(OnlyEmailViewModel data)
+        {
+            if (ModelState.IsValid)
+            {
+                EmailService emailService = new EmailService();               
+                await emailService.SendEmailAsync(data.Email, "Подтверждение регистрации",
+                    EmailService.Href(Url.Action("ResetPassword", "Account", new
+                    { Key = CollectionOfMethods.GetHashString(data.Email) }, Request.Url.Scheme)));
+                return View();
+            }
+            else
+            {
+                Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                return View(data);
+            }            
+        }
         public ActionResult ResetPassword()
         {
+
             return View();
         }
         [HttpPost]

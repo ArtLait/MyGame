@@ -213,9 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountUserViewModel.cs" />
     <Compile Include="Models\AuthorizationViewModel.cs" />
     <Compile Include="Models\NickNameViewModel.cs" />
+    <Compile Include="Models\OnlyEmailViewModel.cs" />
     <Compile Include="Models\RegisteViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,6 +233,7 @@
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\WaitingForConfirm.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\OnlyEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

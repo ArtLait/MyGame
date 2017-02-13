@@ -31,8 +31,7 @@ namespace MyWebGam.Service
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
-            }
-            
+            }            
         }
         public static string Href(string url)
         {
