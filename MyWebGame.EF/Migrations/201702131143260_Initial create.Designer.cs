@@ -13,7 +13,7 @@ namespace MyWebGam.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702121834046_Initial create"; }
+            get { return "201702131143260_Initial create"; }
         }
         
         string IMigrationMetadata.Source

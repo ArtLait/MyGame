@@ -10,12 +10,12 @@ namespace MyWebGam.EF
 {
     public class UserForConfirmedEmail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]          
         public int Id { get; set; }
         [MaxLength(450)]
         public string Key { get; set; }
         [Key, ForeignKey("User")]
-        public int UserId { get; set; }
+        public int UserId { get; set; }        
         public virtual User User { get; set; }
     }
 }

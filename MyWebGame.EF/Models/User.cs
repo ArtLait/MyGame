@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace MyWebGam.EF
 {
     public class User
-    {      
-        public User(){}
+    {       
+        public User(){}     
         public int Id { get; set; }        
         public string Name { get; set; }
         public string Email { get; set; }
@@ -18,8 +18,7 @@ namespace MyWebGam.EF
         public string UniqueKey { get; set; } 
         public string Status { get; set; }
         public bool Confirmed { get; set; }      
-        public DateTime Date { get; set; }
-        public virtual UserForConfirmedEmail UserForConfirmedEmail { get; set; }
+        public DateTime Date { get; set; }                
    }
 
 }

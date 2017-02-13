@@ -13,14 +13,7 @@ namespace MyWebGam.EF
             : base("DbConnection")
         { }
         public DbSet<User> Users { get; set; }   
-        public DbSet<UserForConfirmedEmail> UserForConfirmedEmails { get; set; }      
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<UserForConfirmedEmail>().HasOptional(u => u.User)
-                .WithRequired(u => u.UserForConfirmedEmail);
-            //modelBuilder.Entity<User>().HasOptional(u => u.UserForEmail)
-            //    .WithRequired(u => u.User);
-        }
+        public DbSet<UserForConfirmedEmail> UserForConfirmedEmails { get; set; }             
     }
     
 }
