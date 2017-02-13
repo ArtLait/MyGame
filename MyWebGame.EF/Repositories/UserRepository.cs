@@ -5,20 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-
-namespace MyWebGam.EF.Entity
+namespace MyWebGam.EF
 {
-    public class UserContext : DbContext
-    {
-        public UserContext()
-            : base("DbConnection")
-        { }
-        public DbSet<User> Users { get; set; }
-
-    }
     public class UserRepository : IDisposable
     {
-        private UserContext db = new UserContext();
+        private UserContext db;
+        public UserRepository()
+        {
+            db = new UserContext();
+        }
         public void Save(User u)
         {
             db.Users.Add(u);
@@ -32,10 +27,11 @@ namespace MyWebGam.EF.Entity
         {
             return db.Users.Find(id);
         }
-        public User GetAuthorizateUser(string name, string PasswordHash){
-
+        public User GetAuthorizateUser(string name, string PasswordHash)
+        {
             return db.Users.FirstOrDefault(u => u.Name == name && u.PasswordHash == PasswordHash);
         }
+ 
         protected void Dispose(bool disposing)
         {
             if (disposing)
@@ -52,5 +48,5 @@ namespace MyWebGam.EF.Entity
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-    }
+    }     
 }

@@ -10,7 +10,6 @@ D:\aps_net\MyGame\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\bin\Debug\MyWebGame.Localization.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\bin\Debug\MyWebGame.Localization.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\bin\Debug\en\MyWebGame.Localization.resources.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csprojResolveAssemblyReference.cache
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGam.Localization.resources.Web.resources
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGam.Localization.resources.Web.en.resources
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csproj.GenerateResource.Cache
@@ -27,3 +26,4 @@ D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWeb
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGam.Localization.resources.Web.resources
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGam.Localization.resources.Web.en.resources
 D:\aps_net\SolbegSoft\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csprojResolveAssemblyReference.cache
+D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csprojResolveAssemblyReference.cache

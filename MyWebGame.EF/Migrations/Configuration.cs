@@ -5,14 +5,14 @@ namespace MyWebGam.EF.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MyWebGam.EF.Entity.UserContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MyWebGam.EF.UserContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MyWebGam.EF.Entity.UserContext context)
+        protected override void Seed(MyWebGam.EF.UserContext context)
         {
             //  This method will be called after migrating to the latest version.
 

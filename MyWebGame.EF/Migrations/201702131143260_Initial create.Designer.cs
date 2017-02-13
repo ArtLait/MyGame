@@ -7,13 +7,13 @@ namespace MyWebGam.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class deletepassword : IMigrationMetadata
+    public sealed partial class Initialcreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(deletepassword));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialcreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702021159534_delete password"; }
+            get { return "201702131143260_Initial create"; }
         }
         
         string IMigrationMetadata.Source

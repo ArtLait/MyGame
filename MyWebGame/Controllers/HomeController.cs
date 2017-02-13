@@ -7,26 +7,30 @@ using MyWebGam.Models;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Globalization;
+using MyWebGam.Service;
+using MyWebGam.EF;
 
 
 namespace MyWebGam.Controllers
 {
     public class HomeController : UnAuthorizedController
-    {       
+    {
+        public HomeController()
+        {               
+        }
         public ActionResult StartPage()
-        {
-            ViewBag.testVariable = "ok";
+        {           
             return View();
         }
         [HttpPost]
         public ActionResult StartPage(NickNameViewModel nick)
-        {
-            return RedirectToAction("Index", "Home");
+        {        
+            return View(); 
         }
         // GET: Home
         public ActionResult Index()
         {
-            string result = @Resources.Web.NotAuthorized;
+            string result = @Resources.Web.NotAuthorized;            
             if (User.Identity.IsAuthenticated)
             {
                 result = @Resources.Web.UserIn + User.Identity.Name;                
