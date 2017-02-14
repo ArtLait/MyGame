@@ -121,16 +121,43 @@
     <value>Администрация сайта</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
+    <value>сменить пароль</value>
+  </data>
+  <data name="ChangePasswordTheme" xml:space="preserve">
     <value>Сменить пароль</value>
+  </data>
+  <data name="ChangePasswordTitle" xml:space="preserve">
+    <value>cменить пароль</value>
+  </data>
+  <data name="CheckYouEmail" xml:space="preserve">
+    <value>Пожалуйста, проверьте свою почту</value>
   </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Изменить язык</value>
+  </data>
+  <data name="ConfirmEmailTheme" xml:space="preserve">
+    <value>Подтверждение регистрации</value>
+  </data>
+  <data name="ConfirmRegistrationTitle" xml:space="preserve">
+    <value>подтвердить регистрацию</value>
   </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Пароли не совпадают</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Введите емаил</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Емаил не подтвержден!</value>
+  </data>
+  <data name="ForConfirmedEmail" xml:space="preserve">
+    <value>Для завершения регистрации перейдите по ссылке: </value>
+  </data>
+  <data name="ForForgotPassword" xml:space="preserve">
+    <value>Для смены пароля перейдите по ссылке : </value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
   </data>
   <data name="JoinTheGame" xml:space="preserve">
     <value>Вступить в игру</value>
@@ -174,10 +201,16 @@
   <data name="SignInSubmit" xml:space="preserve">
     <value>Войти</value>
   </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>выйти</value>
+  </data>
+  <data name="TryingAgain" xml:space="preserve">
+    <value>Попробовать снова</value>
+  </data>
   <data name="UserIn" xml:space="preserve">
     <value>Спасибо,что зашли к нам </value>
   </data>
   <data name="WaitingForPasswordConfirmation" xml:space="preserve">
-    <value>Пожалуйста, подтвердите регистрацию через емаил</value>
+    <value>Пожалуйста, проверьте почту емаил</value>
   </data>
 </root>

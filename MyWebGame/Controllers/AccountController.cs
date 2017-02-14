@@ -50,8 +50,8 @@ namespace MyWebGam.Controllers
                 };
                 repoReset.Save(newData);
                 EmailService emailService = new EmailService();
-                await emailService.SendEmailAsync(data.Email, "Подтверждение регистрации",
-                    EmailService.Href(Url.Action("ResetPassword", "Account", new { Key = key }, Request.Url.Scheme)));
+                await emailService.SendEmailAsync(data.Email, @Resources.Web.ChangePasswordTheme,
+                    TemplateForEmail.ForgotPassword(Url.Action("ResetPassword", "Account", new { Key = key }, Request.Url.Scheme)));
                 return RedirectToAction("WaitingForConfirm");
             }
             else
@@ -115,8 +115,8 @@ namespace MyWebGam.Controllers
                 };
                 repoForEmail.Save(newUser);
                 EmailService emailService = new EmailService();
-                await emailService.SendEmailAsync(registerData.Email, "Подтверждение регистрации",
-                    EmailService.Href(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
+                await emailService.SendEmailAsync(registerData.Email, @Resources.Web.ConfirmEmailTheme,
+                    TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
 
                 FormsAuthentication.SetAuthCookie(registerData.Email, true);
                 //return RedirectToAction("WaitingForConfirm", "Account", new { Email = registerData.Email });

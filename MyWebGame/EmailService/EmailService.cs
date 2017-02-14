@@ -32,12 +32,6 @@ namespace MyWebGam.Service
 
                 await client.DisconnectAsync(true);
             }            
-        }
-        public static string Href(string url)
-        {
-            return string.Format("Для завершения регистрации перейдите по ссылке:" +
-                            "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
-                url);            
-        }
+        }        
     }
 }

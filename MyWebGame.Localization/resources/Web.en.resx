@@ -123,14 +123,41 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>change password</value>
   </data>
+  <data name="ChangePasswordTheme" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordTitle" xml:space="preserve">
+    <value>change password</value>
+  </data>
+  <data name="CheckYouEmail" xml:space="preserve">
+    <value>PLease, check you email and confirmed registration</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>choose lang</value>
+  </data>
+  <data name="ConfirmEmailTheme" xml:space="preserve">
+    <value>Confirm email theme</value>
+  </data>
+  <data name="ConfirmRegistrationTitle" xml:space="preserve">
+    <value>confirm registration</value>
   </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Password do not match</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Enter you email, please</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Email not confirmed!</value>
+  </data>
+  <data name="ForConfirmedEmail" xml:space="preserve">
+    <value>To complete the registration please go to: </value>
+  </data>
+  <data name="ForForgotPassword" xml:space="preserve">
+    <value>To change you password go to: </value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
   </data>
   <data name="JoinTheGame" xml:space="preserve">
     <value>Join the game</value>
@@ -174,10 +201,13 @@
   <data name="SignInSubmit" xml:space="preserve">
     <value>Sign in</value>
   </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>signout</value>
+  </data>
   <data name="UserIn" xml:space="preserve">
     <value>welcome </value>
   </data>
   <data name="WaitingForPasswordConfirmation" xml:space="preserve">
-    <value>Please, confirm the registration via email</value>
+    <value>Please, check email</value>
   </data>
 </root>

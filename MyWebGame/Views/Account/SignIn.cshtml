@@ -26,7 +26,7 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
-       @Html.ActionLink("Забыли пароль?","OnlyEmail", "Account")
+       @Html.ActionLink(@Resources.Web.ForgotPassword,"OnlyEmail", "Account")
         <input type="submit" value=@Resources.Web.SignInSubmit class="btn btn-default" />
     }
 </div>

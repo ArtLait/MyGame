@@ -12,8 +12,8 @@
 
     <div class="container-fluid color-main-container">
         <div class="reg-auth-block min-padding-block clearfix ">            
-            @Html.ActionLink("Сменить пароль", "ResetPassword", "Account")
-            @Html.ActionLink("SignOut", "SignOut", "Account")
+            @Html.ActionLink(@Resources.Web.ChangePassword, "ResetPassword", "Account")
+            @Html.ActionLink(@Resources.Web.SignOut, "SignOut", "Account")
         </div>
         <div>
             @using (Html.BeginForm("ChangeCulture", "Home"))
