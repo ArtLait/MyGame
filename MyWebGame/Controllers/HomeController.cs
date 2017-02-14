@@ -19,12 +19,12 @@ namespace MyWebGam.Controllers
         {               
         }
         public ActionResult StartPage()
-        {
+        {   
             return View();
         }
         [HttpPost]
         public ActionResult StartPage(NickNameViewModel nick)
-        {        
+        {            
             return View(); 
         }
         // GET: Home

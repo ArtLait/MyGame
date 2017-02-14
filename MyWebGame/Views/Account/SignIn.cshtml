@@ -1,5 +1,6 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
 }
 @model MyWebGam.Models.AuthorizationViewModel
 
@@ -25,7 +26,7 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
-
+       @Html.ActionLink("Забыли пароль?","OnlyEmail", "Account")
         <input type="submit" value=@Resources.Web.SignInSubmit class="btn btn-default" />
     }
 </div>

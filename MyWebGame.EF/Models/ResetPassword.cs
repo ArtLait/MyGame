@@ -9,7 +9,7 @@ namespace MyWebGam.EF
     public class ResetPassword
     {
         public int Id { get; set; }
-        public int Email { get; set; }
-        public int Key { get; set; }
+        public string Email { get; set; }
+        public string Key { get; set; }
     }
 }

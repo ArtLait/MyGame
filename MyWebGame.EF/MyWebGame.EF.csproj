@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201702131317025_add new table ResetPassword.Designer.cs">
       <DependentUpon>201702131317025_add new table ResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702140745298_update userContext.cs" />
+    <Compile Include="Migrations\201702140745298_update userContext.Designer.cs">
+      <DependentUpon>201702140745298_update userContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Initial create.cs" />
     <Compile Include="Migrations\Initial create.Designer.cs">
       <DependentUpon>Initial create.cs</DependentUpon>
@@ -81,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702131317025_add new table ResetPassword.resx">
       <DependentUpon>201702131317025_add new table ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702140745298_update userContext.resx">
+      <DependentUpon>201702140745298_update userContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Initial create.resx">
       <DependentUpon>Initial create.cs</DependentUpon>

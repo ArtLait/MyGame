@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyWebGam.EF
 {
-    class ResetPasswordRepository
-    {
+     public class ResetPasswordRepository
+     {
         UserContext db;
         public ResetPasswordRepository()
         {
@@ -17,5 +17,32 @@ namespace MyWebGam.EF
         {
             return new ResetPassword();
         }
+        public void Save(ResetPassword model)
+        {
+            db.ResetPasswords.Add(model);
+            db.SaveChanges();
+        }
+        public ResetPassword CheckKey(string key)
+        {          
+            return db.ResetPasswords.FirstOrDefault(t => t.Key == key);
+        }
+         public void UpdatePassword(string Email, string newPassword)
+         {
+            User model =  db.Users.FirstOrDefault(t => t.Email == Email);
+            if (model != null)
+            {
+                model.PasswordHash = newPassword;
+                db.SaveChanges();
+            }
+         }
+         public void DeleteResetKey(string email)
+         {
+             ResetPassword user = db.ResetPasswords.FirstOrDefault(u => u.Email == email);
+             if (user != null)
+             {
+                 db.ResetPasswords.Remove(user);
+                 db.SaveChanges();
+             }         
+         }
     }
 }

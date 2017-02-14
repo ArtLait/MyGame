@@ -234,6 +234,9 @@
     <Content Include="Views\Account\WaitingForConfirm.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\OnlyEmail.cshtml" />
+    <Content Include="Views\Account\ResetPasswordError.cshtml" />
+    <Content Include="Views\Shared\_LayoutAuth.cshtml" />
+    <Content Include="Views\Account\PleaseConfirmedEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
