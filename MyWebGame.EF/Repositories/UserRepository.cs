@@ -31,7 +31,13 @@ namespace MyWebGam.EF
         {
             return db.Users.FirstOrDefault(u => u.Name == name && u.PasswordHash == PasswordHash);
         }
-
+        public bool CheckEmailUniqueness(string email)
+        {
+            if (db.Users.FirstOrDefault(u => u.Email == email) != null)
+                return false;
+            else 
+                return true;
+        }
         protected void Dispose(bool disposing)
         {
             if (disposing)

@@ -123,6 +123,9 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>change password</value>
   </data>
+  <data name="ChangePasswordIsSuccesfull" xml:space="preserve">
+    <value>Change password is succesfull</value>
+  </data>
   <data name="ChangePasswordTheme" xml:space="preserve">
     <value>Change password</value>
   </data>
@@ -136,7 +139,7 @@
     <value>choose lang</value>
   </data>
   <data name="ConfirmEmailTheme" xml:space="preserve">
-    <value>Confirm email theme</value>
+    <value>Confirm email </value>
   </data>
   <data name="ConfirmRegistrationTitle" xml:space="preserve">
     <value>confirm registration</value>
@@ -170,6 +173,9 @@
   </data>
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Mail addres is incorrect</value>
+  </data>
+  <data name="MailBusy" xml:space="preserve">
+    <value>This mail is busy</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Enter you name, please</value>

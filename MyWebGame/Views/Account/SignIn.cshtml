@@ -6,6 +6,7 @@
 
 <div class="container-fluid">
     <h1>@ViewBag.userIn</h1>
+    <h2>@ViewBag.ChangePasswordIsSuccesfull</h2>
     @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()

@@ -1,12 +1,4 @@
-﻿@{
-    FormsAuthentication.SignOut();
-    Session.Abandon();
-
-    // clear authentication cookie
-    HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-    cookie1.Expires = DateTime.Now.AddYears(-1);
-    Response.Cookies.Add(cookie1);
-    
+﻿@{    
     if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
     else { Layout = "~/Views/Shared/_Layout.cshtml"; }    
 }

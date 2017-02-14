@@ -85,7 +85,7 @@ namespace MyWebGam.Controllers
             if (ModelState.IsValid)
             {
                 repoReset.UpdatePassword(email, CollectionOfMethods.GetHashString(model.Password));
-                return RedirectToAction("SignIn", "Account");
+                return RedirectToAction("SignIn", "Account", "ChangePasswordIsSuccesfull");
             }
             Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return View(model);
@@ -99,7 +99,12 @@ namespace MyWebGam.Controllers
         public async Task<ActionResult> Registration(RegisteViewModel registerData)
         {
             if (ModelState.IsValid)
-            {               
+            {     
+                if(repo.CheckEmailUniqueness(registerData.Email) == false)
+                {
+                    ModelState.AddModelError("", @Resources.Web.MailBusy);
+                    return View();
+                }
                 string key = CollectionOfMethods.GetHashString(registerData.Email) + CollectionOfMethods.GetHashString(registerData.Name);
                 UserForConfirmedEmail newUser = new UserForConfirmedEmail()
                 {                    
@@ -118,8 +123,7 @@ namespace MyWebGam.Controllers
                 await emailService.SendEmailAsync(registerData.Email, @Resources.Web.ConfirmEmailTheme,
                     TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
 
-                FormsAuthentication.SetAuthCookie(registerData.Email, true);
-                //return RedirectToAction("WaitingForConfirm", "Account", new { Email = registerData.Email });
+                FormsAuthentication.SetAuthCookie(registerData.Email, true);                
                 return View("WaitingForConfirm");
             }
             
@@ -127,9 +131,8 @@ namespace MyWebGam.Controllers
             return View(registerData);
         }
 
-        public ActionResult WaitingForConfirm(string Email)
-        {
-            ViewBag.Email = Email;
+        public ActionResult WaitingForConfirm()
+        {            
             return View();
         }
         public ActionResult ConfirmEmail(string key)
@@ -146,8 +149,10 @@ namespace MyWebGam.Controllers
             return View();
         }
 
-        public ActionResult SignIn()
-        {                        
+        public ActionResult SignIn(string command)
+        {
+            if (command == "ChangePasswordIsSuccesfull")
+                ViewBag.ChangePasswordIsSuccesfull = @Resources.Web.ChangePasswordIsSuccesfull;
             return View();          
         }
         [HttpPost]

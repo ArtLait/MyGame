@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль успешно изменен.
+        /// </summary>
+        public static string ChangePasswordIsSuccesfull {
+            get {
+                return ResourceManager.GetString("ChangePasswordIsSuccesfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сменить пароль.
         /// </summary>
         public static string ChangePasswordTheme {
@@ -219,6 +228,15 @@ namespace Resources {
         public static string MailAddressIsIncorrect {
             get {
                 return ResourceManager.GetString("MailAddressIsIncorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Эта почта занята,попробуйте ввести другую.
+        /// </summary>
+        public static string MailBusy {
+            get {
+                return ResourceManager.GetString("MailBusy", resourceCulture);
             }
         }
         

@@ -9,6 +9,7 @@
 new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
         <div>
             @Html.LabelFor(model => model.Name)
         </div>

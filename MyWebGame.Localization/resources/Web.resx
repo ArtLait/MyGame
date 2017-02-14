@@ -123,6 +123,9 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>сменить пароль</value>
   </data>
+  <data name="ChangePasswordIsSuccesfull" xml:space="preserve">
+    <value>Пароль успешно изменен</value>
+  </data>
   <data name="ChangePasswordTheme" xml:space="preserve">
     <value>Сменить пароль</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Такой почты не сущестует</value>
+  </data>
+  <data name="MailBusy" xml:space="preserve">
+    <value>Эта почта занята,попробуйте ввести другую</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Введите имя</value>
