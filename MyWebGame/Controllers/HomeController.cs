@@ -20,8 +20,6 @@ namespace MyWebGam.Controllers
         }
         public ActionResult StartPage()
         {
-            UserRepository repo = new UserRepository();
-            ViewBag.result = repo.CheckEmailUniqueness("pozdnyakovlait@gmail.com");
             return View();
         }
         [HttpPost]

@@ -8,10 +8,10 @@ namespace MyWebGam.EF
 {
      public class ResetPasswordRepository
      {
-        UserContext db;
+         DatabaseContext db;
         public ResetPasswordRepository()
         {
-            db = new UserContext();
+            db = new DatabaseContext();
         }
         public ResetPassword Get(int id)
         {

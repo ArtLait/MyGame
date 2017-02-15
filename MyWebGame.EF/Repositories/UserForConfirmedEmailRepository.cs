@@ -9,10 +9,10 @@ namespace MyWebGam.EF
 {
     public class UserForConfirmedEmailRepository : IDisposable
     {
-        private UserContext db;
+        private DatabaseContext db;
         public UserForConfirmedEmailRepository(){
 
-            db = new UserContext();
+            db = new DatabaseContext();
         }
         public void Save(UserForConfirmedEmail u)
         {

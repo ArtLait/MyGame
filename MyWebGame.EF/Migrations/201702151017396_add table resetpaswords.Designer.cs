@@ -7,13 +7,13 @@ namespace MyWebGam.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addnewtableResetPassword : IMigrationMetadata
+    public sealed partial class addtableresetpaswords : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addnewtableResetPassword));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addtableresetpaswords));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702131317025_add new table ResetPassword"; }
+            get { return "201702151017396_add table resetpaswords"; }
         }
         
         string IMigrationMetadata.Source

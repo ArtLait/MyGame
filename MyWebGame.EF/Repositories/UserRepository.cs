@@ -9,10 +9,10 @@ namespace MyWebGam.EF
 {
     public class UserRepository : IDisposable
     {
-        private UserContext db;
+        private DatabaseContext db;
         public UserRepository()
         {
-            db = new UserContext();
+            db = new DatabaseContext();
         }
         public void Save(User u)
         {

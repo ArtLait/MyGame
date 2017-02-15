@@ -7,9 +7,9 @@ using System.Data.Entity;
 
 namespace MyWebGam.EF
 {
-    public class UserContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public UserContext()
+        public DatabaseContext()
             : base("DbConnection")
         { }
         public DbSet<User> Users { get; set; }   

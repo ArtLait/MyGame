@@ -3,7 +3,7 @@ namespace MyWebGam.EF.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addnewtableResetPassword : DbMigration
+    public partial class addtableresetpaswords : DbMigration
     {
         public override void Up()
         {
@@ -12,10 +12,11 @@ namespace MyWebGam.EF.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Email = c.Int(nullable: false),
-                        Key = c.Int(nullable: false),
+                        Email = c.String(),
+                        Key = c.String(maxLength:250),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Key);
             
         }
         
