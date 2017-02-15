@@ -85,7 +85,7 @@ namespace MyWebGam.Controllers
             if (ModelState.IsValid)
             {
                 repoReset.UpdatePassword(email, CollectionOfMethods.GetHashString(model.Password));
-                return RedirectToAction("SignIn", "Account", "ChangePasswordIsSuccesfull");
+                return RedirectToAction("SignIn", "Account", new { message = "ChangePasswordIsSuccesfull" });
             }
             Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return View(model);
@@ -149,9 +149,9 @@ namespace MyWebGam.Controllers
             return View();
         }
 
-        public ActionResult SignIn(string command)
+        public ActionResult SignIn(string message)
         {
-            if (command == "ChangePasswordIsSuccesfull")
+            if (message == "ChangePasswordIsSuccesfull")
                 ViewBag.ChangePasswordIsSuccesfull = @Resources.Web.ChangePasswordIsSuccesfull;
             return View();          
         }

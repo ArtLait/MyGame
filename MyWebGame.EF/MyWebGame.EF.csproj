@@ -67,7 +67,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ResetPassword.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserContext.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\UserForConfirmedEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ResetPasswordRepository.cs" />
