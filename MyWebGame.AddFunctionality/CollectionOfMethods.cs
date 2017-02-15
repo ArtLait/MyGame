@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography; 
+using System.Security.Cryptography;
+using System.Text.RegularExpressions; 
 
 namespace MyWebGam.AddFunctionality
 {
     public class CollectionOfMethods
-    { 
-  
+    {              
         public static string GetHashString(string s)  
             {  
               //переводим строку в байт-массим  

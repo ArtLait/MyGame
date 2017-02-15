@@ -1,10 +1,12 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
 }
 @model MyWebGam.Models.AuthorizationViewModel
 
 <div class="container-fluid">
     <h1>@ViewBag.userIn</h1>
+    <h2>@ViewBag.ChangePasswordIsSuccesfull</h2>
     @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
@@ -25,7 +27,7 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
-
+       @Html.ActionLink(@Resources.Web.ForgotPassword,"OnlyEmail", "Account")
         <input type="submit" value=@Resources.Web.SignInSubmit class="btn btn-default" />
     }
 </div>

@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+
+    <div class="container-fluid color-main-container">
+        <div class="reg-auth-block min-padding-block clearfix ">            
+            @Html.ActionLink(@Resources.Web.ChangePassword, "ResetPassword", "Account")
+            @Html.ActionLink(@Resources.Web.SignOut, "SignOut", "Account")
+        </div>
+        <div>
+            @using (Html.BeginForm("ChangeCulture", "Home"))
+            {
+                <select name="lang">
+                    <option disabled selected>@Resources.Web.ChooseLang</option>
+                    <option value="ru">Русский</option>
+                    <option value="en">Английский</option>
+                </select>
+                <input type="submit" value="Choose lang" />
+            }
+        </div>
+
+        @RenderBody()
+
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

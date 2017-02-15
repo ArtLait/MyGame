@@ -117,14 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Site administraion </value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>change password</value>
+  </data>
+  <data name="ChangePasswordIsSuccesfull" xml:space="preserve">
+    <value>Change password is succesfull</value>
+  </data>
+  <data name="ChangePasswordTheme" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordTitle" xml:space="preserve">
+    <value>change password</value>
+  </data>
+  <data name="CheckYouEmail" xml:space="preserve">
+    <value>PLease, check you email and confirmed registration</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>choose lang</value>
+  </data>
+  <data name="ConfirmEmailTheme" xml:space="preserve">
+    <value>Confirm email </value>
+  </data>
+  <data name="ConfirmRegistrationTitle" xml:space="preserve">
+    <value>confirm registration</value>
   </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Password do not match</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Enter you email, please</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Email not confirmed!</value>
+  </data>
+  <data name="ForConfirmedEmail" xml:space="preserve">
+    <value>To complete the registration please go to: </value>
+  </data>
+  <data name="ForForgotPassword" xml:space="preserve">
+    <value>To change you password go to: </value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="JoinTheGame" xml:space="preserve">
+    <value>Join the game</value>
   </data>
   <data name="LengthRequiredMoreThan1" xml:space="preserve">
     <value>Length word must be more than 1</value>
@@ -135,8 +174,14 @@
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Mail addres is incorrect</value>
   </data>
+  <data name="MailBusy" xml:space="preserve">
+    <value>This mail is busy</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Enter you name, please</value>
+  </data>
+  <data name="NoSuchUser" xml:space="preserve">
+    <value>No such user</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Please, authorized now</value>
@@ -150,6 +195,9 @@
   <data name="Registration" xml:space="preserve">
     <value>register</value>
   </data>
+  <data name="RegistrationSuccesfull" xml:space="preserve">
+    <value>Registration Successful</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
   </data>
@@ -159,7 +207,13 @@
   <data name="SignInSubmit" xml:space="preserve">
     <value>Sign in</value>
   </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>signout</value>
+  </data>
   <data name="UserIn" xml:space="preserve">
     <value>welcome </value>
+  </data>
+  <data name="WaitingForPasswordConfirmation" xml:space="preserve">
+    <value>Please, check email</value>
   </data>
 </root>

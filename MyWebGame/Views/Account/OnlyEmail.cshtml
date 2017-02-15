@@ -1,0 +1,22 @@
+﻿@{
+    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+}
+@model MyWebGam.Models.OnlyEmailViewModel
+<div class="container-fluid">
+    @using (Html.BeginForm("OnlyEmail", "Account", FormMethod.Post, 
+        new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Email, new { required = "true" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        
+        <input type="submit" value=@Resources.Web.ChangePassword class="btn btn-default" />
+    }
+</div>
