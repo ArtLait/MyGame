@@ -164,6 +164,7 @@ namespace MyWebGam.Controllers
              if (ModelState.IsValid)
              {                   
                 if (user != null)
+<<<<<<< HEAD
                 {
                     if (user.Confirmed)
                     {
@@ -171,6 +172,11 @@ namespace MyWebGam.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                     return View("~/Views/Account/PleaseConfirmedEmail.cshtml");
+=======
+                {                    
+                    FormsAuthentication.SetAuthCookie((user.Email).ToString(), true);                    
+                    return RedirectToAction("Index", "Home");
+>>>>>>> cec4a7cace8f325716d8eef4deeca2ad18068030
                 }
                 else
                 {

@@ -33,8 +33,13 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\Microsoft.AspNet.Identity.Co
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\EntityFramework.SqlServer.xml
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+<<<<<<< HEAD
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.updateuserContext.resources
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.addtableresetpaswords.resources
+=======
+D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.Initialcreate.resources
+D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csproj.GenerateResource.Cache
+>>>>>>> cec4a7cace8f325716d8eef4deeca2ad18068030
