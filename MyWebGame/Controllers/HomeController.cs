@@ -19,7 +19,7 @@ namespace MyWebGam.Controllers
         {               
         }
         public ActionResult StartPage()
-        {           
+        {
             return View();
         }
         [HttpPost]
