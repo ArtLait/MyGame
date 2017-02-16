@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Все пользователи.
+        /// </summary>
+        public static string AllUsers {
+            get {
+                return ResourceManager.GetString("AllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на сменить пароль.
         /// </summary>
         public static string ChangePassword {
@@ -102,6 +111,15 @@ namespace Resources {
         public static string ChangePasswordTitle {
             get {
                 return ResourceManager.GetString("ChangePasswordTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Чат-комната.
+        /// </summary>
+        public static string ChatRoom {
+            get {
+                return ResourceManager.GetString("ChatRoom", resourceCulture);
             }
         }
         
@@ -165,6 +183,24 @@ namespace Resources {
         public static string EmailNotConfirmed {
             get {
                 return ResourceManager.GetString("EmailNotConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите имя.
+        /// </summary>
+        public static string EntryLogin {
+            get {
+                return ResourceManager.GetString("EntryLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите имя.
+        /// </summary>
+        public static string EntryNameError {
+            get {
+                return ResourceManager.GetString("EntryNameError", resourceCulture);
             }
         }
         
@@ -363,6 +399,15 @@ namespace Resources {
         public static string WaitingForPasswordConfirmation {
             get {
                 return ResourceManager.GetString("WaitingForPasswordConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добро пожаловать.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

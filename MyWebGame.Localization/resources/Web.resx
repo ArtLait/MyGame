@@ -120,6 +120,9 @@
   <data name="Administration" xml:space="preserve">
     <value>Администрация сайта</value>
   </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>Все пользователи</value>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>сменить пароль</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="ChangePasswordTitle" xml:space="preserve">
     <value>cменить пароль</value>
+  </data>
+  <data name="ChatRoom" xml:space="preserve">
+    <value>Чат-комната</value>
   </data>
   <data name="CheckYouEmail" xml:space="preserve">
     <value>Пожалуйста, проверьте свою почту</value>
@@ -152,6 +158,12 @@
   </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Емаил не подтвержден!</value>
+  </data>
+  <data name="EntryLogin" xml:space="preserve">
+    <value>Введите имя</value>
+  </data>
+  <data name="EntryNameError" xml:space="preserve">
+    <value>Введите имя</value>
   </data>
   <data name="ForConfirmedEmail" xml:space="preserve">
     <value>Для завершения регистрации перейдите по ссылке: </value>
@@ -218,5 +230,8 @@
   </data>
   <data name="WaitingForPasswordConfirmation" xml:space="preserve">
     <value>Пожалуйста, проверьте почту емаил</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать</value>
   </data>
 </root>

@@ -6,3 +6,29 @@
 
 <h1>@ViewBag.userLogin</h1>
 
+    <h2>@Resources.Web.ChatRoom</h2>
+
+    <div class="main">
+        <div id="loginBlock">
+           
+            @Resources.Web.EntryLogin:<br />
+            <input id="txtUserName" type="text" />
+            <input id="btnLogin" type="button" value="Войти" />
+        </div>
+        <div id="chatBody">
+            <div id="header"></div>
+            <div id="inputForm">
+                <input type="text" id="message" />
+                <input type="button" id="sendmessage" value="Отправить" />
+            </div>
+            <div id="chatroom"></div>            
+            <div id="chatusers">
+                <p><b>@Resources.Web.AllUsers:</b></p>
+            </div>
+        </div>
+        <input id="hdId" type="hidden" />
+        <input id="username" type="hidden" />
+    </div>
+    <div style="display: none">
+        <div id="resourcesWelcomes" name="@Resources.Web.Welcome"></div>
+    </div>

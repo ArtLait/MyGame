@@ -96,3 +96,14 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\System.Web.Helpers.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\System.Web.Mvc.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Owin.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.xml

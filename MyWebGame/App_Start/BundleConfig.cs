@@ -15,6 +15,10 @@ namespace MyWebGam
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
+                "~/Scripts/jquery.signalR-{version}.js",             
+                "~/Scripts/util.js"
+                ));
 
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
