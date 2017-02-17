@@ -4,31 +4,77 @@
 }
 @model MyWebGam.Models.NickNameViewModel
 
-<h1>@ViewBag.userLogin</h1>
+<h4>@ViewBag.userLogin</h4>
 
-    <h2>@Resources.Web.ChatRoom</h2>
+    <h4>@Resources.Web.ChatRoom</h4>
 
-    <div class="main">
+    <div class="mainChat">
         <div id="loginBlock">
            
             @Resources.Web.EntryLogin:<br />
-            <input id="txtUserName" type="text" />
-            <input id="btnLogin" type="button" value="Войти" />
+            <input id="txtUserName" type="text" autofocus />
+            <input id="btnLogin" type="button" value=@Resources.Web.Entry />
         </div>
         <div id="chatBody">
             <div id="header"></div>
-            <div id="inputForm">
-                <input type="text" id="message" />
-                <input type="button" id="sendmessage" value="Отправить" />
+
+            <div class="containerChat">
+                <div class="row">
+                    <div class="col-sm-5 col-md-3 col-lg-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" id="accordion">
+                                <span class="glyphicon glyphicon-comment"></span> Chat
+                                <div class="btn-group pull-right">
+                                    <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapseOne">
+                                <div class="panel-body">
+                                    <ul class="chat">
+                                        <li class="left clearfix">
+                                            <span class="chat-img pull-left">
+                                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                                            </span>
+                                            <div class="chat    -body clearfix" id="chatroom">
+                                                <div class="header">
+                                                    <strong class="primary-font">Jack Sparrow</strong> <small id ="timeMessage"class="pull-right text-muted">
+                                                        <span class="glyphicon glyphicon-time"></span >12 mins ago
+                                                    </small>
+                                                </div>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                    dolor, quis ullamcorper ligula sodales.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="input-group">
+                                        <input id="message" autofocus type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-warning btn-sm" id="sendmessage">
+                                                Send
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="chatusers">
+                                    <p><b>@Resources.Web.AllUsers:</b></p>
+                                </div>
+                            </div>                          
+                        </div>                       
+                    </div>
+                </div>            
             </div>
-            <div id="chatroom"></div>            
-            <div id="chatusers">
-                <p><b>@Resources.Web.AllUsers:</b></p>
-            </div>
+                                   
+            
         </div>
         <input id="hdId" type="hidden" />
         <input id="username" type="hidden" />
     </div>
-    <div style="display: none">
-        <div id="resourcesWelcomes" name="@Resources.Web.Welcome"></div>
-    </div>
+
+
+

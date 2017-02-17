@@ -70,7 +70,8 @@ namespace MyWebGam.Controllers
             //Forgot password
             ResetPassword user = repoReset.CheckKey(key);
             if (user != null)
-            {                
+            {
+                repoReset.DeleteResetKey(user.Email);
                 return View(new ResetPasswordViewModel() { Email = user.Email});
             }
             
@@ -78,13 +79,13 @@ namespace MyWebGam.Controllers
         }
         [HttpPost]
         public ActionResult ResetPassword(ResetPasswordViewModel model)
-        {
-            string email;
-            if (User.Identity.IsAuthenticated) email = User.Identity.Name;
-            else email = model.Email;   
+        {            
             if (ModelState.IsValid)
             {
-                repoReset.UpdatePassword(email, CollectionOfMethods.GetHashString(model.Password));
+                repoReset.UpdatePassword(model.Email, CollectionOfMethods.GetHashString(model.Password));
+                if(User.Identity.IsAuthenticated){
+                    DeleteCookie();
+                }
                 return RedirectToAction("SignIn", "Account", new { message = "ChangePasswordIsSuccesfull" });
             }
             Response.StatusCode = (int) HttpStatusCode.BadRequest;
@@ -164,7 +165,7 @@ namespace MyWebGam.Controllers
              if (ModelState.IsValid)
              {                   
                 if (user != null)
-                {
+                {                    
                     if (user.Confirmed)
                     {
                         FormsAuthentication.SetAuthCookie(user.Email, true);                    
@@ -184,14 +185,17 @@ namespace MyWebGam.Controllers
         public ActionResult SignOut()
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
+            DeleteCookie();
+            return Redirect(returnUrl);
+        }
+        public void DeleteCookie()
+        {
             FormsAuthentication.SignOut();
             Session.Abandon();
-
             // clear authentication cookie
             HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
             cookie1.Expires = DateTime.Now.AddYears(-1);
             Response.Cookies.Add(cookie1);
-            return Redirect(returnUrl);
         }
         
     }

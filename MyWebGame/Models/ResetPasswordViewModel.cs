@@ -1,5 +1,5 @@
-﻿using System.Web;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace MyWebGam.Models
 {
@@ -9,10 +9,10 @@ namespace MyWebGam.Models
         [Display(Name = "Password", ResourceType = typeof(Resources.Web))]
         public string Password { get; set; }
         [StringLength(50, MinimumLength = 6, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan5")]
-        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "DifferentPasswords")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "DifferentPasswords")]
         [Display(Name = "RepeatPassword", ResourceType = typeof(Resources.Web))]
         public string RepeatPassword { get; set; }
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public string Email { get; set; }
     }
 }

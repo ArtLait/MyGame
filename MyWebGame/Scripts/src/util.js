@@ -1,6 +1,7 @@
 ﻿
 $(function () {
-    
+    var day = new Date();    
+    $("#timeMessage").html(day.getDate());
     $('#chatBody').hide();
     $('#loginBlock').show();
     // Ссылка на автоматиsчески-сгенерированный прокси хаба
@@ -41,13 +42,20 @@ $(function () {
     }
     
     // Открываем соединение
-    $.connection.hub.start().done(function () {        
+    $.connection.hub.start().done(function () {
+
+       
         $('#sendmessage').click(function () {
             // Вызываем у хаба метод Send
             chat.server.send($('#username').val(), $('#message').val());
             $('#message').val('');
         });
-
+        $('#message').keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#sendmessage").trigger("click");
+            }
+        });
+                
         // обработка логина
         $("#btnLogin").click(function () {
 
@@ -59,6 +67,11 @@ $(function () {
                 alert(resources.entryName);
             }
         });
+        $("#txtUserName").keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#btnLogin").trigger("click");
+            }
+        })
     });
 });
 // Кодирование тегов

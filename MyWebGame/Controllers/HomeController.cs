@@ -18,15 +18,6 @@ namespace MyWebGam.Controllers
         public HomeController()
         {               
         }
-        public ActionResult StartPage()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult StartPage(NickNameViewModel nick)
-        {            
-            return View(); 
-        }
         // GET: Home
         public ActionResult Index()
         {

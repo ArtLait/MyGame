@@ -154,10 +154,16 @@
     <value>Password do not match</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Enter you email, please</value>
+    <value>Enter you email</value>
   </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Email not confirmed!</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>entry</value>
+  </data>
+  <data name="EntryLogin" xml:space="preserve">
+    <value>Entry login</value>
   </data>
   <data name="EntryNameError" xml:space="preserve">
     <value>Entry name</value>
@@ -187,7 +193,7 @@
     <value>This mail is busy</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Enter you name, please</value>
+    <value>Enter you name</value>
   </data>
   <data name="NoSuchUser" xml:space="preserve">
     <value>No such user</value>
@@ -196,7 +202,7 @@
     <value>Please, authorized now</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Enter you password, please</value>
+    <value>Enter you password</value>
   </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Register</value>
@@ -209,6 +215,9 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>send</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>sign in</value>
