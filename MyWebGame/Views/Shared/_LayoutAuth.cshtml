@@ -33,16 +33,20 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryTemplate")
     @Scripts.Render("~/bundles/jquerySignalR")
-    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
+    
+     <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
     <script src="~/signalr/hubs"></script>
 
     @RenderSection("scripts", required: false)
     <script>
-        var resources = {
-            welcome: "@Resources.Web.Welcome",
-            entryName: "@Resources.Web.EntryNameError"
-        };
+    var resources = {
+        welcome: "@Resources.Web.Welcome",
+        entryName: "@Resources.Web.EntryNameError",
+            hours: "@Resources.Web.Hours",
+            minutes: "@Resources.Web.Minutes"
+    };
     </script>  
 </body>
 </html>

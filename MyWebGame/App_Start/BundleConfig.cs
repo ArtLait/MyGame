@@ -10,6 +10,7 @@ namespace MyWebGam
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //Js
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -20,8 +21,12 @@ namespace MyWebGam
                 "~/Scripts/src/util.js",
                 "~/Scripts/src/templatesForUtil.js"
                 ));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryTemplate").Include(
+                "~/Scripts/src/lib/jquery-1.5rc1.js",
+                "~/Scripts/src/lib/jquery.tmpl.min.js"
+                ));
 
-
+            //Css
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));

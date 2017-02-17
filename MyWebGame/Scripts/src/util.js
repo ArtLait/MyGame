@@ -1,16 +1,15 @@
 ﻿
 $(function () {
-    var day = new Date();    
-    $("#timeMessage").html(day.getDate());
-    $('#chatBody').hide();
-    $('#loginBlock').show();
+       
+    $('#loginBlock').show();           
     // Ссылка на автоматиsчески-сгенерированный прокси хаба
     var chat = $.connection.chatHub;
+
     // Объявление функции, которая хаб вызывает при получении сообщений
     chat.client.addMessage = function (name, message) {
-        // Добавление сообщений на веб-страницу 
-        $('#chatroom').append('<p><b>' + htmlEncode(name)
-            + '</b>: ' + htmlEncode(message) + '</p>');
+        // Добавление сообщений на веб-страницу
+            createTemplate(name, message);
+            scrollDown();       
     };
 
     // Функция, вызываемая при подключении нового пользователя
@@ -20,13 +19,14 @@ $(function () {
         // установка в скрытых полях имени и id текущего пользователя
         $('#hdId').val(id);
         $('#username').val(userName);
-        $('#header').html('<h3>' + resources.welcome + ", " + userName + '</h3>');
+        $('#header').html('<h3>' + resources.welcome + ", " + userName + '</h3>');                
+        scrollDown();
 
         // Добавление всех пользователей
         for (i = 0; i < allUsers.length; i++) {
 
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
-        }
+        }       
     }
 
     // Добавляем нового пользователя
@@ -46,6 +46,7 @@ $(function () {
 
        
         $('#sendmessage').click(function () {
+           
             // Вызываем у хаба метод Send
             chat.server.send($('#username').val(), $('#message').val());
             $('#message').val('');
@@ -61,7 +62,7 @@ $(function () {
 
             var name = $("#txtUserName").val();
             if (name.length > 0) {
-                chat.server.connect(name);
+                chat.server.connect(name);                
             }
             else {
                 alert(resources.entryName);

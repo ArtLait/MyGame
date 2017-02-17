@@ -177,6 +177,9 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>Forgot password?</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
   <data name="JoinTheGame" xml:space="preserve">
     <value>Join the game</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="MailBusy" xml:space="preserve">
     <value>This mail is busy</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Enter you name</value>

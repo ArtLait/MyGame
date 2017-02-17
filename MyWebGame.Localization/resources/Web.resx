@@ -177,6 +177,9 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>Забыли пароль?</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>часов</value>
+  </data>
   <data name="JoinTheGame" xml:space="preserve">
     <value>Вступить в игру</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="MailBusy" xml:space="preserve">
     <value>Эта почта занята,попробуйте ввести другую</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>минут</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Введите имя</value>

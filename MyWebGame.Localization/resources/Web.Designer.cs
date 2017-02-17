@@ -241,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на часов.
+        /// </summary>
+        public static string Hours {
+            get {
+                return ResourceManager.GetString("Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Вступить в игру.
         /// </summary>
         public static string JoinTheGame {
@@ -282,6 +291,15 @@ namespace Resources {
         public static string MailBusy {
             get {
                 return ResourceManager.GetString("MailBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на минут.
+        /// </summary>
+        public static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
             }
         }
         
