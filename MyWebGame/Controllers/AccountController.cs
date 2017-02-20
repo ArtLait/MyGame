@@ -65,14 +65,14 @@ namespace MyWebGam.Controllers
             // For Authorized users
             if (User.Identity.IsAuthenticated)
             {
-                return View(new ResetPasswordViewModel { Email = User.Identity.Name});
+                return View(new ResetPasswordViewModel { Token = User.Identity.Name});
             }
             //Forgot password
             ResetPassword user = repoReset.CheckKey(key);
             if (user != null)
             {
                 repoReset.DeleteResetKey(user.Email);
-                return View(new ResetPasswordViewModel() { Email = user.Email});
+                return View(new ResetPasswordViewModel() { Token = user.Email});
             }
             
             return View("~/Views/Account/ResetPasswordError.cshtml");
@@ -82,9 +82,9 @@ namespace MyWebGam.Controllers
         {            
             if (ModelState.IsValid)
             {
-                repoReset.UpdatePassword(model.Email, CollectionOfMethods.GetHashString(model.Password));
+                repoReset.UpdatePassword(model.Token, CollectionOfMethods.GetHashString(model.Password));
                 if(User.Identity.IsAuthenticated){
-                    DeleteCookie();
+                    DeleteCookieAuth();
                 }
                 return RedirectToAction("SignIn", "Account", new { message = "ChangePasswordIsSuccesfull" });
             }
@@ -185,10 +185,10 @@ namespace MyWebGam.Controllers
         public ActionResult SignOut()
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
-            DeleteCookie();
+            DeleteCookieAuth();
             return Redirect(returnUrl);
         }
-        public void DeleteCookie()
+        private void DeleteCookieAuth()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
