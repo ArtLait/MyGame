@@ -9,8 +9,8 @@
       
 </head>
 <body>
-    
-    <div class="container-fluid color-main-container">
+    <div id="myGame" ></div>
+    <div class="container-fluid color-main-container" style="position:relative; z-index:2">
         <div class="reg-auth-block min-padding-block clearfix ">
             <a href="@Url.Action("SignIn", "Account")">@Resources.Web.SignIn</a>
             @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
@@ -33,6 +33,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryTemplate")
     @Scripts.Render("~/bundles/jquerySignalR")
+    @Scripts.Render("~/bundles/threeJs")
     <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
     <script src="~/signalr/hubs"></script>  
 

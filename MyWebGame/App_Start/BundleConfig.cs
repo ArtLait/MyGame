@@ -25,6 +25,11 @@ namespace MyWebGam
                 "~/Scripts/src/lib/jquery-1.5rc1.js",
                 "~/Scripts/src/lib/jquery.tmpl.min.js"
                 ));
+            bundles.Add(new ScriptBundle("~/bundles/threeJs").Include(
+            "~/Scripts/threeJs/lib/three.js",
+            "~/Scripts/threeJs/lib/OrbitControls.js",
+            "~/Scripts/threeJs/main.js"
+                ));
 
             //Css
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(

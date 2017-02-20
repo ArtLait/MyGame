@@ -1,9 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -38,11 +33,10 @@ body {
     padding: 40px;
 }
 .color-main-container{
-    background:white;
 }
 .field-validation-error {
     color: #f00;
-}
+}   
  
 .field-validation-valid {
     display: none;
@@ -126,4 +120,6 @@ body {
 #chatBody{
     display: none;
 }
-
+.absolute{
+    position:absolute;
+}
