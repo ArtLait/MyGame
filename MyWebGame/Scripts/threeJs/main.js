@@ -47,7 +47,7 @@ function animate() {
       renderer.render(scene, camera);
     controls.update();
 };
-animate();
+//animate();
 function onWindowResize() {
 
     camera.aspect = window.innerWidth / window.innerHeight;
