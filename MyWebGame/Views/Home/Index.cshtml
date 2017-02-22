@@ -5,61 +5,61 @@
 @model MyWebGam.Models.NickNameViewModel
 
 <h4>@ViewBag.userLogin</h4>
+<h4>@ViewBag.message</h4>
 
-    <h4>@Resources.Web.ChatRoom</h4>
+<h4>@Resources.Web.ChatRoom</h4>
 
-    <div class="mainChat">
-        <div id="loginBlock">
-           
-            @Resources.Web.EntryLogin:<br />
-            <input id="txtUserName" type="text" autofocus/>
-            <input id="btnLogin" type="button" value=@Resources.Web.Entry />
-        </div>
-        <div id="chatBody">
-            
+<div class="mainChat">
+    <div id="loginBlock">
 
-            <div class="containerChat">
-                <div class="row">
-                    <div class="col-sm-5 col-md-3 col-lg-3">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" id="accordion">
-                                <span class="glyphicon glyphicon-comment"></span> Chat
-                                <div  class="btn-group pull-right">
-                                    <a type="button" id="tooglesChat" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
-                                    </a>
+        @Resources.Web.EntryLogin:<br />
+        <input id="txtUserName" type="text" autofocus />
+        <input id="btnLogin" type="button" value=@Resources.Web.Entry />
+    </div>
+    <div id="chatBody">
+
+        <div class="containerChat">
+            <div class="row">
+                <div class="col-sm-5 col-md-3 col-lg-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="accordion">
+                            <span class="glyphicon glyphicon-comment"></span> Chat
+                            <div class="btn-group pull-right">
+                                <a type="button" id="tooglesChat" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-collapse collapse in" id="collapseOne">
+                            <div id="panelBodyChat" class="panel-body">
+                                <ul class="chat" id="chat">
+                                    <div id="header"></div>
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="input-group">
+                                    <input id="message" autofocus type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-warning btn-sm" id="sendmessage">
+                                            Send
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="panel-collapse collapse in" id="collapseOne">
-                                <div id="panelBodyChat" class="panel-body">
-                                    <ul class="chat" id="chat">
-                                        <div id="header"></div>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <div class="input-group">
-                                        <input id="message" autofocus type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-sm" id="sendmessage">
-                                                Send
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div id="chatusers">
-                                    <p><b>@Resources.Web.AllUsers:</b></p>
-                                </div>
-                            </div>                          
-                        </div>                       
+                            <div id="chatusers">
+                                <p><b>@Resources.Web.AllUsers:</b></p>
+                            </div>
+                        </div>
                     </div>
-                </div>            
+                </div>
             </div>
-                                   
-            
         </div>
-        <input id="hdId" type="hidden" />
-        <input id="username" type="hidden" />
+
+
     </div>
+    <input id="hdId" type="hidden" />
+    <input id="username" type="hidden" />
+</div>
 
 <script id="messageTmpl" type="text/x-jquery-tmpl">
 
@@ -74,7 +74,7 @@
                 </small>
             </div>
             <p>
-               ${message}
+                ${message}
             </p>
         </div>
     </li>

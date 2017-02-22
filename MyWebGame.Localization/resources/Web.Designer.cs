@@ -446,5 +446,14 @@ namespace Resources {
                 return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы уже зашли.
+        /// </summary>
+        public static string YouHaveCome {
+            get {
+                return ResourceManager.GetString("YouHaveCome", resourceCulture);
+            }
+        }
     }
 }

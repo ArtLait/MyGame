@@ -11,7 +11,7 @@
 <body>
 
     <div class="container-fluid color-main-container">
-        <div class="reg-auth-block min-padding-block clearfix ">            
+        <div class="reg-auth-block min-padding-block clearfix ">
             @Html.ActionLink(@Resources.Web.ChangePassword, "ResetPassword", "Account")
             @Html.ActionLink(@Resources.Web.SignOut, "SignOut", "Account")
         </div>
@@ -35,9 +35,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryTemplate")
     @Scripts.Render("~/bundles/jquerySignalR")
-    @Scripts.Render("~/bundles/threeJs")
-    
-     <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
+
+
+    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
     <script src="~/signalr/hubs"></script>
 
     @RenderSection("scripts", required: false)
@@ -48,6 +48,6 @@
             hours: "@Resources.Web.Hours",
             minutes: "@Resources.Web.Minutes"
     };
-    </script>  
+    </script>
 </body>
 </html>

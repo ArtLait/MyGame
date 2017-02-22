@@ -1589,7 +1589,13 @@ pre code {
 }
 @media (min-width: 200px) {
   .container {
-    width: 750px;
+    width: 150px;
+  }
+}
+
+@media (min-width: 400px) {
+  .container {
+    width: 350px;
   }
 }
 @media (min-width: 992px) {

@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using MyWebGam.Models;
 
+
 namespace MyWebGam.Hubs
 {
     public class ChatHub : Hub

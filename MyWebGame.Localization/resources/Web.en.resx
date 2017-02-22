@@ -243,4 +243,7 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
+  <data name="YouHaveCome" xml:space="preserve">
+    <value>You have come</value>
+  </data>
 </root>

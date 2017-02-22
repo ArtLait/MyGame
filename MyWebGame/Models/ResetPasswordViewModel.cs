@@ -13,6 +13,6 @@ namespace MyWebGam.Models
         [Display(Name = "RepeatPassword", ResourceType = typeof(Resources.Web))]
         public string RepeatPassword { get; set; }
         [HiddenInput(DisplayValue = false)]
-        public string Email { get; set; }
+        public string Key{ get; set; }
     }
 }

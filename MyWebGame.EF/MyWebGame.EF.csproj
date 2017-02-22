@@ -52,17 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201702140745298_update userContext.cs" />
-    <Compile Include="Migrations\201702140745298_update userContext.Designer.cs">
-      <DependentUpon>201702140745298_update userContext.cs</DependentUpon>
+    <Compile Include="Migrations\201702211921088_Initial create.cs" />
+    <Compile Include="Migrations\201702211921088_Initial create.Designer.cs">
+      <DependentUpon>201702211921088_Initial create.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702151017396_add table resetpaswords.cs" />
-    <Compile Include="Migrations\201702151017396_add table resetpaswords.Designer.cs">
-      <DependentUpon>201702151017396_add table resetpaswords.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Initial create.cs" />
-    <Compile Include="Migrations\Initial create.Designer.cs">
-      <DependentUpon>Initial create.cs</DependentUpon>
+    <Compile Include="Migrations\201702212036575_Change UserForConfirmedEmail%28add column Email%29.cs" />
+    <Compile Include="Migrations\201702212036575_Change UserForConfirmedEmail%28add column Email%29.Designer.cs">
+      <DependentUpon>201702212036575_Change UserForConfirmedEmail%28add column Email%29.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ResetPassword.cs" />
@@ -83,14 +79,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702140745298_update userContext.resx">
-      <DependentUpon>201702140745298_update userContext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702211921088_Initial create.resx">
+      <DependentUpon>201702211921088_Initial create.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702151017396_add table resetpaswords.resx">
-      <DependentUpon>201702151017396_add table resetpaswords.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Initial create.resx">
-      <DependentUpon>Initial create.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702212036575_Change UserForConfirmedEmail%28add column Email%29.resx">
+      <DependentUpon>201702212036575_Change UserForConfirmedEmail%28add column Email%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
