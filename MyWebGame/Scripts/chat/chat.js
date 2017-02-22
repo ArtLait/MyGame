@@ -14,9 +14,8 @@ $(function () {
 
     // Функция, вызываемая при подключении нового пользователя
     chat.client.onConnected = function (id, userName, allUsers) {
-        userName = userName.replace(/<\/?[^>]+>/g, '');
-        alert(userName);
-       // $('#loginBlock').hide();
+        userName = userName.replace(/<\/?[^>]+>/g, '');       
+        $('#loginBlock').hide();
         $('#chatBody').show();
         // установка в скрытых полях имени и id текущего пользователя
         $('#hdId').val(id);
