@@ -26,18 +26,35 @@ namespace MyWebGam.EF
         {          
             return db.ResetPasswords.FirstOrDefault(t => t.Key == key);
         }
-         public void UpdatePassword(string Email, string newPassword)
-         {
-            User model =  db.Users.FirstOrDefault(t => t.Email == Email);
-            if (model != null)
+        public ResetPassword getUserOnKey(string key)
+        {
+           return db.ResetPasswords.FirstOrDefault(t => t.Key == key);
+        }
+        public void UpdateWithEmail(string  email, string newEmail)
+        {
+            User user = db.Users.FirstOrDefault(t => t.Email == email);
+            if (user != null)
             {
-                model.PasswordHash = newPassword;
+                user.PasswordHash = newEmail;
                 db.SaveChanges();
             }
-         }
-         public void DeleteResetKey(string email)
+        }
+         public void UpdatePasswordWithKey(string key, string newPassword)
          {
-             ResetPassword user = db.ResetPasswords.FirstOrDefault(u => u.Email == email);
+            ResetPassword user = db.ResetPasswords.FirstOrDefault(t => t.Key == key);
+            if (user != null)
+            {
+                User model = db.Users.FirstOrDefault(t => t.Id == user.UserId);
+                if (model != null)
+                {
+                    model.PasswordHash = newPassword;
+                    db.SaveChanges();
+                }
+            }
+         }
+         public void DeleteResetKey(string key)
+         {
+             ResetPassword user = db.ResetPasswords.FirstOrDefault(u => u.Key == key);
              if (user != null)
              {
                  db.ResetPasswords.Remove(user);

@@ -120,6 +120,9 @@
   <data name="Administration" xml:space="preserve">
     <value>Site administraion </value>
   </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>All users</value>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>change password</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="ChangePasswordTitle" xml:space="preserve">
     <value>change password</value>
+  </data>
+  <data name="ChatRoom" xml:space="preserve">
+    <value>Chat room</value>
   </data>
   <data name="CheckYouEmail" xml:space="preserve">
     <value>PLease, check you email and confirmed registration</value>
@@ -148,10 +154,19 @@
     <value>Password do not match</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Enter you email, please</value>
+    <value>Enter you email</value>
   </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Email not confirmed!</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>entry</value>
+  </data>
+  <data name="EntryLogin" xml:space="preserve">
+    <value>Entry login</value>
+  </data>
+  <data name="EntryNameError" xml:space="preserve">
+    <value>Entry name</value>
   </data>
   <data name="ForConfirmedEmail" xml:space="preserve">
     <value>To complete the registration please go to: </value>
@@ -161,6 +176,9 @@
   </data>
   <data name="ForgotPassword" xml:space="preserve">
     <value>Forgot password?</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hours</value>
   </data>
   <data name="JoinTheGame" xml:space="preserve">
     <value>Join the game</value>
@@ -177,8 +195,11 @@
   <data name="MailBusy" xml:space="preserve">
     <value>This mail is busy</value>
   </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
   <data name="Name" xml:space="preserve">
-    <value>Enter you name, please</value>
+    <value>Enter you name</value>
   </data>
   <data name="NoSuchUser" xml:space="preserve">
     <value>No such user</value>
@@ -187,7 +208,7 @@
     <value>Please, authorized now</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Enter you password, please</value>
+    <value>Enter you password</value>
   </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Register</value>
@@ -200,6 +221,9 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>send</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>sign in</value>
@@ -215,5 +239,11 @@
   </data>
   <data name="WaitingForPasswordConfirmation" xml:space="preserve">
     <value>Please, check email</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="YouHaveCome" xml:space="preserve">
+    <value>You have come</value>
   </data>
 </root>

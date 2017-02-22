@@ -45,8 +45,7 @@ namespace MyWebGam.Controllers
                 ResetPassword newData = new ResetPassword()
                 {
                     Id = 4,
-                    Email = data.Email,
-                    Key = key,
+                    Key = data.Email,                    
                 };
                 repoReset.Save(newData);
                 EmailService emailService = new EmailService();
@@ -65,27 +64,35 @@ namespace MyWebGam.Controllers
             // For Authorized users
             if (User.Identity.IsAuthenticated)
             {
-                return View(new ResetPasswordViewModel { Email = User.Identity.Name});
+                return View();
             }
             //Forgot password
             ResetPassword user = repoReset.CheckKey(key);
             if (user != null)
             {                
-                return View(new ResetPasswordViewModel() { Email = user.Email});
+                return View(new ResetPasswordViewModel() { Key = user.Key});
             }
             
             return View("~/Views/Account/ResetPasswordError.cshtml");
         }
         [HttpPost]
         public ActionResult ResetPassword(ResetPasswordViewModel model)
-        {
-            string email;
-            if (User.Identity.IsAuthenticated) email = User.Identity.Name;
-            else email = model.Email;   
+        {              
             if (ModelState.IsValid)
             {
-                repoReset.UpdatePassword(email, CollectionOfMethods.GetHashString(model.Password));
-                return RedirectToAction("SignIn", "Account", new { message = "ChangePasswordIsSuccesfull" });
+                if (User.Identity.IsAuthenticated)
+                {
+                    repoReset.UpdateWithEmail(User.Identity.Name, CollectionOfMethods.GetHashString(model.Password));
+                    repoReset.DeleteResetKey(model.Key);
+                    deleteCookieAuth();
+                    return RedirectToAction("SignIn", "Account", new { message = Resources.Web.ChangePasswordIsSuccesfull });
+                }
+                else
+                {
+                    repoReset.UpdatePasswordWithKey(model.Key, CollectionOfMethods.GetHashString(model.Password));
+                    repoReset.DeleteResetKey(model.Key);
+                    return RedirectToAction("SignIn", "Account", new { message = Resources.Web.ChangePasswordIsSuccesfull });
+                }                
             }
             Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return View(model);
@@ -109,6 +116,7 @@ namespace MyWebGam.Controllers
                 UserForConfirmedEmail newUser = new UserForConfirmedEmail()
                 {                    
                     Key = key,
+                    Email = registerData.Email,
                     User = new User()
                     {
                         Name = registerData.Name,
@@ -122,8 +130,7 @@ namespace MyWebGam.Controllers
                 EmailService emailService = new EmailService();
                 await emailService.SendEmailAsync(registerData.Email, @Resources.Web.ConfirmEmailTheme,
                     TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
-
-                FormsAuthentication.SetAuthCookie(registerData.Email, true);                
+                              
                 return View("WaitingForConfirm");
             }
             
@@ -144,15 +151,19 @@ namespace MyWebGam.Controllers
                 repoForEmail.SetUserConfirmed(user.UserId);
                 message = @Resources.Web.RegistrationSuccesfull;
                 repoForEmail.DeleteKey(user.Id);
+                FormsAuthentication.SetAuthCookie(user.Email, true);
             }
             ViewBag.message = message;            
             return View();
         }
 
         public ActionResult SignIn(string message)
-        {
-            if (message == "ChangePasswordIsSuccesfull")
-                ViewBag.ChangePasswordIsSuccesfull = @Resources.Web.ChangePasswordIsSuccesfull;
+        {            
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home", new { message = Resources.Web.YouHaveCome});
+            }            
+            ViewBag.ChangePasswordIsSuccesfull = message;
             return View();          
         }
         [HttpPost]
@@ -181,16 +192,19 @@ namespace MyWebGam.Controllers
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
             return View(); 
            }
+        private void deleteCookieAuth()
+        {
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie1.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie1);
+        }
         public ActionResult SignOut()
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
             FormsAuthentication.SignOut();
             Session.Abandon();
-
-            // clear authentication cookie
-            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-            cookie1.Expires = DateTime.Now.AddYears(-1);
-            Response.Cookies.Add(cookie1);
+            deleteCookieAuth();
+            // clear authentication cookie           
             return Redirect(returnUrl);
         }
         

@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Все пользователи.
+        /// </summary>
+        public static string AllUsers {
+            get {
+                return ResourceManager.GetString("AllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на сменить пароль.
         /// </summary>
         public static string ChangePassword {
@@ -102,6 +111,15 @@ namespace Resources {
         public static string ChangePasswordTitle {
             get {
                 return ResourceManager.GetString("ChangePasswordTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Чат-комната.
+        /// </summary>
+        public static string ChatRoom {
+            get {
+                return ResourceManager.GetString("ChatRoom", resourceCulture);
             }
         }
         
@@ -169,6 +187,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на войти.
+        /// </summary>
+        public static string Entry {
+            get {
+                return ResourceManager.GetString("Entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите имя.
+        /// </summary>
+        public static string EntryLogin {
+            get {
+                return ResourceManager.GetString("EntryLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите имя.
+        /// </summary>
+        public static string EntryNameError {
+            get {
+                return ResourceManager.GetString("EntryNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Для завершения регистрации перейдите по ссылке: .
         /// </summary>
         public static string ForConfirmedEmail {
@@ -192,6 +237,15 @@ namespace Resources {
         public static string ForgotPassword {
             get {
                 return ResourceManager.GetString("ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на часов.
+        /// </summary>
+        public static string Hours {
+            get {
+                return ResourceManager.GetString("Hours", resourceCulture);
             }
         }
         
@@ -237,6 +291,15 @@ namespace Resources {
         public static string MailBusy {
             get {
                 return ResourceManager.GetString("MailBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на минут.
+        /// </summary>
+        public static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
             }
         }
         
@@ -313,6 +376,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на отправить.
+        /// </summary>
+        public static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на войти.
         /// </summary>
         public static string SignIn {
@@ -363,6 +435,24 @@ namespace Resources {
         public static string WaitingForPasswordConfirmation {
             get {
                 return ResourceManager.GetString("WaitingForPasswordConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добро пожаловать.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы уже зашли.
+        /// </summary>
+        public static string YouHaveCome {
+            get {
+                return ResourceManager.GetString("YouHaveCome", resourceCulture);
             }
         }
     }
