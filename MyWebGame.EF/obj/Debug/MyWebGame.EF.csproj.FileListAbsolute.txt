@@ -51,3 +51,4 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyW
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.Initialcreate.resources
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csproj.GenerateResource.Cache
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.ChangeUserForConfirmedEmailaddcolumnEmail.resources
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache
