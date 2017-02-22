@@ -246,4 +246,7 @@
   <data name="Welcome" xml:space="preserve">
     <value>Добро пожаловать</value>
   </data>
+  <data name="YouHaveCome" xml:space="preserve">
+    <value>Вы уже зашли</value>
+  </data>
 </root>

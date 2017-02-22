@@ -7,13 +7,13 @@ namespace MyWebGam.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initialcreate : IMigrationMetadata
+    public sealed partial class ChangeUserForConfirmedEmailaddcolumnEmail : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialcreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeUserForConfirmedEmailaddcolumnEmail));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702131216049_Initial create"; }
+            get { return "201702212036575_Change UserForConfirmedEmail(add column Email)"; }
         }
         
         string IMigrationMetadata.Source

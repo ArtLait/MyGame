@@ -19,14 +19,15 @@ namespace MyWebGam.Controllers
         {               
         }
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string message)
         {
             string result = @Resources.Web.NotAuthorized;            
             if (User.Identity.IsAuthenticated)
             {
                 result = @Resources.Web.UserIn + User.Identity.Name;                
             }
-            ViewBag.userLogin = result;          
+            ViewBag.userLogin = result;
+            ViewBag.message = message;
             return View();
         }
         public ActionResult ChangeCulture(string lang)

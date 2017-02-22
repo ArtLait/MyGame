@@ -699,7 +699,7 @@ th {
 .glyphicon-filter:before {
   content: "\e138";
 }
-.glyphicon-briefcase:before {m
+.glyphicon-briefcase:before {
   content: "\e139";
 }
 .glyphicon-fullscreen:before {
@@ -1589,7 +1589,13 @@ pre code {
 }
 @media (min-width: 200px) {
   .container {
-    width: 750px;
+    width: 150px;
+  }
+}
+
+@media (min-width: 400px) {
+  .container {
+    width: 350px;
   }
 }
 @media (min-width: 992px) {

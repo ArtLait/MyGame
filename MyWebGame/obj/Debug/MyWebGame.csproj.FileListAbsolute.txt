@@ -96,14 +96,65 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\System.Web.Helpers.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\ru\System.Web.Mvc.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\obj\Debug\MyWebGam.pdb
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Owin.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.xml
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.xml
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGam.dll.config
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGam.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGam.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Antlr3.Runtime.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\BouncyCastle.Crypto.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\EntityFramework.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\EntityFramework.SqlServer.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MailKit.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MimeKit.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.EF.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.Localization.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Newtonsoft.Json.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Helpers.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Mvc.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Optimization.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Razor.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.Deployment.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.Razor.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\WebGrease.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.EF.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.Localization.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Antlr3.Runtime.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\EntityFramework.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\EntityFramework.SqlServer.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MailKit.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MimeKit.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Newtonsoft.Json.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Optimization.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Razor.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.Deployment.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.Razor.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Helpers.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Mvc.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\en\MyWebGame.Localization.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Razor.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Webpages.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Helpers.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\ru\System.Web.Mvc.resources.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\obj\Debug\MyWebGame.csprojResolveAssemblyReference.cache
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\obj\Debug\MyWebGam.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\obj\Debug\MyWebGam.pdb
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.Security.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Owin.dll
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.Owin.Security.xml

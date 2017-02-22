@@ -15,6 +15,7 @@ namespace MyWebGam.EF
         public string Key { get; set; }
         [Key, ForeignKey("User")]
         public int UserId { get; set; }
+        public string Email { get; set; }
         public virtual User User { get; set; }
     }
 }

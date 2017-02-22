@@ -1,4 +1,8 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿body {
+
+}
+
+/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -33,10 +37,11 @@ body {
     padding: 40px;
 }
 .color-main-container{
+   
 }
 .field-validation-error {
     color: #f00;
-}   
+}
  
 .field-validation-valid {
     display: none;
@@ -123,3 +128,8 @@ body {
 .absolute{
     position:absolute;
 }
+.color-main-container{
+    position:relative;
+}
+
+

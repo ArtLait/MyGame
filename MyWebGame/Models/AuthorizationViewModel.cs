@@ -12,7 +12,7 @@ namespace MyWebGam.Models
         [Display(Name = "Name", ResourceType = typeof(Resources.Web))]
         public string Name { get; set; }
         [StringLength(50, MinimumLength = 6, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan5")]
-        [Display(Name = "Password", ResourceType = typeof(Resources.Web))]
+        [Display(Name = "Password")]
         public string Password { get; set; }
     }
 }
