@@ -1,5 +1,5 @@
 ﻿init();
-animate();
+//animate();
 var container;
 var camera, controls, scene, renderer;
 var planeGeometry, planeMaterial, plane, sphere,

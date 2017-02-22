@@ -9,14 +9,14 @@
 <h4>@Resources.Web.ChatRoom</h4>
 
 <div class="mainChat">
-    <div id="loginBlock">
+    <div id="loginBlock" >
 
         @Resources.Web.EntryLogin:<br />
-        <input id="txtUserName" type="text" autofocus />
-        <input id="btnLogin" type="button" value=@Resources.Web.Entry />
-    </div>
-    <div id="chatBody">
 
+            <input type="text" id="txtUserName" class="form-control input-md" autofocus placeholder="Write you name" />                
+            <input type="button" id="btnLogin" class="btn btn-warning btn-sm" value=@Resources.Web.Entry />                       
+    </div>
+    <div id="chatBody"  >
 
         <div class="containerChat">
             <div class="row">

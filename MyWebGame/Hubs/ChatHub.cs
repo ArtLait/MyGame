@@ -23,7 +23,6 @@ namespace MyWebGam.Hubs
         {
             var id = Context.ConnectionId;
 
-
             if (!Users.Any(x => x.ConnectionId == id))
             {
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });

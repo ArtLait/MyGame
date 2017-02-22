@@ -48,7 +48,6 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\bin\Debug\Ent
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.pdb
-D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.Initialcreate.resources
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csproj.GenerateResource.Cache
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.ChangeUserForConfirmedEmailaddcolumnEmail.resources

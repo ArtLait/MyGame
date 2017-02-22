@@ -18,12 +18,12 @@ namespace MyWebGam
                         "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-{version}.js",
-                "~/Scripts/src/util.js",
-                "~/Scripts/src/templatesForUtil.js"
+                "~/Scripts/chat/chat.js",
+                "~/Scripts/chat/templatesForChat.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/jqueryTemplate").Include(
-                "~/Scripts/src/lib/jquery-1.5rc1.js",
-                "~/Scripts/src/lib/jquery.tmpl.min.js"
+                "~/Scripts/chat/lib/jquery-1.5rc1.js",
+                "~/Scripts/chat/lib/jquery.tmpl.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/threeJs").Include(
             "~/Scripts/threeJs/lib/three.js",
