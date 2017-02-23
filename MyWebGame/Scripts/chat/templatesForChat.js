@@ -23,3 +23,16 @@ function scrollDown() {
     var heightOfChat = $('.chat').height() + 10;
     $('#panelBodyChat').scrollTop(heightOfChat);
 }
+function conversionHtmlToText(str) {
+   
+    var newStr = "";
+    for (var i = 0; i < str.length; i ++)
+    {
+        if (str[i] == "<") newStr += "&lt;"
+        else if (str[i] == ">") newStr += "&gt;"
+        else {
+            newStr += str[i];
+        }
+    }
+    return newStr;
+}

@@ -13,14 +13,13 @@ $(function () {
     };
 
     // Функция, вызываемая при подключении нового пользователя
-    chat.client.onConnected = function (id, userName, allUsers) {
-        userName = userName.replace(/<\/?[^>]+>/g, '');       
+    chat.client.onConnected = function (id, userName, allUsers) {            
         $('#loginBlock').hide();
         $('#chatBody').show();
         // установка в скрытых полях имени и id текущего пользователя
         $('#hdId').val(id);
         $('#username').val(userName);
-        $('#header').html('<h3>' + resources.welcome + ", " + userName + '</h3>');                
+        $('#header').html('<h3>' + resources.welcome + ", " + conversionHtmlToText(userName) + '</h3>');                
         scrollDown();
 
         // Добавление всех пользователей
