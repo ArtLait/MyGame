@@ -36,7 +36,7 @@ namespace MyWebGam.Controllers
             List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang))
             {
-                lang = "ru";
+                return Redirect(returnUrl);
             }
             HttpCookie cookie = Request.Cookies["lang"];
             if (cookie != null)
