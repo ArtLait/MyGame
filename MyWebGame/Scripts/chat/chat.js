@@ -13,7 +13,8 @@ $(function () {
     };
 
     // Функция, вызываемая при подключении нового пользователя
-    chat.client.onConnected = function (id, userName, allUsers) {            
+    chat.client.onConnected = function (id, userName, allUsers) {
+
         $('#loginBlock').hide();
         $('#chatBody').show();
         // установка в скрытых полях имени и id текущего пользователя
@@ -62,10 +63,16 @@ $(function () {
            
             var name = $("#txtUserName").val();
             if (name.length > 0) {
-                chat.server.connect(name);                
+                if (name.length < 20) {
+
+                    chat.server.connect(name); 
+                }
+                else {
+                    alert(resources.nameIsTooLength)
+                }
             }
             else {
-                alert(resources.entryName);
+                alert(resources.entryNameError);
             }
         });
         $("#txtUserName").keydown(function (e) {

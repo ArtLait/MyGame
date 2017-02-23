@@ -313,6 +313,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Cлишком длинное имя.
+        /// </summary>
+        public static string NameIsTooLength {
+            get {
+                return ResourceManager.GetString("NameIsTooLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пользователя с таким логином и паролем - нету.
         /// </summary>
         public static string NoSuchUser {

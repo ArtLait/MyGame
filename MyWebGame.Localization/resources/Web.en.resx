@@ -210,6 +210,9 @@
   <data name="Password" xml:space="preserve">
     <value>Enter you password</value>
   </data>
+  <data name="PasswordIsTooLength" xml:space="preserve">
+    <value>Name is too length</value>
+  </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Register</value>
   </data>
