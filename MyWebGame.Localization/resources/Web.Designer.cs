@@ -259,20 +259,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 1.
+        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 1 меньше чем 20.
         /// </summary>
-        public static string LengthRequiredMoreThan1 {
+        public static string LengthRequiredMoreThan1AndLessThan20 {
             get {
-                return ResourceManager.GetString("LengthRequiredMoreThan1", resourceCulture);
+                return ResourceManager.GetString("LengthRequiredMoreThan1AndLessThan20", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 5.
+        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 5 и меньше чем 24.
         /// </summary>
-        public static string LengthRequiredMoreThan5 {
+        public static string LengthRequiredMoreThan5AndLessThan24 {
             get {
-                return ResourceManager.GetString("LengthRequiredMoreThan5", resourceCulture);
+                return ResourceManager.GetString("LengthRequiredMoreThan5AndLessThan24", resourceCulture);
             }
         }
         

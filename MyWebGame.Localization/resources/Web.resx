@@ -183,11 +183,11 @@
   <data name="JoinTheGame" xml:space="preserve">
     <value>Вступить в игру</value>
   </data>
-  <data name="LengthRequiredMoreThan1" xml:space="preserve">
-    <value>Длина слова должна быть больше чем 1</value>
+  <data name="LengthRequiredMoreThan1AndLessThan20" xml:space="preserve">
+    <value>Длина слова должна быть больше чем 1 меньше чем 20</value>
   </data>
-  <data name="LengthRequiredMoreThan5" xml:space="preserve">
-    <value>Длина слова должна быть больше чем 5</value>
+  <data name="LengthRequiredMoreThan5AndLessThan24" xml:space="preserve">
+    <value>Длина слова должна быть больше чем 5 и меньше чем 24</value>
   </data>
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Такой почты не сущестует</value>

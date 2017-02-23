@@ -183,11 +183,11 @@
   <data name="JoinTheGame" xml:space="preserve">
     <value>Join the game</value>
   </data>
-  <data name="LengthRequiredMoreThan1" xml:space="preserve">
-    <value>Length word must be more than 1</value>
+  <data name="LengthRequiredMoreThan1AndLessThan20" xml:space="preserve">
+    <value>Length word must be more than 1 and less than 20</value>
   </data>
-  <data name="LengthRequiredMoreThan5" xml:space="preserve">
-    <value>Length word must be more than 5</value>
+  <data name="LengthRequiredMoreThan5AndLessThan24" xml:space="preserve">
+    <value>Length word must be more than 5 and less than 24</value>
   </data>
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Mail addres is incorrect</value>
