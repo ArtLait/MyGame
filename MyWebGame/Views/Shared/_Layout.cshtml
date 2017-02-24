@@ -18,39 +18,46 @@
             @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
         </div>
 
-        <div class="nav nav-tabs cd-user-modal">
+        <div class="nav nav-tabs">
             <div class="cd-user-modal-container">
-                <ul class="cd-switcher">
-                    <li><a datato href="#0">Вход</a></li>
-                    <li><a href="#0">Регистрация</a></li>
-                </ul>
-                <div id="cd-login" class="container-auth-reg animate-auth-reg">
-                    <h4>Authorization</h4>
-                    <form class="form-auth-reg">
-                        <label class="label-auth-reg" for="name">Логин:</label>
-                        <input type="text" class="input-auth-reg">
-                        <label class="label-auth-reg" for="username">Пароль:</label>
-                        <p><a href="#">Забыли пароль?</a></p>
-                        <input type="password" class="input-auth-reg">
-                        <div id="lower">
-                            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
-                            <input type="submit" class="input-auth-reg" value="Войти">
-                        </div>
-                    </form>
-                </div>
-                <div id="cd-signup" class="container-auth-reg animate-auth-reg">
-                   <h4>Registration</h4>
-                     <form class="form-auth-reg">
-                        <label class="label-auth-reg" for="name">Логин:</label>
-                        <input type="text" class="input-auth-reg">
-                        <label class="label-auth-reg" for="username">Пароль:</label>
-                        <p><a href="#">Забыли пароль?</a></p>
-                        <input type="password" class="input-auth-reg">
-                        <div id="lower">
-                            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
-                            <input type="submit" class="input-auth-reg" value="Войти">
-                        </div>
-                    </form>
+                
+                <div class="container-auth-reg animate-auth-reg">
+
+                    <ul class="cd-switcher">
+                        <li class="active"><a data-toggle="tab" href="#authPanel">Вход</a></li>
+                        <li><a data-toggle="tab" href="#regPanel">Регистрация</a></li>
+                    </ul>
+
+                    <div id="authPanel" class="tab-pane fade in active">
+
+                        <form class="form-auth-reg">
+                            <label class="label-auth-reg" for="name">Логин:</label>
+                            <input type="text" class="input-auth-reg">
+                            <label class="label-auth-reg" for="username">Пароль:</label>
+                            <p><a href="#">Забыли пароль?</a></p>
+                            <input type="password" class="input-auth-reg">
+                            <div id="lower">
+                                <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+                                <input type="submit" class="input-auth-reg" value="Войти">
+                            </div>
+                        </form>
+                        <h4>Authorization</h4>
+                    </div>
+                    <div id="regPanel" class="tab-pane fade">
+
+                        <form class="form-auth-reg">
+                            <label class="label-auth-reg" for="name">Логин:</label>
+                            <input type="text" class="input-auth-reg">
+                            <label class="label-auth-reg" for="username">Пароль:</label>
+                            <p><a href="#">Забыли пароль?</a></p>
+                            <input type="password" class="input-auth-reg">
+                            <div id="lower">
+                                <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+                                <input type="submit" class="input-auth-reg" value="Войти">
+                            </div>
+                        </form>
+                        <h4>Registration</h4>
+                    </div>
                 </div>
             </div>
         </div>
