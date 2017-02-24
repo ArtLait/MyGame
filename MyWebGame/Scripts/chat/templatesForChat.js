@@ -36,12 +36,6 @@ function conversionHtmlToText(str) {
     }
     return newStr;
 }
-function conversionHtmlToText2(str) {
-    
-    var newStr = str.replace(/(<)(>)/, '&lt;, &gt;')    
-    return newStr;
-}
-conversionHtmlToText2("Artem</br>Artem");
 function checkSpaces(str) {
     var bool, result = str.search(/ /);
     if (result == -1) bool = true
