@@ -11,6 +11,10 @@ namespace MyWebGam
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Js
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.js",
+                     "~/Scripts/respond.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -30,11 +34,13 @@ namespace MyWebGam
             "~/Scripts/threeJs/lib/OrbitControls.js",
             "~/Scripts/threeJs/main.js"
                 ));
+                      
 
             //Css
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new StyleBundle("~/Content/authReg").Include(
+                "~/Content/css/animate.css",
+                "~/Content/css/authReg.css"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/reset.css",

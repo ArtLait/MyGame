@@ -6,22 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/authReg")
 
 </head>
 <body>
     <div id="myGame"></div>
     <div class="container-fluid color-main-container">
+
         <div class="reg-auth-block min-padding-block clearfix ">
             <a href="@Url.Action("SignIn", "Account")">@Resources.Web.SignIn</a>
             @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
         </div>
+
+        <div class="container-auth-reg animate-auth-reg">
+            <form class="form-auth-reg">
+                <label class="label-auth-reg" for="name" >Логин:</label>
+                <input type="text" class="input-auth-reg">
+                <label class="label-auth-reg" for="username">Пароль:</label>
+                <p><a href="#">Забыли пароль?</a></p>
+                <input type="password" class="input-auth-reg">
+                <div id="lower">
+                    <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+                    <input type="submit" class="input-auth-reg" value="Войти" >
+                </div>
+            </form>
+        </div>
+   
         <div>
             @using (Html.BeginForm("ChangeCulture", "Home"))
             {
                 <select name="lang">
                     <option disabled selected>@Resources.Web.ChooseLang</option>
-                    <option value="ru">Русский</option>
-                    <option value="en">Английский</option>
+                    <option value="ru">@Resources.Web.Russian</option>
+                    <option value="en">@Resources.Web.English</option>
                 </select>
                 <input type="submit" value="Choose lang" />
             }
@@ -39,14 +56,15 @@
 
     @RenderSection("scripts", required: false)
     <script>
-        var resources = {
-            welcome: "@Resources.Web.Welcome",
-            entryNameError: "@Resources.Web.EntryNameError",
-            nameIsTooLength: "@Resources.Web.NameIsTooLength",
-            hours: "@Resources.Web.Hours",
-            minutes: "@Resources.Web.Minutes"
-        };
-    </script>
+    var resources = {
+        welcome: "@Resources.Web.Welcome",
+        entryNameError: "@Resources.Web.EntryNameError",
+        nameIsTooLength: "@Resources.Web.NameIsTooLength",
+        hours: "@Resources.Web.Hours",
+        minutes: "@Resources.Web.Minutes",
+        errorEntryNickNameWithoutSpaces: "@Resources.Web.ErrorEntryNickNameWithoutSpaces"
+    };
+</script>
 
 </body>
 </html>

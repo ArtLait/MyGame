@@ -63,9 +63,13 @@ $(function () {
            
             var name = $("#txtUserName").val();
             if (name.length > 0) {
-                if (name.length < 20) {
-
-                    chat.server.connect(name); 
+                if (name.length < 16) {
+                    if (checkSpaces(name)) {
+                        chat.server.connect(name);
+                    }
+                    else {
+                        alert(resources.errorEntryNickNameWithoutSpaces)
+                    }
                 }
                 else {
                     alert(resources.nameIsTooLength)

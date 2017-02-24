@@ -159,6 +159,9 @@
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Емаил не подтвержден!</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Аглийский</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>войти</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="EntryNameError" xml:space="preserve">
     <value>Введите имя</value>
+  </data>
+  <data name="ErrorEntryNickNameWithoutSpaces" xml:space="preserve">
+    <value>Пожалуйста, введите никнейм без пробелов</value>
   </data>
   <data name="ForConfirmedEmail" xml:space="preserve">
     <value>Для завершения регистрации перейдите по ссылке: </value>
@@ -224,6 +230,9 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Повторите, пожалуйста, пароль</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Русский</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>отправить</value>

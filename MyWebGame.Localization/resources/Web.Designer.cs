@@ -187,6 +187,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Аглийский.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на войти.
         /// </summary>
         public static string Entry {
@@ -210,6 +219,15 @@ namespace Resources {
         public static string EntryNameError {
             get {
                 return ResourceManager.GetString("EntryNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пожалуйста, введите никнейм без пробелов.
+        /// </summary>
+        public static string ErrorEntryNickNameWithoutSpaces {
+            get {
+                return ResourceManager.GetString("ErrorEntryNickNameWithoutSpaces", resourceCulture);
             }
         }
         
@@ -381,6 +399,15 @@ namespace Resources {
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Русский.
+        /// </summary>
+        public static string Russian {
+            get {
+                return ResourceManager.GetString("Russian", resourceCulture);
             }
         }
         

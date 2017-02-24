@@ -159,6 +159,9 @@
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Email not confirmed!</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>entry</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="EntryNameError" xml:space="preserve">
     <value>Entry name</value>
+  </data>
+  <data name="ErrorEntryNickNameWithoutSpaces" xml:space="preserve">
+    <value>Please, entry nickname without spaces</value>
   </data>
   <data name="ForConfirmedEmail" xml:space="preserve">
     <value>To complete the registration please go to: </value>
@@ -201,6 +207,9 @@
   <data name="Name" xml:space="preserve">
     <value>Enter you name</value>
   </data>
+  <data name="NameIsTooLength" xml:space="preserve">
+    <value>Name is too length</value>
+  </data>
   <data name="NoSuchUser" xml:space="preserve">
     <value>No such user</value>
   </data>
@@ -209,9 +218,6 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Enter you password</value>
-  </data>
-  <data name="PasswordIsTooLength" xml:space="preserve">
-    <value>Name is too length</value>
   </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Register</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Russian</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>send</value>
