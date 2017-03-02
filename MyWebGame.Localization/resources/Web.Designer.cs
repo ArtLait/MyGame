@@ -367,6 +367,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Играть сейчас.
+        /// </summary>
+        public static string PlayNow {
+            get {
+                return ResourceManager.GetString("PlayNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
         public static string RegisterSubmit {

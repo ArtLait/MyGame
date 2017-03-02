@@ -162,6 +162,8 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\img\bg.png" />
+    <Content Include="Content\img\englishFlag.png" />
+    <Content Include="Content\img\russianFlag.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -215,10 +217,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="package.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\authReg\authReg.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\lib\jquery-1.5rc1.js" />
     <Content Include="Scripts\chat\lib\jquery.tmpl.min.js" />
+    <Content Include="Scripts\chat\lib\someTimesChat.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -228,10 +232,13 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\chat\templatesForChat.js" />
     <Content Include="Scripts\chat\chat.js" />
+    <Content Include="Scripts\network\network.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />
@@ -243,6 +250,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CollectionOfMethods\CollectionOfMethods.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -254,7 +262,7 @@
     </Compile>
     <Compile Include="Models\AuthorizationViewModel.cs" />
     <Compile Include="Models\ModelsForChat.cs" />
-    <Compile Include="Models\NickNameViewModel.cs" />
+    <Compile Include="Models\PlayNowViewModel.cs" />
     <Compile Include="Models\OnlyEmailViewModel.cs" />
     <Compile Include="Models\RegisteViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
@@ -274,9 +282,11 @@
     <Content Include="Views\Account\WaitingForConfirm.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\OnlyEmail.cshtml" />
-    <Content Include="Views\Account\ResetPasswordError.cshtml" />
     <Content Include="Views\Shared\_LayoutAuth.cshtml" />
     <Content Include="Views\Account\PleaseConfirmedEmail.cshtml" />
+    <Content Include="Views\Home\TestView.cshtml" />
+    <Content Include="Views\Account\PlayNow.cshtml" />
+    <Content Include="Views\Account\ResetPasswordError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -288,10 +298,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWebGame.AddFunctionality\MyWebGame.AddFunctionality.csproj">
-      <Project>{50227e94-cd1d-4101-8ae3-6edd4a1d57f9}</Project>
-      <Name>MyWebGame.AddFunctionality</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyWebGame.EF\MyWebGame.EF.csproj">
       <Project>{e0b65690-718d-4edb-ad1a-0dcc14b604b3}</Project>
       <Name>MyWebGame.EF</Name>

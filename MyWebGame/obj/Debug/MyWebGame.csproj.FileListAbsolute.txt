@@ -107,7 +107,6 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MailKit.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MimeKit.dll
-D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.EF.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.Localization.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Newtonsoft.Json.dll
@@ -119,7 +118,6 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.W
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\System.Web.Webpages.Razor.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\WebGrease.dll
-D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.EF.pdb
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\MyWebGame.Localization.pdb
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame\MyWebGame\bin\Antlr3.Runtime.pdb

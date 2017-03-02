@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using MyWebGam.EF;
 using MyWebGam.Models;
 using System.Net;
-using MyWebGam.AddFunctionality;
+using MyWebGam.CollectionOfMethod;
 using System.Web.Security;
 using System.Threading;
 using System.Globalization;
@@ -30,15 +30,27 @@ namespace MyWebGam.Controllers
             repo = new UserRepository();
             repoForEmail = new UserForConfirmedEmailRepository();
             repoReset = new ResetPasswordRepository();
-        }     
+        }
+        public ActionResult PlayNow()
+        {       
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult PlayNow(PlayNowViewModel model)
+        {
+            if (ModelState.IsValid)
+            {                
+                return Json(new {succesful = true});
+            }         
+            return PartialView(model);
+        }
         public ActionResult OnlyEmail()
         {
             return View();
         }
         [HttpPost]
         public async Task<ActionResult> OnlyEmail(OnlyEmailViewModel data)
-        {
-            //ViewBag.data = data.Email;
+        {         
             string key = CollectionOfMethods.GetHashString(data.Email);
             if (ModelState.IsValid)
             {
@@ -110,7 +122,8 @@ namespace MyWebGam.Controllers
                 if(repo.CheckEmailUniqueness(registerData.Email) == false)
                 {
                     ModelState.AddModelError("", @Resources.Web.MailBusy);
-                    return View();
+                    
+                    return PartialView(registerData);
                 }
                 string key = CollectionOfMethods.GetHashString(registerData.Email) + CollectionOfMethods.GetHashString(registerData.Name);
                 UserForConfirmedEmail newUser = new UserForConfirmedEmail()
@@ -129,15 +142,14 @@ namespace MyWebGam.Controllers
                 repoForEmail.Save(newUser);
                 EmailService emailService = new EmailService();
                 await emailService.SendEmailAsync(registerData.Email, @Resources.Web.ConfirmEmailTheme,
-                    TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));          
-                              
-                return View("WaitingForConfirm");
+                    TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));
+                return Json(new { succesful = true });              
+              //  return View("WaitingForConfirm");
             }
             
-            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return View(registerData);
+          
+            return PartialView(registerData);
         }
-
         public ActionResult WaitingForConfirm()
         {            
             return View();
@@ -181,16 +193,16 @@ namespace MyWebGam.Controllers
                         FormsAuthentication.SetAuthCookie(user.Email, true);                    
                         return RedirectToAction("Index", "Home");
                     }
-                    return View("~/Views/Account/PleaseConfirmedEmail.cshtml");
-                }
-                else
-                {
+                    return PartialView("~/Views/Account/PleaseConfirmedEmail.cshtml");
+                 }
+                 else
+                 {
                     ModelState.AddModelError("", Resources.Web.NoSuchUser);
-                }
-                return View();
-            }    
-            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return View(); 
+                 }
+                return PartialView(authorizationUser);
+              }
+              //Response.StatusCode = (int)HttpStatusCode.BadRequest;
+              return PartialView(authorizationUser); 
            }
         private void deleteCookieAuth()
         {

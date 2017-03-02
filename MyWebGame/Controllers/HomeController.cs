@@ -18,6 +18,11 @@ namespace MyWebGam.Controllers
         public HomeController()
         {               
         }
+        public ActionResult TestView(string str)
+        {
+            ViewBag.cookie = HttpContext.Request.Cookies["id"].Value;
+            return View();            
+        }
         // GET: Home
         public ActionResult Index(string message)
         {
@@ -26,7 +31,7 @@ namespace MyWebGam.Controllers
             {
                 result = @Resources.Web.UserIn + User.Identity.Name;                
             }
-            ViewBag.userLogin = result;
+            ViewBag.userLogin = result;           
             ViewBag.message = message;
             return View();
         }

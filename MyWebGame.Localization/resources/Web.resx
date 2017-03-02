@@ -219,6 +219,9 @@
   <data name="Password" xml:space="preserve">
     <value>Введите пароль</value>
   </data>
+  <data name="PlayNow" xml:space="preserve">
+    <value>Играть сейчас</value>
+  </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>

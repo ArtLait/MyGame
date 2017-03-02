@@ -21,28 +21,21 @@
 
 /* Basics */
 
-html, body {
-	width: 100%;
-	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	color: #444;
-	-webkit-font-smoothing: antialiased;
-	background: url(../img/bg.png) repeat;
-	
-}
-
 .container-auth-reg {
 	position: fixed;
 	width: 340px;
-	height: 280px;
-	top: 50%;
+	height: 400px;	
 	left: 50%;
-	margin-top: -140px;
+    top: 15%;   	
 	margin-left: -170px;
 	background: #fff;
 	border-radius: 3px;
 	border: 1px solid #ccc;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-	
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);	
+}
+cd-switcher{
+    height:400px;
+    position:relative;
 }
 .animate-auth-reg{
     -webkit-animation-name: bounceIn;
@@ -98,9 +91,7 @@ form.form-auth-reg p a:hover {
 form.form-auth-reg input[type=text],
 form.form-auth-reg input[type=password] {
 	color: #777;
-	padding-left: 10px;
-	margin: 10px;
-	margin-top: 12px;
+	padding-left: 10px;	
 	margin-left: 18px;
 	width: 290px;
 	height: 35px;
@@ -175,4 +166,8 @@ form.form-auth-reg input[type=submit]:active {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#6ec2e8), to(#b6e2ff));
 	background-image: -moz-linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
 	background-image: linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
+}
+.close-auth-reg{
+    position:absolute;
+    right:0;
 }

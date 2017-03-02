@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame.Localization", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame", "MyWebGame\MyWebGame.csproj", "{FC43734D-8BE4-452E-A1F9-58B3754E83D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebGame.AddFunctionality", "MyWebGame.AddFunctionality\MyWebGame.AddFunctionality.csproj", "{50227E94-CD1D-4101-8AE3-6EDD4A1D57F9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{FC43734D-8BE4-452E-A1F9-58B3754E83D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC43734D-8BE4-452E-A1F9-58B3754E83D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC43734D-8BE4-452E-A1F9-58B3754E83D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50227E94-CD1D-4101-8AE3-6EDD4A1D57F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50227E94-CD1D-4101-8AE3-6EDD4A1D57F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50227E94-CD1D-4101-8AE3-6EDD4A1D57F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50227E94-CD1D-4101-8AE3-6EDD4A1D57F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

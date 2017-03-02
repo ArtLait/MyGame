@@ -219,6 +219,9 @@
   <data name="Password" xml:space="preserve">
     <value>Enter you password</value>
   </data>
+  <data name="PlayNow" xml:space="preserve">
+    <value>Play now</value>
+  </data>
   <data name="RegisterSubmit" xml:space="preserve">
     <value>Register</value>
   </data>

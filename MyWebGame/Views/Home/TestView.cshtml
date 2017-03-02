@@ -1,0 +1,75 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Styles.Render("~/Content/css")
+    
+</head>
+<body style="background:white">
+
+
+ <div>this cookie   @ViewBag.cookie </div>
+
+    <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">Показать всплывающее окно</button>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Заголовок окна</h4>
+                </div>
+                <div class="modal-body">Текст уведомления</div>
+                <div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <a href="#modal" role="button" class="btn" data-toggle="modal">Click Me</a>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+    <div id="modal" class="modal hide">
+        <div class="modal-header">
+            <h2>Lorem Ipsum</h2>
+        </div>
+        <div class="modal-body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec placerat sem ipsum, ut faucibus nulla. Nullam mattis volutpat
+                dolor, eu porta magna facilisis ut. In ultricies, purus sed pellentesque
+                mollis, nibh tortor semper elit, eget rutrum purus nulla id quam.
+            </p>
+        </div>
+    </div>   
+
+    <div style="background:gray; width:100px">
+
+                <div style="float: left; width:100px; display: block;word-wrap: break-word;
+        ">Adfdfdsfdsfdsfasdasdsddf</div>
+                <div style="float: left; width:100px; display: block;word-wrap: break-word;
+        ">Adfdfdsfdsfdsfasdasdsddf</div>
+                <div style="float: left; width:100px; display: block;word-wrap: break-word;
+        ">Adfdfdsfdsfdsfasdasdsddf</div>
+                <div style="clear:both;">
+            </div>
+     </div>
+
+
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
