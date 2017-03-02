@@ -1,46 +1,77 @@
-﻿@{
+﻿@*@{
     if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
     else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}
+}*@
+
+
 @model MyWebGam.Models.RegisteViewModel
-<div class="container-fluid">
-    @using (Html.BeginForm("Registration", "Account", FormMethod.Post,
 
-new { @class = "form-horizontal", role = "form" }))
+   @using (Html.BeginForm("Registration", "Account", FormMethod.Post,
+
+new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"}))
     {
+
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
-        <div>
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div>
-            @Html.TextBoxFor(model => model.Name, new { required = "true" })
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
+        @Html.ValidationSummary(true)
 
-        <div>
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div>
-            @Html.PasswordFor(model => model.Password, new { required = "true" })
-            @Html.ValidationMessageFor(model => model.Password)
-        </div>
+        @Html.LabelFor(model => model.Name, new { @class="label-auth-reg"})
+        @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg" })
+        @Html.ValidationMessageFor(model => model.Name)
+    
+        @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg" })
+       
+        @Html.PasswordFor(model => model.Password, new { required = "true", @class = "input-auth-reg" })
+        @Html.ValidationMessageFor(model => model.Password)
 
-        <div>
-            @Html.LabelFor(model => model.RepeatPassword)
-        </div>
-        <div>
-            @Html.PasswordFor(model => model.RepeatPassword, new { required = "true" })
-            @Html.ValidationMessageFor(model => model.RepeatPassword)
-        </div>
+        @Html.LabelFor(model => model.RepeatPassword, new { @class = "label-auth-reg" })
+        @Html.PasswordFor(model => model.RepeatPassword, new { required = "true", @class = "input-auth-reg" })
+        @Html.ValidationMessageFor(model => model.RepeatPassword)
+       
+        @Html.LabelFor(model => model.Email, new { @class = "label-auth-reg" })
+        @Html.TextBoxFor(model => model.Email, new { required = "true", @class = "input-auth-reg" })
+        @Html.ValidationMessageFor(model => model.Email)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+        <div id="lower">
+            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+            <input type="submit" id="submitReg" class="input-auth-reg" value="@Resources.Web.RegisterSubmit">
         </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.Email, new { required = "true" })
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
-        <input type="submit" value=@Resources.Web.RegisterSubmit class="btn btn-default" />
-    }
-</div>
+   }
+
+<script>
+    $("#formReg").submit(function (e) {
+
+        e.preventDefault();
+        if ($(this).valid()) {
+            $.post("http://localhost:30657/Account/Registration", $("#formReg").serialize())
+                .done(function (data) {
+                    console.log(data);
+                    if (data.succesful) {                        
+                        location.href = "http://localhost:30657/";
+                    }                    
+                    $("#resultAuthReg").html(data);
+                });
+        };
+    });
+</script>
+
+
+
+@*<script>
+    $("#formReg").submit(function (e) {
+
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Registration", "Account")',
+            contentType: false,
+            processData: false,
+            data: $("#formReg").serialize(),
+            succes: function (result) {
+                $("#resultAuthReg").html(result);
+            }
+        });
+    });
+</script>*@
+
+
+

@@ -11,14 +11,13 @@ namespace MyWebGam.Hubs
     public class ChatHub : Hub
     {
         static List<UserForChat> Users = new List<UserForChat>();
-
         // Отправка сообщений
         public void Send(string name, string message)
         {
             Clients.All.addMessage(name, message);
         }
 
-        // Подключение нового пользователя
+        // Подключение нового пользователя  
         public void Connect(string userName)
         {
             var id = Context.ConnectionId;

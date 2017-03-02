@@ -17,14 +17,14 @@ namespace MyWebGam.Controllers
             if (cultureCookie != null)
                 cultureNameKey = cultureCookie.Value;
             else
-                cultureNameKey = "ru";
+                cultureNameKey = "en";
             List<string> cultures = new List<string>() { "ru", "en" };
             Dictionary<string, string> culturesMap = new Dictionary<string, string>();
             culturesMap.Add("ru", "RU-ru");
             culturesMap.Add("en", "EN-US");
             if (!culturesMap.ContainsKey(cultureNameKey))
             {
-                cultureNameKey = "ru";
+                cultureNameKey = "en";
             }
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culturesMap[cultureNameKey]);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture; 

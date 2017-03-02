@@ -8,10 +8,10 @@ namespace MyWebGam.Models
 {
     public class AuthorizationViewModel
     {
-        [StringLength(255, MinimumLength = 2, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan1")]
+        [StringLength(20, MinimumLength = 2, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan1AndLessThan20")]
         [Display(Name = "Name", ResourceType = typeof(Resources.Web))]
         public string Name { get; set; }
-        [StringLength(50, MinimumLength = 6, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan5")]
+        [StringLength(24, MinimumLength = 6, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan5AndLessThan24")]
         [Display(Name = "Password")]
         public string Password { get; set; }
     }

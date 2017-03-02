@@ -187,6 +187,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Аглийский.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на войти.
         /// </summary>
         public static string Entry {
@@ -210,6 +219,15 @@ namespace Resources {
         public static string EntryNameError {
             get {
                 return ResourceManager.GetString("EntryNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пожалуйста, введите никнейм без пробелов.
+        /// </summary>
+        public static string ErrorEntryNickNameWithoutSpaces {
+            get {
+                return ResourceManager.GetString("ErrorEntryNickNameWithoutSpaces", resourceCulture);
             }
         }
         
@@ -259,20 +277,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 1.
+        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 1 меньше чем 20.
         /// </summary>
-        public static string LengthRequiredMoreThan1 {
+        public static string LengthRequiredMoreThan1AndLessThan20 {
             get {
-                return ResourceManager.GetString("LengthRequiredMoreThan1", resourceCulture);
+                return ResourceManager.GetString("LengthRequiredMoreThan1AndLessThan20", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 5.
+        ///   Ищет локализованную строку, похожую на Длина слова должна быть больше чем 5 и меньше чем 24.
         /// </summary>
-        public static string LengthRequiredMoreThan5 {
+        public static string LengthRequiredMoreThan5AndLessThan24 {
             get {
-                return ResourceManager.GetString("LengthRequiredMoreThan5", resourceCulture);
+                return ResourceManager.GetString("LengthRequiredMoreThan5AndLessThan24", resourceCulture);
             }
         }
         
@@ -313,6 +331,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Cлишком длинное имя.
+        /// </summary>
+        public static string NameIsTooLength {
+            get {
+                return ResourceManager.GetString("NameIsTooLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пользователя с таким логином и паролем - нету.
         /// </summary>
         public static string NoSuchUser {
@@ -336,6 +363,15 @@ namespace Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Играть сейчас.
+        /// </summary>
+        public static string PlayNow {
+            get {
+                return ResourceManager.GetString("PlayNow", resourceCulture);
             }
         }
         
@@ -372,6 +408,15 @@ namespace Resources {
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Русский.
+        /// </summary>
+        public static string Russian {
+            get {
+                return ResourceManager.GetString("Russian", resourceCulture);
             }
         }
         

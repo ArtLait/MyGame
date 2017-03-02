@@ -6,46 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/authReg")
 
 </head>
-<body>
+<body class="modal-open">
     <div id="myGame"></div>
-    <div class="container-fluid color-main-container">
-        <div class="reg-auth-block min-padding-block clearfix ">
-            <a href="@Url.Action("SignIn", "Account")">@Resources.Web.SignIn</a>
-            @Html.ActionLink("" + @Resources.Web.Registration + "", "Registration", "Account")
-        </div>
-        <div>
-            @using (Html.BeginForm("ChangeCulture", "Home"))
-            {
-                <select name="lang">
-                    <option disabled selected>@Resources.Web.ChooseLang</option>
-                    <option value="ru">Русский</option>
-                    <option value="en">Английский</option>
-                </select>
-                <input type="submit" value="Choose lang" />
-            }
-        </div>
-        @RenderBody()
-    </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryTemplate")
-    @Scripts.Render("~/bundles/jquerySignalR")
-    @Scripts.Render("~/bundles/threeJs")
-    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
-    <script src="~/signalr/hubs"></script>
+    <div class="container-fluid color-main-container">        
 
-    @RenderSection("scripts", required: false)
-    <script>
-        var resources = {
-            welcome: "@Resources.Web.Welcome",
-            entryName: "@Resources.Web.EntryNameError",
-            hours: "@Resources.Web.Hours",
-            minutes: "@Resources.Web.Minutes"
-        };
-    </script>
+        <div class="reg-auth-block min-padding-block clearfix ">
+            <button id="playNowHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.PlayNow</button>
+            <button id="authHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.SignIn</button>
+            <button id="regHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.Registration</button>                      
+        </div>
+        <div id="networkResult">
+            Change languages: 
+        </div>
+
+        <div>                              
+            <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "en" })> <img class="lang-img" src="~/Content/img/englishFlag.png" /> </a>
+            <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "ru" })> <img class="lang-img" src="~/Content/img/russianFlag.png" /> </a>       
+        </div>
+
+        <div id="modalAuthReg" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="container-auth-reg animate-auth-reg">
+
+                <ul class="cd-switcher nav nav-tabs">
+                    <li><a id="playNowPanel" data-toggle="tab" )>@Resources.Web.PlayNow</a></li>
+                    <li><a id="authPanel" data-toggle="tab">@Resources.Web.SignIn</a></li>
+                    <li><a id="regPanel" data-toggle="tab">@Resources.Web.Registration</a></li>
+                    <button class="close-auth-reg" type="button" data-dismiss="modal">×</button>
+                </ul>
+                <div id="resultAuthReg" class="tab-pane fade in active absolute"></div>
+            </div>
+
+
+        </div>                                    
+           
+        @RenderBody()
+
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/ajax")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryTemplate")
+        @Scripts.Render("~/bundles/jquerySignalR")
+        @Scripts.Render("~/bundles/threeJs")
+
+        @Scripts.Render("~/bundles/authReg")
+        <script src="~/Scripts/network/network.js"></script>
+        <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
+        <script src="~/signalr/hubs"></script>
+
+        @RenderSection("scripts", required: false)
+        <script>
+            var resources = {
+                welcome: "@Resources.Web.Welcome",
+                entryNameError: "@Resources.Web.EntryNameError",
+                nameIsTooLength: "@Resources.Web.NameIsTooLength",
+                hours: "@Resources.Web.Hours",
+                minutes: "@Resources.Web.Minutes",
+                errorEntryNickNameWithoutSpaces: "@Resources.Web.ErrorEntryNickNameWithoutSpaces"
+            };
+        </script>
 
 </body>
 </html>

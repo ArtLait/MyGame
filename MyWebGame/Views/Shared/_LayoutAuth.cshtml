@@ -20,8 +20,8 @@
             {
                 <select name="lang">
                     <option disabled selected>@Resources.Web.ChooseLang</option>
-                    <option value="ru">Русский</option>
-                    <option value="en">Английский</option>
+                    <option value="ru">@Resources.Web.Russian</option>
+                    <option value="en">@Resources.Web.English</option>
                 </select>
                 <input type="submit" value="Choose lang" />
             }
@@ -36,7 +36,9 @@
     @Scripts.Render("~/bundles/jqueryTemplate")
     @Scripts.Render("~/bundles/jquerySignalR")
     @Scripts.Render("~/bundles/threeJs")
-
+    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/authReg")
+    <script src="~/Scripts/network/network.js"></script>
 
     <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
     <script src="~/signalr/hubs"></script>
@@ -45,10 +47,13 @@
     <script>
     var resources = {
         welcome: "@Resources.Web.Welcome",
-        entryName: "@Resources.Web.EntryNameError",
-            hours: "@Resources.Web.Hours",
-            minutes: "@Resources.Web.Minutes"
+        entryNameError: "@Resources.Web.EntryNameError",
+        nameIsTooLength: "@Resources.Web.NameIsTooLength",
+        hours: "@Resources.Web.Hours",
+        minutes: "@Resources.Web.Minutes",
+        errorEntryNickNameWithoutSpaces: "@Resources.Web.ErrorEntryNickNameWithoutSpaces"        
     };
     </script>
+
 </body>
 </html>

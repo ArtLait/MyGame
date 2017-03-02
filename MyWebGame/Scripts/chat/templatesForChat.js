@@ -36,3 +36,9 @@ function conversionHtmlToText(str) {
     }
     return newStr;
 }
+function checkSpaces(str) {
+    var bool, result = str.search(/ /);
+    if (result == -1) bool = true
+    else bool = false;
+    return bool;
+}

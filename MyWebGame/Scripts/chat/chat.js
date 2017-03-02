@@ -1,32 +1,33 @@
 ﻿
 $(function () {
-       
-    $('#loginBlock').show();           
+
+    $('#loginBlock').show();
     // Ссылка на автоматиsчески-сгенерированный прокси хаба
     var chat = $.connection.chatHub;
 
     // Объявление функции, которая хаб вызывает при получении сообщений
     chat.client.addMessage = function (name, message) {
         // Добавление сообщений на веб-страницу
-            createTemplate(name, message);
-            scrollDown();       
+        createTemplate(name, message);
+        scrollDown();
     };
 
     // Функция, вызываемая при подключении нового пользователя
-    chat.client.onConnected = function (id, userName, allUsers) {            
+    chat.client.onConnected = function (id, userName, allUsers) {
+        alert("onconnected chat");
         $('#loginBlock').hide();
         $('#chatBody').show();
         // установка в скрытых полях имени и id текущего пользователя
         $('#hdId').val(id);
         $('#username').val(userName);
-        $('#header').html('<h3>' + resources.welcome + ", " + conversionHtmlToText(userName) + '</h3>');                
+        $('#header').html('<h3>' + resources.welcome + ", " + conversionHtmlToText(userName) + '</h3>');
         scrollDown();
 
         // Добавление всех пользователей
         for (i = 0; i < allUsers.length; i++) {
 
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
-        }       
+        }
     }
 
     // Добавляем нового пользователя
@@ -40,13 +41,13 @@ $(function () {
 
         $('#' + id).remove();
     }
-    
+
     // Открываем соединение
     $.connection.hub.start().done(function () {
 
-       
+
         $('#sendmessage').click(function () {
-           
+
             // Вызываем у хаба метод Send
             chat.server.send($('#username').val(), $('#message').val());
             $('#message').val('');
@@ -56,16 +57,26 @@ $(function () {
                 $("#sendmessage").trigger("click");
             }
         });
-                
+
         // обработка логина
         $("#btnLogin").click(function () {
-           
+
             var name = $("#txtUserName").val();
             if (name.length > 0) {
-                chat.server.connect(name);                
+                if (name.length < 16) {
+                    if (checkSpaces(name)) {
+                        chat.server.connect(name);
+                    }
+                    else {
+                        alert(resources.errorEntryNickNameWithoutSpaces)
+                    }
+                }
+                else {
+                    alert(resources.nameIsTooLength)
+                }
             }
             else {
-                alert(resources.entryName);
+                alert(resources.entryNameError);
             }
         });
         $("#txtUserName").keydown(function (e) {
