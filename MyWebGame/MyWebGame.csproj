@@ -237,6 +237,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\chat\templatesForChat.js" />
     <Content Include="Scripts\chat\chat.js" />
+    <Content Include="Scripts\network\network.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />
@@ -294,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\network\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyWebGame.EF\MyWebGame.EF.csproj">

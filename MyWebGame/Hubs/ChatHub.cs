@@ -20,7 +20,7 @@ namespace MyWebGam.Hubs
         // Подключение нового пользователя  
         public void Connect(string userName)
         {
-            var id = Context.ConnectionId;
+            var id = Context.ConnectionId;          
 
             if (!Users.Any(x => x.ConnectionId == id))
             {

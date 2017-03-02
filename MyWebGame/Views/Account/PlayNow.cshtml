@@ -25,19 +25,24 @@
 }
 
 <script>    
+    var network, name;
+        network = $.connection.chatHub;
     
-    $("#formPlayAuth").submit(function (e) {
-        alert("submit");
+    $("#formPlayAuth").submit(function (e) {      
+        name = $("#formPlayAuth").find(".input-auth-reg").val();
             e.preventDefault();
             $.post('@Url.Action("PlayNow","Account")', $("formPlayAuth").serialize())
-                    .done(function (data) {
-                        alert(data.succesful);
-                        console.log(data);
+                    .done(function (data) {                                                
                         if (data.succesful) {
-                            
+                                                        
+                            $.connection.hub.start().done(function () { 
+                                network.server.connect(name);                                
+                            });
+
                             $("#playNowHref").hide();
                             $(".close-auth-reg").trigger("click");
                             $("#chatBody").removeClass("hidden");
+                            $("#playNowPanel").hide();
                         }
                         $("#resultAuthReg").html(data);                        
                     }
