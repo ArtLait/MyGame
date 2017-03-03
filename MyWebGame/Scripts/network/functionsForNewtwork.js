@@ -6,7 +6,7 @@
         minutes + " " + resources.minutes;
     return timeStr;
 }
-function createData(name, message) {
+function createData(name, message) {  
     var data = {
         timeStr: getTime(),
         name: name,
@@ -16,7 +16,7 @@ function createData(name, message) {
 }
 function createTemplate(name, message) {
     if (message != '') {
-        $("#messageTmpl").tmpl(createData(name, message)).appendTo(".chat");
+        $("#messageTmpl").tmpl(createData(name, message)).appendTo("#chat");
     }
 }
 function scrollDown() {

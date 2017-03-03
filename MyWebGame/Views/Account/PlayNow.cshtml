@@ -42,6 +42,7 @@
                                 $("#hello").show();
                                 $("#nowConnected").show();
                                 $("#userName").html(name);
+                                messageHandler(name);
                             });
 
                             $("#playNowHref").hide();
@@ -54,5 +55,20 @@
                 );
 
         });
+    function messageHandler(name) {
+        if (name != "") {
 
+            $('#sendmessage').click(function () {
+                // Вызываем у хаба метод Send    
+                console.log(name);
+                network.server.send(name, $('#message').val());
+                $('#message').val('');
+            });
+            $('#message').keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $("#sendmessage").trigger("click");
+                }
+            });
+        }
+    }
 </script>

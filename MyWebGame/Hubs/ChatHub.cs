@@ -27,9 +27,9 @@ namespace MyWebGam.Hubs
                      Connect(name);
                      return name;
                  }
-                 return null;
+                 return "";
              }
-             return null;
+             return "";
         }
 
         // Подключение нового пользователя  
