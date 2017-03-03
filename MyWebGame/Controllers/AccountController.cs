@@ -39,7 +39,8 @@ namespace MyWebGam.Controllers
         public ActionResult PlayNow(PlayNowViewModel model)
         {
             if (ModelState.IsValid)
-            {                
+            {
+                HttpContext.Response.Cookies["nickName"].Value = model.NickName;
                 return Json(new {succesful = true});
             }         
             return PartialView(model);
@@ -143,10 +144,9 @@ namespace MyWebGam.Controllers
                 EmailService emailService = new EmailService();
                 await emailService.SendEmailAsync(registerData.Email, @Resources.Web.ConfirmEmailTheme,
                     TemplateForEmail.Registration(Url.Action("ConfirmEmail", "Account", new { Key = key }, Request.Url.Scheme)));
-                return Json(new { succesful = true });              
+                return Json(new { successful = true });              
               //  return View("WaitingForConfirm");
-            }
-            
+            }            
           
             return PartialView(registerData);
         }
@@ -166,6 +166,10 @@ namespace MyWebGam.Controllers
                 FormsAuthentication.SetAuthCookie(user.Email, true);
             }
             ViewBag.message = message;            
+            return View();
+        }
+        public ActionResult PleaseConfirmedEmail()
+        {
             return View();
         }
 
@@ -190,10 +194,12 @@ namespace MyWebGam.Controllers
                 {
                     if (user.Confirmed)
                     {
-                        FormsAuthentication.SetAuthCookie(user.Email, true);                    
-                        return RedirectToAction("Index", "Home");
-                    }
-                    return PartialView("~/Views/Account/PleaseConfirmedEmail.cshtml");
+                        FormsAuthentication.SetAuthCookie(user.Email, true);
+                        return Json(new { responceMessage = "successful" });
+                        //return RedirectToAction("Index", "Home");
+                    }                    
+                    return Json(new { responceMessage = "emailNotConfirmed" });
+                    //return PartialView("~/Views/Account/PleaseConfirmedEmail.cshtml");
                  }
                  else
                  {
@@ -201,7 +207,7 @@ namespace MyWebGam.Controllers
                  }
                 return PartialView(authorizationUser);
               }
-              //Response.StatusCode = (int)HttpStatusCode.BadRequest;
+             
               return PartialView(authorizationUser); 
            }
         private void deleteCookieAuth()

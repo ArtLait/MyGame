@@ -237,6 +237,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\chat\templatesForChat.js" />
     <Content Include="Scripts\chat\chat.js" />
+    <Content Include="Scripts\network\functionsForNewtwork.js" />
+    <Content Include="Scripts\network\network.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />
@@ -283,8 +285,8 @@
     <Content Include="Views\Shared\_LayoutAuth.cshtml" />
     <Content Include="Views\Account\PleaseConfirmedEmail.cshtml" />
     <Content Include="Views\Home\TestView.cshtml" />
-    <Content Include="Views\Account\PlayNow.cshtml" />
     <Content Include="Views\Account\ResetPasswordError.cshtml" />
+    <Content Include="Views\Account\PlayNow.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -294,7 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\network\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyWebGame.EF\MyWebGame.EF.csproj">

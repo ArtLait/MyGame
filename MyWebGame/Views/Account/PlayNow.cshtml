@@ -9,40 +9,50 @@
 <h1>@ViewBag.userIn</h1>
 <h2>@ViewBag.ChangePasswordIsSuccesfull</h2>
 
-@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal form-auth-reg", role = "form", id = "formPlayAuth" }))
+@using (Html.BeginForm("PlayNow", "Account", FormMethod.Post, new { @class = "form-horizontal form-auth-reg", role = "form", id = "formPlayAuth" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     @Html.LabelFor(model => model.NickName, new { @class = "label-auth-reg" })
-    @Html.TextBoxFor(model => model.NickName, new { required = "true", @class = "input-auth-reg" })
+    @Html.TextBoxFor(model => model.NickName, new { required = "true", @class = "input-auth-reg", autofocus = "autofocus" })
     @Html.ValidationMessageFor(model => model.NickName)
 
     <div id="lower">
-        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
         <input type="submit" id="submitPlayNow" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
     </div>
 }
 
-<script>    
-    
+
+<script>
+
+    var network, name;
+        network = $.connection.chatHub;
+
     $("#formPlayAuth").submit(function (e) {
-        alert("submit");
+        name = $("#formPlayAuth").find(".input-auth-reg").val();
             e.preventDefault();
             $.post('@Url.Action("PlayNow","Account")', $("formPlayAuth").serialize())
                     .done(function (data) {
-                        alert(data.succesful);
-                        console.log(data);
                         if (data.succesful) {
-                            
+
+                            $.connection.hub.start().done(function () {
+                                network.server.connect(name);
+                                $("#hello").show();
+                                $("#nowConnected").show();
+                                $("#userName").html(name);
+                            });
+
                             $("#playNowHref").hide();
                             $(".close-auth-reg").trigger("click");
                             $("#chatBody").removeClass("hidden");
+                            $("#playNowPanel").hide();
                         }
-                        $("#resultAuthReg").html(data);                        
+                        $("#resultAuthReg").html(data);
                     }
                 );
-                     
+
         });
 
 </script>

@@ -1,21 +1,14 @@
-﻿@*@{
-    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
-    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}*@
-
-
-@model MyWebGam.Models.RegisteViewModel
+﻿@model MyWebGam.Models.RegisteViewModel
 
    @using (Html.BeginForm("Registration", "Account", FormMethod.Post,
 
 new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"}))
-    {
-
+    {       
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
         @Html.LabelFor(model => model.Name, new { @class="label-auth-reg"})
-        @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg" })
+        @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg", autofocus = "autofocus" })
         @Html.ValidationMessageFor(model => model.Name)
     
         @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg" })
@@ -32,7 +25,7 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
         @Html.ValidationMessageFor(model => model.Email)
 
         <div id="lower">
-            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
             <input type="submit" id="submitReg" class="input-auth-reg" value="@Resources.Web.RegisterSubmit">
         </div>
    }
@@ -45,8 +38,8 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
             $.post("http://localhost:30657/Account/Registration", $("#formReg").serialize())
                 .done(function (data) {
                     console.log(data);
-                    if (data.succesful) {                        
-                        location.href = "http://localhost:30657/";
+                    if (data.successful) {                        
+                        $("#resultAuthReg").load("http://localhost:30657/");
                     }                    
                     $("#resultAuthReg").html(data);
                 });
@@ -56,22 +49,6 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
 
 
 
-@*<script>
-    $("#formReg").submit(function (e) {
-
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("Registration", "Account")',
-            contentType: false,
-            processData: false,
-            data: $("#formReg").serialize(),
-            succes: function (result) {
-                $("#resultAuthReg").html(result);
-            }
-        });
-    });
-</script>*@
 
 
 

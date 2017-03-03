@@ -231,6 +231,9 @@
   <data name="RegistrationSuccesfull" xml:space="preserve">
     <value>Регистрация прошла успешно</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить меня</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Повторите, пожалуйста, пароль</value>
   </data>

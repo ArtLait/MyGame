@@ -18,15 +18,23 @@
             <button id="authHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.SignIn</button>
             <button id="regHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.Registration</button>                      
         </div>
-        <div id="networkResult">
-            Change languages: 
+        <div id="hdId" class="hidden"></div>
+        <div id="hello" class="display-none">Hello, <span id="userName"></span></div>
+        <div id="nowConnected" class="display-none">Now connected:</div> 
+        <div id="networkResult">           
+           
         </div>
 
         <div>                              
             <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "en" })> <img class="lang-img" src="~/Content/img/englishFlag.png" /> </a>
             <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "ru" })> <img class="lang-img" src="~/Content/img/russianFlag.png" /> </a>       
         </div>
-
+        <div id="deletedUser">
+            <div class="some-test">Some test</div>
+            Deleted user
+        </div>
+  
+       
         <div id="modalAuthReg" class="modal fade" tabindex="-1" role="dialog">
 
             <div class="container-auth-reg animate-auth-reg">
@@ -41,9 +49,9 @@
             </div>
 
 
-        </div>                                    
-           
+        </div>       
         @RenderBody()
+        
 
         </div>
         @Scripts.Render("~/bundles/jquery")
@@ -51,11 +59,13 @@
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/jqueryTemplate")
-        @Scripts.Render("~/bundles/jquerySignalR")
+   @*   @Scripts.Render("~/bundles/jquerySignalR")*@
         @Scripts.Render("~/bundles/threeJs")
 
         @Scripts.Render("~/bundles/authReg")
+        <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
         <script src="~/Scripts/network/network.js"></script>
+        <script src="~/Scripts/network/functionsForNewtwork.js"></script>
         <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
         <script src="~/signalr/hubs"></script>
 

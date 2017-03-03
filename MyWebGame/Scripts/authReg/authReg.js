@@ -1,4 +1,6 @@
 ﻿$("document").ready(function () {
+    //alert(document.cookie);
+    // if(document.cookie.Nick)
 
     $("#modalAuthReg").on("show.bs.modal", function (e) {
         if (e.relatedTarget.id == "authHref") {

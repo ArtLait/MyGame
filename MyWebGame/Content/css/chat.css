@@ -1,11 +1,11 @@
 ﻿.chat-body{
-    position: fixed;
-    right:0;
-    bottom:0;
+    display: none;
+    position:fixed;
+    bottom: 0;
+    right: 0;
 }
 .form-control{    
     width:160px;
     height:30px;
     float: left;
 }
-

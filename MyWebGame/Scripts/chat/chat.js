@@ -1,9 +1,8 @@
-﻿
-$(function () {
+﻿$(function () {
 
     $('#loginBlock').show();
     // Ссылка на автоматиsчески-сгенерированный прокси хаба
-    var chat = $.connection.chatHub;
+    var chat = $.connection.chatHub;    
 
     // Объявление функции, которая хаб вызывает при получении сообщений
     chat.client.addMessage = function (name, message) {
@@ -13,8 +12,7 @@ $(function () {
     };
 
     // Функция, вызываемая при подключении нового пользователя
-    chat.client.onConnected = function (id, userName, allUsers) {
-        alert("onconnected chat");
+    chat.client.onConnected = function (id, userName, allUsers) {    
         $('#loginBlock').hide();
         $('#chatBody').show();
         // установка в скрытых полях имени и id текущего пользователя
