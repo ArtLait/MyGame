@@ -10,7 +10,6 @@ using System.Globalization;
 using MyWebGam.Service;
 using MyWebGam.EF;
 
-
 namespace MyWebGam.Controllers
 {
     public class HomeController : UnAuthorizedController
@@ -20,7 +19,7 @@ namespace MyWebGam.Controllers
         }
         public ActionResult TestView(string str)
         {
-            ViewBag.cookie = HttpContext.Request.Cookies["id"].Value;
+            ViewBag.cookie = HttpContext.Request.Cookies["nickName"].Value;
             return View();            
         }
         // GET: Home

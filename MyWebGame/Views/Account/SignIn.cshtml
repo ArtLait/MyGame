@@ -16,7 +16,7 @@
     @Html.ValidationMessageFor(model => model.Password)
 
     <div id="lower">
-        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
         <input type="submit" id="submitAuth" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
     </div>
 }
@@ -38,7 +38,7 @@
                 location.href = "http://localhost:30657/";                                               
             }
             else if (data.responceMessage == "emailNotConfirmed") {
-                location.href = "http://localhost:30657/Account/PleaseConfirmedEmail";
+                $("#resultAuthReg").load("http://localhost:30657/Account/PleaseConfirmedEmail");
             }
             $("#resultAuthReg").html(data);
         });        

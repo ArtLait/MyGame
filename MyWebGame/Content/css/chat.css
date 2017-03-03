@@ -1,5 +1,8 @@
-﻿#chatBody{
+﻿.chat-body{
     display: none;
+    position:fixed;
+    bottom: 0;
+    right: 0;
 }
 .form-control{    
     width:160px;

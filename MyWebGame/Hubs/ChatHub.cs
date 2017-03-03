@@ -17,7 +17,7 @@ namespace MyWebGam.Hubs
         {           
             repo = new UserRepository();
         }
-        public void checkAuth()
+        public string checkAuthAndGetName()
         {
              if (Context.User.Identity.IsAuthenticated)
              {
@@ -25,9 +25,11 @@ namespace MyWebGam.Hubs
                  if (name != null)
                  {
                      Connect(name);
+                     return name;
                  }
+                 return null;
              }
-      
+             return null;
         }
 
         // Подключение нового пользователя  
@@ -46,47 +48,6 @@ namespace MyWebGam.Hubs
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
             }
         }
-
-
-
-        //public ChatHub()
-        //{           
-        //    repo = new UserRepository();
-        //}       
-
-        //// Подключение нового пользователя  
-        //public void Connect(string userName)
-        //{
-        //    string id = Context.ConnectionId;
-        //    if (userName == "justStarted")
-        //    {
-        //        if (Context.User.Identity.IsAuthenticated)
-        //        {
-        //            var name = repo.GetUserWithEmail(Context.User.Identity.Name);
-        //            if (name != null)
-        //            {                        
-        //                sayClientsAboutConnections(id, name);
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        sayClientsAboutConnections(id, userName);
-        //    }
-        //}
-        //public void sayClientsAboutConnections(string id, string userName)
-        //{
-        //    if (!Users.Any(x => x.ConnectionId == id))
-        //    {
-        //        Users.Add(new UserForChat { ConnectionId = id, Name = userName });
-
-        //        // Посылаем сообщение текущему пользователю
-        //        Clients.Caller.onConnected(id, userName, Users);
-
-        //        // Посылаем сообщение всем пользователям, кроме текущего
-        //        Clients.AllExcept(id).onNewUserConnected(id, userName);
-        //    }
-        //}
 
         // Отправка сообщений
         public void Send(string name, string message)

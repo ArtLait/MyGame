@@ -25,7 +25,7 @@ namespace MyWebGam
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-{version}.js",
                 "~/Scripts/chat/chat.js",
-                "~/Scripts/chat/templatesForChat.js"
+                "~/Scripts/chat/templatesForChat.js"                
                 ));
             bundles.Add(new ScriptBundle("~/bundles/jqueryTemplate").Include(              
                 "~/Scripts/chat/lib/jquery.tmpl.min.js"
@@ -40,8 +40,7 @@ namespace MyWebGam
                 ));
             bundles.Add(new ScriptBundle("~/bundles/authReg").Include(
                 "~/Scripts/authReg/authReg.js"
-                ));
-                      
+                ));                      
 
             //Css
             bundles.Add(new StyleBundle("~/Content/authReg").Include(

@@ -231,6 +231,9 @@
   <data name="RegistrationSuccesfull" xml:space="preserve">
     <value>Registration Successful</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password, please</value>
   </data>

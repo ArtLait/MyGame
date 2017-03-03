@@ -3,8 +3,7 @@
    @using (Html.BeginForm("Registration", "Account", FormMethod.Post,
 
 new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"}))
-    {
-       
+    {       
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
@@ -26,7 +25,7 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
         @Html.ValidationMessageFor(model => model.Email)
 
         <div id="lower">
-            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
+            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
             <input type="submit" id="submitReg" class="input-auth-reg" value="@Resources.Web.RegisterSubmit">
         </div>
    }
@@ -40,7 +39,7 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
                 .done(function (data) {
                     console.log(data);
                     if (data.successful) {                        
-                        location.href = "http://localhost:30657/";
+                        $("#resultAuthReg").load("http://localhost:30657/");
                     }                    
                     $("#resultAuthReg").html(data);
                 });

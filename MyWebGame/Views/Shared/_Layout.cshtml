@@ -54,16 +54,18 @@
         
 
         </div>
-        @Scripts.Render("~/bundles/jquery")   
+        @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/ajax")
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/jqueryTemplate")
-        @Scripts.Render("~/bundles/jquerySignalR")
+   @*   @Scripts.Render("~/bundles/jquerySignalR")*@
         @Scripts.Render("~/bundles/threeJs")
 
         @Scripts.Render("~/bundles/authReg")
+        <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
         <script src="~/Scripts/network/network.js"></script>
+        <script src="~/Scripts/network/functionsForNewtwork.js"></script>
         <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
         <script src="~/signalr/hubs"></script>
 
