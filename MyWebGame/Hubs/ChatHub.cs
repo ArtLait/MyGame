@@ -4,13 +4,19 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using MyWebGam.Models;
+using MyWebGam.EF;
 
 
 namespace MyWebGam.Hubs
 {
     public class ChatHub : Hub
     {
+        UserRepository repo;
         static List<UserForChat> Users = new List<UserForChat>();
+        public ChatHub()
+        {
+            repo = new UserRepository();
+        }
         // Отправка сообщений
         public void Send(string name, string message)
         {
@@ -20,8 +26,25 @@ namespace MyWebGam.Hubs
         // Подключение нового пользователя  
         public void Connect(string userName)
         {
-            var id = Context.ConnectionId;          
-
+            string id = Context.ConnectionId;
+            if (userName == "justStarted")
+            {
+                if (Context.User.Identity.IsAuthenticated)
+                {
+                    var name = repo.GetUserWithEmail(Context.User.Identity.Name);
+                    if (name != null)
+                    {                        
+                        sayClientsAboutConnections(id, name);
+                    }
+                }
+            }
+            else
+            {
+                sayClientsAboutConnections(id, userName);
+            }
+        }
+        public void sayClientsAboutConnections(string id, string userName)
+        {
             if (!Users.Any(x => x.ConnectionId == id))
             {
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });
@@ -33,7 +56,6 @@ namespace MyWebGam.Hubs
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
             }
         }
-
         // Отключение пользователя
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {

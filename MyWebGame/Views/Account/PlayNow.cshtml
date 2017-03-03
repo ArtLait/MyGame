@@ -15,7 +15,7 @@
     @Html.ValidationSummary(true)
 
     @Html.LabelFor(model => model.NickName, new { @class = "label-auth-reg" })
-    @Html.TextBoxFor(model => model.NickName, new { required = "true", @class = "input-auth-reg" })
+    @Html.TextBoxFor(model => model.NickName, new { required = "true", @class = "input-auth-reg", autofocus = "autofocus" })
     @Html.ValidationMessageFor(model => model.NickName)
 
     <div id="lower">
@@ -36,7 +36,10 @@
                         if (data.succesful) {
                                                         
                             $.connection.hub.start().done(function () { 
-                                network.server.connect(name);                                
+                                network.server.connect(name);
+                                $("#hello").show();
+                                $("#nowConnected").show();
+                                $("#userName").html(name);
                             });
 
                             $("#playNowHref").hide();

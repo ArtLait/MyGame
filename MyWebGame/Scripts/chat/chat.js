@@ -3,7 +3,7 @@
 
 //    $('#loginBlock').show();
 //    // Ссылка на автоматиsчески-сгенерированный прокси хаба
-//    var chat = $.connection.chatHub;
+//    var chat = $.connection.chatHub;    
 
 //    // Объявление функции, которая хаб вызывает при получении сообщений
 //    chat.client.addMessage = function (name, message) {

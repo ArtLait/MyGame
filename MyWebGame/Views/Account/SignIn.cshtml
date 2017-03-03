@@ -1,15 +1,10 @@
-﻿@using System.Web.Optimization;
-@*@{
-        if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
-        else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-    }*@
-
-@model MyWebGam.Models.AuthorizationViewModel
+﻿@model MyWebGam.Models.AuthorizationViewModel
 
     <h1>@ViewBag.userIn</h1>
     <h2>@ViewBag.ChangePasswordIsSuccesfull</h2>
 
-@using (Ajax.BeginForm("SignIn", "Account", new AjaxOptions { UpdateTargetId = "resultAuthReg" }, new { @class = "form-horizontal form-auth-reg", role = "form", id = "formAuth" }))
+
+@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal form-auth-reg", role = "form", id = "formAuth" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -20,57 +15,33 @@
     @Html.PasswordFor(model => model.Password, new { required = "true", @class = "input-auth-reg" })
     @Html.ValidationMessageFor(model => model.Password)
 
-
     <div id="lower">
         <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
         <input type="submit" id="submitAuth" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
     </div>
 }
-@*@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal form-auth-reg", role = "form", id = "formAuth" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    @Html.LabelFor(model => model.Name, new { @class = "label-auth-reg" })
-    @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg" })
-    @Html.ValidationMessageFor(model => model.Name)
-    @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg" })
-    @Html.PasswordFor(model => model.Password, new { required = "true", @class = "input-auth-reg" })
-    @Html.ValidationMessageFor(model => model.Password)
-
-
-    <div id="lower">
-        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">Запомнить меня</label>
-        <input type="submit" id="submitAuth" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
-    </div>
-}
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/ajax")
-@Scripts.Render("~/bundles/jqueryval")
-
 
 <script>
- 
-    $("#formAuth").validate().form();
+    var network, name;
+    network = $.connection.chatHub;
+
     $("#formAuth").submit(function (event) {
-        alert("click");
+        name = $("#formAuth").find(".input-auth-reg").val();
         event.preventDefault();        
-      
-        if ($(this).valid()) {
-            $.post("http://localhost:30657/Account/SignIn", $("#formAuth").serialize())
-          .done(function (data) {
-              alert("succes");
-              $("#resultAuthReg").html(data);
-//              window.location.href = "http://localhost:30657/Home/Index";
-          })
-        .fail(function (xhr, textStatus, errorThrown) {
-            alert("fail");
-            console.log(xhr);
-            console.log(textStatus);
-            console.log(errorThrown);
-            $("#resultAuthReg").html(xhr.responceText);
-        });
-        }
+              
+        $.post("http://localhost:30657/Account/SignIn", $("#formAuth").serialize())
+        .done(function (data) {
+            
+            if (data.responceMessage == "successful") {
+
+                alert("successful");
+                location.href = "http://localhost:30657/";                                               
+            }
+            else if (data.responceMessage == "emailNotConfirmed") {
+                location.href = "http://localhost:30657/Account/PleaseConfirmedEmail";
+            }
+            $("#resultAuthReg").html(data);
+        });        
         
     });
-</script>*@
+</script>
