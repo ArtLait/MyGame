@@ -1,11 +1,9 @@
-﻿
-$(function () {
-    var hub = $.connection.hub.start();
+﻿$(function () {
+    
     var network = $.connection.chatHub;    
     
-    hub.done(function () {
-        name = document.cookie.nickName;
-        network.server.connect("justStarted");        
+    $.connection.hub.start().done(function () {
+          network.server.checkAuth();        
     });
 
     network.client.onConnected = function (id, userName, allUsers) {

@@ -14,37 +14,27 @@ namespace MyWebGam.Hubs
         UserRepository repo;
         static List<UserForChat> Users = new List<UserForChat>();
         public ChatHub()
-        {
+        {           
             repo = new UserRepository();
         }
-        // Отправка сообщений
-        public void Send(string name, string message)
+        public void checkAuth()
         {
-            Clients.All.addMessage(name, message);
+             if (Context.User.Identity.IsAuthenticated)
+             {
+                 var name = repo.GetUserWithEmail(Context.User.Identity.Name);
+                 if (name != null)
+                 {
+                     Connect(name);
+                 }
+             }
+      
         }
 
         // Подключение нового пользователя  
         public void Connect(string userName)
         {
             string id = Context.ConnectionId;
-            if (userName == "justStarted")
-            {
-                if (Context.User.Identity.IsAuthenticated)
-                {
-                    var name = repo.GetUserWithEmail(Context.User.Identity.Name);
-                    if (name != null)
-                    {                        
-                        sayClientsAboutConnections(id, name);
-                    }
-                }
-            }
-            else
-            {
-                sayClientsAboutConnections(id, userName);
-            }
-        }
-        public void sayClientsAboutConnections(string id, string userName)
-        {
+
             if (!Users.Any(x => x.ConnectionId == id))
             {
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });
@@ -55,6 +45,53 @@ namespace MyWebGam.Hubs
                 // Посылаем сообщение всем пользователям, кроме текущего
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
             }
+        }
+
+
+
+        //public ChatHub()
+        //{           
+        //    repo = new UserRepository();
+        //}       
+
+        //// Подключение нового пользователя  
+        //public void Connect(string userName)
+        //{
+        //    string id = Context.ConnectionId;
+        //    if (userName == "justStarted")
+        //    {
+        //        if (Context.User.Identity.IsAuthenticated)
+        //        {
+        //            var name = repo.GetUserWithEmail(Context.User.Identity.Name);
+        //            if (name != null)
+        //            {                        
+        //                sayClientsAboutConnections(id, name);
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        sayClientsAboutConnections(id, userName);
+        //    }
+        //}
+        //public void sayClientsAboutConnections(string id, string userName)
+        //{
+        //    if (!Users.Any(x => x.ConnectionId == id))
+        //    {
+        //        Users.Add(new UserForChat { ConnectionId = id, Name = userName });
+
+        //        // Посылаем сообщение текущему пользователю
+        //        Clients.Caller.onConnected(id, userName, Users);
+
+        //        // Посылаем сообщение всем пользователям, кроме текущего
+        //        Clients.AllExcept(id).onNewUserConnected(id, userName);
+        //    }
+        //}
+
+        // Отправка сообщений
+        public void Send(string name, string message)
+        {
+            Clients.All.addMessage(name, message);
         }
         // Отключение пользователя
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
