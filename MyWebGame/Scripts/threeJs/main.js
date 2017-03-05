@@ -41,8 +41,8 @@ function init() {
      sphere.position.y = 4;
      sphere.position.z = 2;
      scene.add(sphere);
-     camera.position.x = -30;
-     camera.position.y = 40;
+     camera.position.x = 0;
+     camera.position.y = 0;
      camera.position.z = 30;
      camera.lookAt(scene.position);
      $("#myGame").append(renderer.domElement);
@@ -55,6 +55,25 @@ function animate() {
     requestAnimationFrame(animate);
     render();
 }
+$("body").keydown(function (e) {
+    if (e.keyCode == 38 || e.keyCode == 87) {
+        cube.position.y += 2;
+        camera.position.y += 2;
+    }   
+    if (e.keyCode == 40 || e.keyCode == 83) {
+        cube.position.y -= 2;
+        camera.position.y -= 2;
+    }
+    if (e.keyCode == 37 || e.keyCode == 65) {
+        cube.position.x -= 2;
+        camera.position.x -= 2;
+    }
+    if (e.keyCode == 39 || e.keyCode == 68) {
+        cube.position.x += 2;
+        camera.position.x += 2;
+    }
+    render();
+});
 function onWindowResize() {
 
     camera.aspect = window.innerWidth / window.innerHeight;

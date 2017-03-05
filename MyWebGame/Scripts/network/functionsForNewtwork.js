@@ -41,3 +41,19 @@ function checkSpaces(str) {
     else bool = false;
     return bool;
 }
+function messageHandler(name, network) {
+    if (name != "") {
+
+        $('#sendmessage').click(function () {
+            // Вызываем у хаба метод Send    
+            console.log(name);
+            network.server.send(name, $('#message').val());
+            $('#message').val('');
+        });
+        $('#message').keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#sendmessage").trigger("click");
+            }
+        });
+    }
+}

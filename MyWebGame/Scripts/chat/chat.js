@@ -39,7 +39,6 @@
 
         $('#' + id).remove();
     }
-
     // Открываем соединение
     $.connection.hub.start().done(function () {
 

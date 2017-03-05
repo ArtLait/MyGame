@@ -1,8 +1,8 @@
-﻿$(function () {
-    
+﻿$(function () {    
     var network = $.connection.chatHub;        
 
-    $.connection.hub.start().done(function () {     
+    $.connection.hub.start().done(function () {
+        network.server.checkAuth();        
     });
 
     network.client.addMessage = function (name, message) {
@@ -32,6 +32,9 @@
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
         }
     };
+    network.client.takeUserName = function (name) {
+        messageHandler(name, network);
+    }
     network.client.onNewUserConnected = function (id, name) {
        
         AddUser(id, name);
