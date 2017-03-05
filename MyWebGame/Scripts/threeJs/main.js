@@ -68,20 +68,24 @@ function onWindowResize() {
     if (e.keyCode == 38 || e.keyCode == 87) {
         cube.position.y += 2;
         camera.position.y += 2;
+        render();
     }
     if (e.keyCode == 40 || e.keyCode == 83) {
         cube.position.y -= 2;
         camera.position.y -= 2;
+        render();
     }
     if (e.keyCode == 37 || e.keyCode == 65) {
         cube.position.x -= 2;
         camera.position.x -= 2;
+        render();
     }
     if (e.keyCode == 39 || e.keyCode == 68) {
         cube.position.x += 2;
         camera.position.x += 2;
+        render();
     }
-    render();
+    
 });
 function render() {
 
