@@ -6,7 +6,6 @@ using Microsoft.AspNet.SignalR;
 using MyWebGam.Models;
 using MyWebGam.EF;
 
-
 namespace MyWebGam.Hubs
 {
     public class ChatHub : Hub
@@ -17,19 +16,16 @@ namespace MyWebGam.Hubs
         {           
             repo = new UserRepository();
         }
-        public string checkAuthAndGetName()
+        public void checkAuth()
         {
              if (Context.User.Identity.IsAuthenticated)
              {
                  var name = repo.GetUserWithEmail(Context.User.Identity.Name);
                  if (name != null)
                  {
-                     Connect(name);
-                     return name;
-                 }
-                 return null;
+                     Connect(name);                    
+                 }           
              }
-             return null;
         }
 
         // Подключение нового пользователя  
@@ -43,6 +39,8 @@ namespace MyWebGam.Hubs
 
                 // Посылаем сообщение текущему пользователю
                 Clients.Caller.onConnected(id, userName, Users);
+
+                Clients.Caller.TakeUserName(userName);                
 
                 // Посылаем сообщение всем пользователям, кроме текущего
                 Clients.AllExcept(id).onNewUserConnected(id, userName);

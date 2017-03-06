@@ -1,25 +1,12 @@
-﻿$(function () {
-    
+﻿$(function () {    
     var network = $.connection.chatHub;        
 
     $.connection.hub.start().done(function () {
-        var name = network.server.checkAuth();
-
-        $('#sendmessage').click(function () {
-            // Вызываем у хаба метод Send
-            alert($("#message").val());
-            network.server.send(name, $('#message').val());
-            $('#message').val('');
-        });
-        $('#message').keydown(function (e) {
-            if (e.keyCode == 13) {
-                $("#sendmessage").trigger("click");
-            }
-        });
+        network.server.checkAuth();        
     });
 
     network.client.addMessage = function (name, message) {
-        // Добавление сообщений на веб-страницу        
+        // Добавление сообщений на веб-страницу           
         createTemplate(name, message);
         scrollDown();
     };
@@ -45,6 +32,9 @@
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
         }
     };
+    network.client.takeUserName = function (name) {
+        messageHandler(name, network);
+    }
     network.client.onNewUserConnected = function (id, name) {
        
         AddUser(id, name);

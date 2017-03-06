@@ -6,7 +6,7 @@
         minutes + " " + resources.minutes;
     return timeStr;
 }
-function createData(name, message) {
+function createData(name, message) {  
     var data = {
         timeStr: getTime(),
         name: name,
@@ -16,7 +16,7 @@ function createData(name, message) {
 }
 function createTemplate(name, message) {
     if (message != '') {
-        $("#messageTmpl").tmpl(createData(name, message)).appendTo(".chat");
+        $("#messageTmpl").tmpl(createData(name, message)).appendTo("#chat");
     }
 }
 function scrollDown() {
@@ -40,4 +40,20 @@ function checkSpaces(str) {
     if (result == -1) bool = true
     else bool = false;
     return bool;
+}
+function messageHandler(name, network) {
+    if (name != "") {
+
+        $('#sendmessage').click(function () {
+            // Вызываем у хаба метод Send    
+            console.log(name);
+            network.server.send(name, $('#message').val());
+            $('#message').val('');
+        });
+        $('#message').keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#sendmessage").trigger("click");
+            }
+        });
+    }
 }
