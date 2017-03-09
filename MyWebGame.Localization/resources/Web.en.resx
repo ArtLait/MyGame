@@ -135,6 +135,9 @@
   <data name="ChangePasswordTitle" xml:space="preserve">
     <value>change password</value>
   </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
   <data name="ChatRoom" xml:space="preserve">
     <value>Chat room</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="EntryNameError" xml:space="preserve">
     <value>Entry name</value>
+  </data>
+  <data name="EntryNickName" xml:space="preserve">
+    <value>Entry nick name</value>
   </data>
   <data name="ErrorEntryNickNameWithoutSpaces" xml:space="preserve">
     <value>Please, entry nickname without spaces</value>
@@ -251,6 +257,9 @@
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>signout</value>
+  </data>
+  <data name="TypeYourMessageHere" xml:space="preserve">
+    <value>Type your message here. . .</value>
   </data>
   <data name="UserIn" xml:space="preserve">
     <value>welcome </value>

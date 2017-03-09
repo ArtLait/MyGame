@@ -43,10 +43,11 @@ function init() {
      scene.add(sphere);
      camera.position.x = 0;
      camera.position.y = 0;
-     camera.position.z = 30;
+     camera.position.z = 300;
      camera.lookAt(scene.position);
      $("#myGame").append(renderer.domElement);
-     $("#myGame").find("canvas").addClass("absolute");
+     $("#myGame").find("canvas").addClass("absolute")
+         .attr('id', 'mainCanvas').attr('tabindex', '1');
      renderer.render(scene, camera);
      window.addEventListener('resize', onWindowResize, false);
 }
@@ -64,29 +65,41 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     render();
-} $("body").keydown(function (e) {
-    if (e.keyCode == 38 || e.keyCode == 87) {
-        cube.position.y += 2;
-        camera.position.y += 2;
-        render();
-    }
-    if (e.keyCode == 40 || e.keyCode == 83) {
-        cube.position.y -= 2;
-        camera.position.y -= 2;
-        render();
-    }
-    if (e.keyCode == 37 || e.keyCode == 65) {
-        cube.position.x -= 2;
-        camera.position.x -= 2;
-        render();
-    }
-    if (e.keyCode == 39 || e.keyCode == 68) {
-        cube.position.x += 2;
-        camera.position.x += 2;
-        render();
-    }
+}
+//$('#mydiv').bind('keydown', function (event) {
+//    console.log(event.keyCode);
+//    //switch (event.keyCode) {
+//    //    //....your actions for the keys .....
+//    //}
+//});
+
+//$("body").keydown(function (e) {
+//    if (e.target.id != "message") {
+//        //network.server.EventHundler(e.keyCode);
+        
+//        if (e.keyCode == 38 || e.keyCode == 87) {
+//            cube.position.y += 2;
+//            camera.position.y += 2;
+//            render();
+//        }
+//        if (e.keyCode == 40 || e.keyCode == 83) {
+//            cube.position.y -= 2;
+//            camera.position.y -= 2;
+//            render();
+//        }
+//        if (e.keyCode == 37 || e.keyCode == 65) {
+//            cube.position.x -= 2;
+//            camera.position.x -= 2;
+//            render();
+//        }
+//        if (e.keyCode == 39 || e.keyCode == 68) {
+//            cube.position.x += 2;
+//            camera.position.x += 2;
+//            render();
+//        }
+//    }
     
-});
+//});
 function render() {
 
     renderer.render(scene, camera);

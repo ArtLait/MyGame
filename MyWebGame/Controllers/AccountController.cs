@@ -32,19 +32,18 @@ namespace MyWebGam.Controllers
             repoReset = new ResetPasswordRepository();
         }
         public ActionResult PlayNow()
-        {       
-            return PartialView();
+        {        
+            return View();
         }
         [HttpPost]
         public ActionResult PlayNow(PlayNowViewModel model)
         {
             if (ModelState.IsValid)
             {
-                HttpContext.Response.Cookies["nickName"].Value = model.NickName;
-                return Json(new {succesful = true});
-            }         
-            return PartialView(model);
-        }
+                return Json(new { successful = true});
+            }
+            return View(model);
+        }      
         public ActionResult OnlyEmail()
         {
             return View();
@@ -68,7 +67,7 @@ namespace MyWebGam.Controllers
             }
             else
             {
-                Response.StatusCode = (int) HttpStatusCode.BadRequest;
+   //             Response.StatusCode = (int) HttpStatusCode.BadRequest;
                 return View(data);
             }            
         }
@@ -107,7 +106,7 @@ namespace MyWebGam.Controllers
                     return RedirectToAction("SignIn", "Account", new { message = Resources.Web.ChangePasswordIsSuccesfull });
                 }                
             }
-            Response.StatusCode = (int) HttpStatusCode.BadRequest;
+  //          Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return View(model);
         }
         public ActionResult Registration()
@@ -191,7 +190,7 @@ namespace MyWebGam.Controllers
              if (ModelState.IsValid)
              {                   
                 if (user != null)
-                {
+                {                    
                     if (user.Confirmed)
                     {
                         FormsAuthentication.SetAuthCookie(user.Email, true);

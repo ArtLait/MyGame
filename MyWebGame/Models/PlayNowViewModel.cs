@@ -9,7 +9,7 @@ namespace MyWebGam.Models
     public class PlayNowViewModel
     {
         [StringLength(20, MinimumLength = 2, ErrorMessageResourceType = typeof(Resources.Web), ErrorMessageResourceName = "LengthRequiredMoreThan1AndLessThan20")]
-        [Display(Name = "NickName")]
-        public string NickName { get; set; }
+        [Display(Name = "EntryNickName", ResourceType = typeof(Resources.Web))]
+        public string Name { get; set; }        
     }
 }

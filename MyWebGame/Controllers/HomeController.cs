@@ -16,12 +16,7 @@ namespace MyWebGam.Controllers
     {
         public HomeController()
         {               
-        }
-        public ActionResult TestView(string str)
-        {
-            ViewBag.cookie = HttpContext.Request.Cookies["nickName"].Value;
-            return View();            
-        }
+        }        
         // GET: Home
         public ActionResult Index(string message)
         {

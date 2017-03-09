@@ -135,6 +135,9 @@
   <data name="ChangePasswordTitle" xml:space="preserve">
     <value>cменить пароль</value>
   </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Чат</value>
+  </data>
   <data name="ChatRoom" xml:space="preserve">
     <value>Чат-комната</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="EntryNameError" xml:space="preserve">
     <value>Введите имя</value>
+  </data>
+  <data name="EntryNickName" xml:space="preserve">
+    <value>Введи никнейм</value>
   </data>
   <data name="ErrorEntryNickNameWithoutSpaces" xml:space="preserve">
     <value>Пожалуйста, введите никнейм без пробелов</value>
@@ -254,6 +260,9 @@
   </data>
   <data name="TryingAgain" xml:space="preserve">
     <value>Попробовать снова</value>
+  </data>
+  <data name="TypeYourMessageHere" xml:space="preserve">
+    <value>Написать сообщение. . .</value>
   </data>
   <data name="UserIn" xml:space="preserve">
     <value>Спасибо,что зашли к нам </value>

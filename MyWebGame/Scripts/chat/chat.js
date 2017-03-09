@@ -49,7 +49,7 @@
             chat.server.send($('#username').val(), $('#message').val());
             $('#message').val('');
         });
-        $('#message').keydown(function (e) {
+        $('#message').keydown(function (e) {            
             if (e.keyCode == 13) {
                 $("#sendmessage").trigger("click");
             }
