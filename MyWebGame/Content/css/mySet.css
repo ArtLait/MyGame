@@ -1,25 +1,25 @@
 ﻿.btn-warning {
   color: #fff;
-  background-color: #385861;
+  background-color: #475073;
   border-color: #606769;
   padding: 5px 8px;
 }
 .btn-warning:focus,
 .btn-warning.focus {
   color: #fff;
-  background-color: #385891;
+  background-color: #385861;
   border-color: #606769;
 }
 .btn-warning:hover {
   color: #fff;
-  background-color: #385891;
+  background-color: #385861;
   border-color: #606769;
 }
 .btn-warning:active,
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
   color: #fff;
-  background-color: #385891;
+  background-color: #385861;
   border-color: #606769;
 }
 .btn-warning:active:hover,
@@ -71,4 +71,7 @@ form.form-auth-reg input[type=submit]:hover{
 form.form-auth-reg input[type=submit]:focus{
     background:#17214B;
     background-image:none;
+}
+.modal-backdrop.in{
+    z-index:0;
 }

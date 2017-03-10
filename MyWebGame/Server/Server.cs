@@ -19,50 +19,47 @@ namespace MyWebGam.Server
         public class ThreadContainer
         {
             public Thread TickThread { get; private set; }
-            public ITickable World { get; private set; }
-            public bool Run { get; set; }            
-            public IHubCallerConnectionContext<dynamic> Clients { get; set; }
+            public ITickable Hub { get; private set; }
+            public World World { get; private set; }
+            public bool Run { get; set; }
+            public object TestClients { get; set; }
             
-            public ThreadContainer(Thread thread, ITickable world, bool run)
+            public ThreadContainer(Thread thread, ITickable hub, World world, bool run , object Clients )
             {
                 TickThread = thread;
+                Hub = hub;
                 World = world;
                 Run = run;
-           //     Clients = Clients;
+                TestClients = Clients;
             }           
         }
-        public static int CreateStream(ITickable obj, IHubCallerConnectionContext<dynamic> Clients)
+        public static int CreateStream(ITickable obj, World world, IHubCallerConnectionContext<dynamic> Clients)
         {            
             Thread thread = new Thread(new ParameterizedThreadStart(Tick));
             var threadId = thread.ManagedThreadId; //id потока
-
+            var container = new ThreadContainer(thread, obj, world, true, Clients);
            // lock (IdOfThreads)
            //{                
-    //            IdOfThreads.TryAdd(threadId, new ThreadContainer(thread, obj, true));//добавил в словарь
+           //     IdOfThreads.TryAdd(threadId, container);//добавил в словарь
            // }
-                thread.Start(Clients);
+                thread.Start(container);
             // создал поток для объекта
             return threadId;
         }
 
         private static void Tick(object obj)
         {
-          //  var data = (ThreadContainer)obj;
-            //var data = (ITickable)obj;
-            //var data = ()obj;           
-            var myStopwatch = new System.Diagnostics.Stopwatch();
-            ChatHub chatHub = Hubs.ChatHub.hub;
-        //  ChatHub world = Hubs.ChatHub.world;
-            //добавить условие прекращения
-            //while (data.Run)  
-                for (var i = 0; i < 300; i++)
-                {
+            var data = (ThreadContainer)obj;
+            
+            var myStopwatch = new System.Diagnostics.Stopwatch();  
+            while (data.Run){  
+               
                     long timeEnd;
                     
                     myStopwatch.Start();
 
                  //   ChatHub chatHub = new ChatHub();
-                    chatHub.Ticked(TickTime, obj);
+                    data.Hub.Ticked(TickTime, data.TestClients, data.World);
                     
                    //data.Ticked(TickTime);                    
                     

@@ -10,77 +10,77 @@
 
 </head>
 <body class="modal-open">
-           
-    <div id="myGame" class="main-container" tabindex="1">
-        <div id="subContainer" class="container-fluid color-main-container">
+    <div id="myGame"></div>
+    <div class="container-fluid color-main-container">
 
-            <div class="reg-auth-block min-padding-block clearfix ">
-                <button id="nickNameHref" class="btn btn-info  btn-lg " type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.PlayNow</button>
-                <button id="authHref" class="btn btn-info btn-lg " type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.SignIn</button>
-                <button id="regHref" class="btn btn-info btn-lg " type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.Registration</button>
+        <div class="reg-auth-block min-padding-block clearfix ">
+            <button id="nickNameHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.PlayNow</button>
+            <button id="authHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.SignIn</button>
+            <button id="regHref" class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#modalAuthReg">@Resources.Web.Registration</button>
+        </div>
+        <div id="hdId" class="hidden"></div>
+        <div id="hello" class="display-none">Hello, <span id="userName"></span></div>
+        <div id="nowConnected" class="display-none">Now connected:</div>
+        <div id="networkResult">
+
+        </div>
+
+        <div>
+            <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "en" })> <img class="lang-img" src="~/Content/img/englishFlag.png" /> </a>
+            <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "ru" })> <img class="lang-img" src="~/Content/img/russianFlag.png" /> </a>
+        </div>
+        <div id="deletedUser">
+            <div class="some-test">Some test</div>
+            Deleted user
+        </div>
+
+
+        <div id="modalAuthReg" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="container-auth-reg animate-auth-reg">
+
+                <ul class="cd-switcher nav nav-tabs">
+                    <li><a id="nickNamePanel" data-toggle="tab" )>@Resources.Web.PlayNow</a></li>
+                    <li><a id="authPanel" data-toggle="tab">@Resources.Web.SignIn</a></li>
+                    <li><a id="regPanel" data-toggle="tab">@Resources.Web.Registration</a></li>
+                    <button class="close-auth-reg" type="button" data-dismiss="modal">×</button>
+                </ul>
+                <div id="resultAuthReg" class="tab-pane fade in active"></div>
             </div>
-            <div id="currentUser">
-                <div id="hdId" class="hidden"></div>
-                <div id="hello" class="display-none">Hello,<b><span id="userName"></span></b></div>
-                <div id="nowConnected" class="display-none">Now connected:</div>
-                <div id="networkResult">
-
-                </div>
-                <div id="disconnectedUsers"></div>
-
-            </div>
-            <div>
-                <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "en" })> <img class="lang-img" src="~/Content/img/englishFlag.png" /> </a>
-                <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "ru" })> <img class="lang-img" src="~/Content/img/russianFlag.png" /> </a>
-            </div>
-
-            <div id="modalAuthReg" class="modal fade" tabindex="-1" role="dialog">
-
-                <div class="container-auth-reg animate-auth-reg">
-
-                    <ul class="cd-switcher nav nav-tabs">
-                        <li><a id="nickNamePanel" data-toggle="tab">@Resources.Web.PlayNow</a></li>
-                        <li><a id="authPanel" data-toggle="tab">@Resources.Web.SignIn</a></li>
-                        <li><a id="regPanel" data-toggle="tab">@Resources.Web.Registration</a></li>                        
-                        <button class="close-auth-reg" type="button" data-dismiss="modal">×</button>
-                    </ul>
-                    <div id="resultAuthReg" class="tab-pane fade in active"></div>
-                </div>
-
-
-            </div>
-            @Html.Partial("~/Views/Shared/Chat.cshtml")
-            @RenderBody()
 
 
         </div>
+        @Html.Partial("~/Views/Shared/Chat.cshtml")
+        @RenderBody()
+
+
     </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/ajax")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/jqueryTemplate")
-   @*   @Scripts.Render("~/bundles/jquerySignalR")*@
-        @Scripts.Render("~/bundles/threeJs")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryTemplate")
+    @*   @Scripts.Render("~/bundles/jquerySignalR")*@
+    @Scripts.Render("~/bundles/threeJs")
 
-        @Scripts.Render("~/bundles/authReg")
-        <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
-        <script src="~/Scripts/network/network.js"></script>
-        <script src="~/Scripts/network/functionsForNewtwork.js"></script>        
-        <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
-        <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/authReg")
+    <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+    <script src="~/Scripts/network/network.js"></script>
+    <script src="~/Scripts/network/functionsForNewtwork.js"></script>
+    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
+    <script src="~/signalr/hubs"></script>
 
-        @RenderSection("scripts", required: false)
-        <script>
-            var resources = {
-                welcome: "@Resources.Web.Welcome",
-                entryNameError: "@Resources.Web.EntryNameError",
-                nameIsTooLength: "@Resources.Web.NameIsTooLength",
-                hours: "@Resources.Web.Hours",
-                minutes: "@Resources.Web.Minutes",
-                errorEntryNickNameWithoutSpaces: "@Resources.Web.ErrorEntryNickNameWithoutSpaces"
-            };
-        </script>
+    @RenderSection("scripts", required: false)
+    <script>
+        var resources = {
+            welcome: "@Resources.Web.Welcome",
+            entryNameError: "@Resources.Web.EntryNameError",
+            nameIsTooLength: "@Resources.Web.NameIsTooLength",
+            hours: "@Resources.Web.Hours",
+            minutes: "@Resources.Web.Minutes",
+            errorEntryNickNameWithoutSpaces: "@Resources.Web.ErrorEntryNickNameWithoutSpaces"
+        };
+    </script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
     //alert(document.cookie);
     // if(document.cookie.Nick)
 
-    $("#modalAuthReg").on("show.bs.modal", function (e) {
+    $("#modalAuthReg").on("show.bs.modal", function (e) {        
         if (e.relatedTarget.id == "authHref") {
             $("#authPanel").trigger("click");
         }

@@ -9,42 +9,21 @@ using MyWebGam.Server;
 using Microsoft.AspNet.SignalR.Hubs;
 
 namespace MyWebGam.Hubs
-{
-    public class World : ChatHub, ITickable
-    {
-        public double x = 0;
-        public double y = 0;
-        public double z = 0;             
-
-        public void AddClient(dynamic client)
-        {            
-          //  WorldClients.Add(client);
-        }
-        public void Ticked(uint TickTime)
-        {            
-            // List<UserForChat> Users = ChatHub.Users;
-           //  WorldClients.Caller.testConsoleLog("Ticked");
-        }
-        public void testServer(string TestMessage)
-        {
-             Clients.All.testClient(TestMessage);
-        }       
-    }
-    
+{      
     public class ChatHub : Hub, ITickable
     {        
         UserRepository repo;
-        public static List<UserForChat> Users = new List<UserForChat>();
-        public static World world = new World();
-        public static ChatHub hub = new ChatHub();          
+                 
+        private static List<UserForChat> Users = new List<UserForChat>();
+        private static World world = new World();
+        private static ChatHub hub = new ChatHub();          
         public ChatHub()
         {                      
             repo = new UserRepository();           
         }
-        public void Ticked(uint ms, object Clients)
+        public void Ticked(uint ms, object Clients, World world)
         {               
-            var WorldClients = (IHubCallerConnectionContext<dynamic>)Clients;
-            WorldClients.All.testConsoleLog("Ticked");
+            var WorldClients = (IHubCallerConnectionContext<dynamic>)Clients;            
             WorldClients.All.updateWorld(world.x, world.y, world.z);
         }
         public void mooved(int keyCode)
@@ -77,25 +56,14 @@ namespace MyWebGam.Hubs
                  }           
              }
         }
-        public void eventHandlerTestArtem()
-        {
-            string result = "- it is work";
-            Clients.All.eventHundler(result);
-            //   Position position = world.Mooved(right);            
-        }
         // Подключение нового пользователя  
         public void Connect(string userName)
-        {                           
-            
-         //   world.Ticked(20); 
-         //   eventHandlerTestArtem();
-        //    Ticked(20);
-       //   world.testServer("successful");
-            
+        {                                                   
             string id = Context.ConnectionId;
 
             if (!Users.Any(x => x.ConnectionId == id))
             {
+                
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });
 
                 // Посылаем сообщение текущему пользователю
@@ -105,8 +73,8 @@ namespace MyWebGam.Hubs
 
                 // Посылаем сообщение всем пользователям, кроме текущего
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-                world.AddClient(Clients.Client(id));
-                var idThread = Server.Server.CreateStream(hub, Clients);
+               
+                var idThread = Server.Server.CreateStream(hub, world, Clients);
             }
         }
        

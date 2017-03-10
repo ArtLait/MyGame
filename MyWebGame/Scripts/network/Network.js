@@ -2,41 +2,39 @@
     var network = $.connection.chatHub;        
     
     $.connection.hub.start().done(function () {
-        network.server.checkAuth();
-       // network.server.eventHandlerTestArtem();
+        network.server.checkAuth();       
     });
-    //For three js
+    //-------------------For three js--------------------
     network.client.updateWorld = function (x, y, z) {
-        console.log(x, y, z);
+        
         cube.position.x = x;
         cube.position.y = y;
         cube.position.z = z;
         render();
-    }
+    }    
+    //---------------------For chat-----------------------
     $("body").keydown(function (e) {
-            if (e.target.id != "message") {
-                //network.server.EventHundler(e.keyCode);
+            if (e.target.id != "message") {                
                 network.server.mooved(e.keyCode);               
-            }
-    
+            }    
         });
 
-    network.client.addMessage = function (name, message) {
-        // Добавление сообщений на веб-страницу           
+    network.client.addMessage = function (name, message) {                
         createTemplate(name, message);
         scrollDown();
     };
 
     network.client.onConnected = function (id, userName, allUsers) {
 
+        //---------------- For chat ----------------
+        $('#loginBlock').hide();
+        $('#chatBody').show();
+        //For other
         $("#hdId").val(id);
         $("#hello").show();
         $("#nowConnected").show();
         $("#userName").html(userName);
-        //For chat
-        $('#loginBlock').hide();
-        $('#chatBody').show();
-        // установка в скрытых полях имени и id текущего пользователя
+        //---------------- For users ----------------
         $('#hdId').val(id);
         $('#username').val(userName);
         $('#header').html('<h3>' + resources.welcome + ", " + conversionHtmlToText(userName) + '</h3>');
@@ -47,25 +45,14 @@
 
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
         }
-    };
-    network.client.testConsoleLog = function (testMessage) {
-        console.log(testMessage);
-    }
-    network.client.eventHundler = function (result) {
-        console.log(result);
-    }
-    network.client.testClient = function (message) {
-        console.log(message);
-    }
+    }; 
+
     network.client.takeUserName = function (name) {
         messageHandler(name, network);
     }
     network.client.onNewUserConnected = function (id, name) {
        
         AddUser(id, name);
-    }
-    network.client.hundler = function (x, y, z) {
-
     }
 
     network.client.onUserDisconnected = function (id, name, allUsers) {
@@ -79,10 +66,6 @@
 
             AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
         }        
-        //$("#networkResult p.another-user b").each( function (index) {
-        //    if ($(this).html() == name)
-        //        $(this).parent().remove();                                 
-        //});
     }
     function htmlEncode(value) {
         var encodedValue = $('<div />').text(value).html();
@@ -90,14 +73,14 @@
     }
     function AddUser(id, name) {
 
-        //For chat
+        //---------------- For chat ----------------
         var userId = $('#hdId').val();
 
         if (userId != id) {
 
             $("#chatusers").append('<p id="' + id + '"><b>' + name + '</b></p>');
         }
-        //For users        
+        //---------------- For users ----------------      
         var userId = $('#hdId').val();        
 
         if (userId != id) {

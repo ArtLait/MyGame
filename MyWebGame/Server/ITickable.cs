@@ -5,11 +5,12 @@ using System.Web;
 using System.Threading.Tasks;
 using MyWebGam.Models;
 using Microsoft.AspNet.SignalR.Hubs;
+using MyWebGam.Hubs;
 
 namespace MyWebGam.Server
 {
     public interface ITickable
     {
-         void Ticked(uint ms, object Clients);
+         void Ticked(uint ms, object Clients, World world);
     }
 }
