@@ -51,6 +51,7 @@ namespace MyWebGam.Controllers
         [HttpPost]
         public async Task<ActionResult> OnlyEmail(OnlyEmailViewModel data)
         {         
+            
             string key = CollectionOfMethods.GetHashString(data.Email);
             if (ModelState.IsValid)
             {

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MyWebGam.CollectionOfMethod
 {
-    public class CollectionOfMethods
+    public  class CollectionOfMethods
     {
         public static string GetHashString(string s)
         {

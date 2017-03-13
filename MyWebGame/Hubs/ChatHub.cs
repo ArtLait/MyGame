@@ -10,40 +10,34 @@ using Microsoft.AspNet.SignalR.Hubs;
 
 namespace MyWebGam.Hubs
 {      
-    public class ChatHub : Hub, ITickable
+    public class ChatHub : Hub
     {        
         UserRepository repo;
                  
         private static List<UserForChat> Users = new List<UserForChat>();
-        private static World world = new World();
-        private static ChatHub hub = new ChatHub();          
+        private static World world = new World();          
         public ChatHub()
         {                      
             repo = new UserRepository();           
-        }
-        public void Ticked(uint ms, object Clients, World world)
-        {               
-            var WorldClients = (IHubCallerConnectionContext<dynamic>)Clients;            
-            WorldClients.All.updateWorld(world.x, world.y, world.z);
-        }
-        public void mooved(int keyCode)
+        }  
+        public void mooved(int keycode)
         {
-            if (keyCode == 38 || keyCode == 87)
+            if (keycode == 38 || keycode == 87)
             {
-                world.y += 10;
+                world.players.FirstOrDefault().Monster.PosY += 10;
             }
-            if (keyCode == 40 || keyCode == 83)
+            if (keycode == 40 || keycode == 83)
             {
-                world.y -= 10;
+                world.players.FirstOrDefault().Monster.PosY -= 10;
             }
-            if (keyCode == 37 || keyCode == 65)
+            if (keycode == 37 || keycode == 65)
             {
-                world.x -= 10;
+                world.players.FirstOrDefault().Monster.PosX -= 10;
             }
-            if (keyCode == 39 || keyCode == 68)
+            if (keycode == 39 || keycode == 68)
             {
-                world.x += 10;
-            }           
+                world.players.FirstOrDefault().Monster.PosX += 10;
+            }
         }
         public void checkAuth()
         {            
@@ -69,15 +63,21 @@ namespace MyWebGam.Hubs
                 // Посылаем сообщение текущему пользователю
                 Clients.Caller.onConnected(id, userName, Users);
 
-                Clients.Caller.TakeUserName(userName);                
-
+                Clients.Caller.TakeUserName(userName);
+                //UserForChat clientTest = new UserForChat(Clients.Client(id));
                 // Посылаем сообщение всем пользователям, кроме текущего
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-               
-                var idThread = Server.Server.CreateStream(hub, world, Clients);
+              //  UserSession testSession = new UserSession(Clients.Caller, "Artem", "555");
+              //  testSession.SetPositions("Test message!");                
+                world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
+                world.InitialCreate(Clients.Caller);
+             //   world.players.FirstOrDefault().SetPositions("Problem is resolved");
+              //  TestClients testClient = new TestClients(Clients.Caller);
+              //  testClient.SetPositions("Test is successful");
+                // Clients.Caller.setPositions("Test is successful");
+                var idThread = Server.Server.CreateStream(world);
             }
         }
-       
         // Отправка сообщений
         public void Send(string name, string message)
         {

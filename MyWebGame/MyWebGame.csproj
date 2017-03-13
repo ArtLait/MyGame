@@ -255,6 +255,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CollectionOfMethods\CollectionOfMethods.cs" />
+    <Compile Include="CollectionOfMethods\RandomCoord.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -272,9 +273,13 @@
     <Compile Include="Models\PlayNowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\UnAuthorizedController.cs" />
-    <Compile Include="Server\GameElements.cs" />
+    <Compile Include="Server\PlayersData.cs" />
+    <Compile Include="Server\World.cs" />
     <Compile Include="Server\ITickable.cs" />
     <Compile Include="Server\Server.cs" />
+    <Compile Include="Server\UserSession.cs" />
+    <Compile Include="Server\UserData.cs" />
+    <Compile Include="Server\WorldData.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

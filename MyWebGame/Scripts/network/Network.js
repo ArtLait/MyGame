@@ -1,24 +1,44 @@
 ﻿$(function () {    
-    var network = $.connection.chatHub;        
+    var network = $.connection.chatHub;
+    var players = [];
     
     $.connection.hub.start().done(function () {
         network.server.checkAuth();       
     });
     //-------------------For three js--------------------
-    network.client.updateWorld = function (x, y, z) {
-        
-        cube.position.x = x;
-        cube.position.y = y;
-        cube.position.z = z;
-        render();
-    }    
-    //---------------------For chat-----------------------
-    $("body").keydown(function (e) {
-            if (e.target.id != "message") {                
-                network.server.mooved(e.keyCode);               
-            }    
-        });
 
+    network.client.initialCreate = function (sizeX, sizeY, newCoord, name) {
+        //var newCoord = JSON.parse(newCoord);        
+        //players.push(name);
+        //createRectangle(players, newCoord.x, newCoord.y);
+    }
+    $("body").click(function (event) {
+        var playerBridge = {
+            name: "Artem"
+            };
+        players.push(playerBridge);
+        createRectangle(players, 40, 40);
+    });
+    
+    network.client.setPositions = function (data) {   
+        var result = JSON.parse(data),
+            name;        
+        for (var i = 0; i < 1; i ++) {
+            name = result[i].userName;
+            cube.position.x = result[i].Monster.PosX;
+            cube.position.y = result[i].Monster.PosY;
+            cube.position.z = result[i].Monster.PosZ;
+        }
+        render();
+    }
+  
+    //$("body").keydown(function (e) {        
+    //    if (e.target.id != "message") {            
+            
+    //            network.server.mooved(e.keyCode);               
+    //        }    
+    //    });
+    //---------------------For chat-----------------------
     network.client.addMessage = function (name, message) {                
         createTemplate(name, message);
         scrollDown();

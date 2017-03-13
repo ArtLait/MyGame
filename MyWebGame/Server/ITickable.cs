@@ -11,6 +11,6 @@ namespace MyWebGam.Server
 {
     public interface ITickable
     {
-         void Ticked(uint ms, object Clients, World world);
+         void Ticked(uint ms);
     }
 }

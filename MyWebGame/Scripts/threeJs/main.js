@@ -51,6 +51,15 @@ function init() {
      renderer.render(scene, camera);
      window.addEventListener('resize', onWindowResize, false);
 }
+function createRectangle(players, x, y) {
+    cubeGeometry = new THREE.CubeGeometry(x, y, 4);
+    cubeMaterial = new THREE.MeshBasicMaterial(
+        { color: 0xff0000, wireframe: true });    
+    players[players.length - 1] = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    players = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    scene.add("Vanya");
+    render();
+}
 function animate() {
     sphere.rotation.x += 2 * Math.PI / 100;
     requestAnimationFrame(animate);
