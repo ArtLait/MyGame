@@ -8,7 +8,7 @@ namespace MyWebGam.Server
     public class UserData
     {
         public string ConnectionId { get; set; }    
-        public float SizeX { get; set; }
-        public float SizeY { get; set; }
+        public float PosX { get; set; }
+        public float PosY { get; set; }
     }    
 }

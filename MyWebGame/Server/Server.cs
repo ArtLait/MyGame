@@ -40,15 +40,16 @@ namespace MyWebGam.Server
 
         private static void Tick(object obj)
         {
-            var data = (ThreadContainer)obj;            
+            var data = (ThreadContainer)obj;
             var myStopwatch = new System.Diagnostics.Stopwatch();
             long timeEnd;
 
-//            while (data.Run){           
-                for (var i = 0; i < 5; i ++){
+            while (data.Run)
+//                for (var i = 0; i < 5; i++)
+              {
                     myStopwatch.Start();
 
-                    data.Tickable.Ticked(TickTime);                                   
+                    data.Tickable.Ticked(TickTime);
                     timeEnd = myStopwatch.ElapsedMilliseconds;
 
                     if (timeEnd < TickTime)

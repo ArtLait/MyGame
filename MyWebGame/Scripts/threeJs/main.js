@@ -6,6 +6,8 @@ var planeGeometry, planeMaterial, plane, sphere,
     cubeGeometry, cubeMaterial, cube,
     sphereGeometry, sphereMaterial, sphere;
 var cross;
+var players = [];
+
 function init() {
      scene = new THREE.Scene();
      camera = new THREE.PerspectiveCamera(45
@@ -29,7 +31,7 @@ function init() {
      cubeMaterial = new THREE.MeshBasicMaterial(
          { color: 0xff0000, wireframe: true });
      cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-     cube.position.x = -4;
+     cube.position.x = -40;
      cube.position.y = 3;
      cube.position.z = 0;
      scene.add(cube);
@@ -52,13 +54,17 @@ function init() {
      window.addEventListener('resize', onWindowResize, false);
 }
 function createRectangle(players, x, y) {
-    cubeGeometry = new THREE.CubeGeometry(x, y, 4);
+     
+    cubeGeometry = new THREE.CubeGeometry(4, 4, 4);
     cubeMaterial = new THREE.MeshBasicMaterial(
         { color: 0xff0000, wireframe: true });    
-    players[players.length - 1] = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    players = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    scene.add("Vanya");
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);   
+    cube.position.x = x;
+    cube.position.y = y;
+    cube.position.z = 0;   
+    scene.add(cube);
     render();
+    return cube;
 }
 function animate() {
     sphere.rotation.x += 2 * Math.PI / 100;

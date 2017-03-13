@@ -1,43 +1,47 @@
 ﻿$(function () {    
     var network = $.connection.chatHub;
-    var players = [];
     
+     
     $.connection.hub.start().done(function () {
-        network.server.checkAuth();       
+        network.server.checkAuth();        
     });
-    //-------------------For three js--------------------
+    //-------------------For three js--------------------  
+    network.client.initialCreate = function (sizeX, sizeY, newCoord, users) {
+       
+        var newCoord = JSON.parse(newCoord);        
+        var users = JSON.parse(users);
+        players = [];
+        for (var i = 0; i < users.length; i++) {
+            var cube = createRectangle(players, users[i].Monster.PosX, users[i].Monster.PosY);
+            players.push({
+                cube: cube
+            });
+        };     
+        $("body").keydown(function (e) {
+            if (e.target.id != "message") {
 
-    network.client.initialCreate = function (sizeX, sizeY, newCoord, name) {
-        //var newCoord = JSON.parse(newCoord);        
-        //players.push(name);
-        //createRectangle(players, newCoord.x, newCoord.y);
-    }
-    $("body").click(function (event) {
-        var playerBridge = {
-            name: "Artem"
-            };
-        players.push(playerBridge);
-        createRectangle(players, 40, 40);
-    });
+                network.server.moovedDown(e.keyCode);
+            }            
+        });
+        $("body").keyup(function (e) {
+            if (e.target.id != "message") {
+
+                network.server.moovedUp(e.keyCode);
+            }
+        });
+    }  
     
     network.client.setPositions = function (data) {   
-        var result = JSON.parse(data),
-            name;        
-        for (var i = 0; i < 1; i ++) {
-            name = result[i].userName;
-            cube.position.x = result[i].Monster.PosX;
-            cube.position.y = result[i].Monster.PosY;
-            cube.position.z = result[i].Monster.PosZ;
+        var result = JSON.parse(data);   
+        for (var i = 0; i < players.length; i ++) {         
+            players[i].cube.position.x = result[i].PosX;
+            players[i].cube.position.y = result[i].PosY;                      
         }
+        
         render();
     }
   
-    //$("body").keydown(function (e) {        
-    //    if (e.target.id != "message") {            
-            
-    //            network.server.mooved(e.keyCode);               
-    //        }    
-    //    });
+  
     //---------------------For chat-----------------------
     network.client.addMessage = function (name, message) {                
         createTemplate(name, message);

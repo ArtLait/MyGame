@@ -11,7 +11,7 @@
     @Html.LabelFor(model => model.Name, new { @class = "label-auth-reg" })
     @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg", autofocus = "" })
     @Html.ValidationMessageFor(model => model.Name)
-    @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg" })
+    @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg", style = "display:block" })
     @Html.PasswordFor(model => model.Password, new { required = "true", @class = "input-auth-reg" })
     @Html.ValidationMessageFor(model => model.Password)
 
