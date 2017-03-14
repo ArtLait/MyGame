@@ -6,20 +6,21 @@
         network.server.checkAuth();        
     });
     //-------------------For three js--------------------  
-    network.client.initialCreate = function (sizeX, sizeY, newCoord, users) {
-       
-        var newCoord = JSON.parse(newCoord);        
-        var users = JSON.parse(users);
-        players = [];
-        for (var i = 0; i < users.length; i++) {
+    //network.client.initialSettings = function (worldSizeX, worldSizeY) {
+    //    plane.scale.set(worldSizeX, worldSizeY, 1);
+    //}
+    network.client.addMoreMembers = function (sizeX, sizeY, users) {
+                
+        var users = JSON.parse(users);        
+        for (var i = players.length; i < users.length; i++) {
             var cube = createRectangle(players, users[i].Monster.PosX, users[i].Monster.PosY);
             players.push({
                 cube: cube
             });
-        };     
+        };
+        
         $("body").keydown(function (e) {
-            if (e.target.id != "message") {
-
+            if (e.target.id != "message") {                
                 network.server.moovedDown(e.keyCode);
             }            
         });

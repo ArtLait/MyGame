@@ -17,10 +17,10 @@ namespace MyWebGam.Server
         public List<UserSession> players = new List<UserSession>();
         public World()
         {
-            SizeX = 800;
-            SizeY = 800;        
+            SizeX = 80;
+            SizeY = 80;        
         }
-        public void Ticked(uint ms)
+        public void Ticked(float ms)
         {
             foreach (var player in players)
             {
@@ -33,19 +33,23 @@ namespace MyWebGam.Server
                 var result = JsonConvert.SerializeObject(resultObject);                
                 player.SetPositions(result);
             }
-        }
+        }      
         public void AddPlayer(UserSession session)
         {
             players.Add(session);
         }
-        public void InitialCreate(dynamic Clientr)
-        {            
-            foreach(UserSession item in players){
+        public void InitialCreate(string id)
+        {
+            var users = JsonConvert.SerializeObject(players);           
+            UserSession CurrentClient = players.FirstOrDefault(t => t.ConnectionId == id);
             Positions newCoord = RandomCoord.Monster((int)SizeX, (int)SizeY);
-            var resultCoord = JsonConvert.SerializeObject(newCoord);
-            var users = JsonConvert.SerializeObject(players);
-            var currentClient = (dynamic) item.Client;
-            currentClient.initialCreate(SizeX, SizeY, resultCoord, users);
+            CurrentClient.Monster.PosX = newCoord.x;
+            CurrentClient.Monster.PosY = newCoord.y;
+            //CurrentClient.Client.initialSettings(SizeX, SizeY);
+            
+            foreach(var item in players){   
+                                                         
+                item.Client.addMoreMembers(SizeX, SizeY, users);
             }
         }
         public void RemovePlayer(UserSession session)

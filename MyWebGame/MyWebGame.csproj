@@ -162,6 +162,7 @@
     <Content Include="Content\css\mySet.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\threeJs.css" />
     <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\englishFlag.png" />
     <Content Include="Content\img\russianFlag.png" />

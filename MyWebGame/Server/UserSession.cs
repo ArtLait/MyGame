@@ -9,32 +9,38 @@ namespace MyWebGam.Server
 {
     public class UserSession : Hub
     {
-        public object Client { get; set; }       
+        public dynamic Client { get; set; }
+        public object TestClient { get; set; }   
         public string UserName { get; private set; }
         public string ConnectionId { get; private set; }
         public Monster Monster { get; private set; }
 
         public UserSession(dynamic client, string userName, string connectionId)
         {
-            Client = client;      
+            Client = client;
+            TestClient = client;
             UserName = userName;
             ConnectionId = connectionId;
             Monster = new Monster();                       
         }
         public void SetPositions(string data)
         {
-            var MyClient = (dynamic)Client;
-            MyClient.setPositions(data);
+            Client.setPositions(data);
         }
     }
     public class Monster : ITickable
     {
         public float SizeX { get; private set; }
         public float SizeY { get; private set; }
+        public float SizeWorldX { get; private set; }
+        public float SizeWorldY { get; private set; }
 
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float PosZ { get; set; }
+        public float NewPosX {get; set;}
+        public float NewPosY {get; set;}
+        public float NewPosZ { get; set; }
         public float SpeedX { get; set; }
         public float SpeedY { get; set; }
 
@@ -42,14 +48,22 @@ namespace MyWebGam.Server
         {
             PosX = 0;
             PosY = 0;
-            PosZ = 0;
+            PosZ = 0;            
             SpeedX = 0;
             SpeedY = 0;
         }
-        public void Ticked(uint ms)
+        public void Ticked(float ms)
         {
-            PosX += (float)0.02 * SpeedX;
-            PosY += (float)0.02 * SpeedY;
+            NewPosX =  ms * SpeedX/ 1000;
+            NewPosY =  ms * SpeedY/ 1000;
+            if(NewPosX + SizeX < SizeWorldX && NewPosY < SizeWorldY){
+                PosX += ms * SpeedX/ 1000;
+                PosY += ms * SpeedY/ 1000;
+            }
+        }
+        private void CheckBorder()
+        {
+            
         }
     }
 

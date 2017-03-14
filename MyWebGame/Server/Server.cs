@@ -13,7 +13,7 @@ namespace MyWebGam.Server
     public static class Server
     {
         private static ConcurrentDictionary<int, ThreadContainer> IdOfThreads = new ConcurrentDictionary<int,ThreadContainer>();
-        const int TickTime = 20;
+        const float TickTime = 20;
 
         public class ThreadContainer
         {
@@ -42,7 +42,7 @@ namespace MyWebGam.Server
         {
             var data = (ThreadContainer)obj;
             var myStopwatch = new System.Diagnostics.Stopwatch();
-            long timeEnd;
+            float timeEnd;
 
             while (data.Run)
 //                for (var i = 0; i < 5; i++)
