@@ -44,4 +44,3 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame.Loc
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame.Localization\obj\Debug\en\MyWebGame.Localization.resources.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.pdb
-D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csprojResolveAssemblyReference.cache

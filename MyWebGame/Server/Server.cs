@@ -29,7 +29,7 @@ namespace MyWebGam.Server
             }           
         }
         public static int CreateStream(ITickable world)
-        {            
+        {               
             Thread thread = new Thread(new ParameterizedThreadStart(Tick));
             var threadId = thread.ManagedThreadId; 
             var container = new ThreadContainer(thread, world, true);
@@ -45,7 +45,7 @@ namespace MyWebGam.Server
             float timeEnd;
 
             while (data.Run)
-                for (var i = 0; i < 5; i++)
+  //              for (var i = 0; i < 5; i++)
               {
                     myStopwatch.Start();
 

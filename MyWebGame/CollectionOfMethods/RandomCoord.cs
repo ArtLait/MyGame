@@ -7,19 +7,18 @@ namespace MyWebGam.Server
 {
     public static class NewRandom
     {
-        public static Positions CoordMonster(int SizeX, int SizeY, int SizeMonsterX, int SizeMonsterY)
+        public static PositionMonster CoordMonster(int SizeX, int SizeY, int SizeMonsterX, int SizeMonsterY)
         {
             Random rnd = new Random();
-            return new Positions()
+            return new PositionMonster()
             {
-                //x = rnd.Next(-SizeX/2 + SizeMonsterX, SizeX/2 - SizeMonsterX),
-                //y = rnd.Next(-SizeY/2 + SizeMonsterY, SizeY/2 - SizeMonsterY)
-                x = rnd.Next(-SizeX / 2, SizeX / 2 ),
-                y = rnd.Next(-SizeY / 2, SizeY / 2 )
+                x = rnd.Next(-SizeX/2 + SizeMonsterX, SizeX/2 - SizeMonsterX),
+                y = rnd.Next(-SizeY/2 + SizeMonsterY, SizeY/2 - SizeMonsterY)
+               
             };
         }       
     }   
-    public class Positions
+    public class PositionMonster
     {
         public int x { get; set; }
         public int y { get; set; }

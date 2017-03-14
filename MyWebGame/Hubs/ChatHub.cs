@@ -21,44 +21,12 @@ namespace MyWebGam.Hubs
             repo = new UserRepository();
         }
         public void moovedDown(int keycode)
-        {
-            string id = Context.ConnectionId;
-            if (keycode == 38 || keycode == 87)
-            {                
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 10;
-            }
-            if (keycode == 40 || keycode == 83)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = -10;
-            }
-            if (keycode == 37 || keycode == 65)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = -10;
-            }
-            if (keycode == 39 || keycode == 68)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 10;
-            }
+        {            
+            world.MooveDown(Context.ConnectionId, keycode);
         }
         public void moovedUp(int keycode)
         {
-            string id = Context.ConnectionId;
-            if (keycode == 38 || keycode == 87)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 0;
-            }
-            if (keycode == 40 || keycode == 83)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 0;
-            }
-            if (keycode == 37 || keycode == 65)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 0;
-            }
-            if (keycode == 39 || keycode == 68)
-            {
-                world.players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 0;
-            }
+            world.MooveUp(Context.ConnectionId, keycode);
         }
         public void checkAuth()
         {
@@ -80,24 +48,20 @@ namespace MyWebGam.Hubs
             {
 
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });
-
-                // Посылаем сообщение текущему пользователю
+             
                 Clients.Caller.onConnected(id, userName, Users);
 
                 Clients.Caller.TakeUserName(userName);
-                //UserForChat clientTest = new UserForChat(Clients.Client(id));
-                // Посылаем сообщение всем пользователям, кроме текущего
+               
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-                //  UserSession testSession = new UserSession(Clients.Caller, "Artem", "555");
-                //  testSession.SetPositions("Test message!");                
+                              
                 world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
-                world.InitialCreate(id, Clients.Caller);
-                //   world.players.FirstOrDefault().SetPositions("Problem is resolved");
-                //  TestClients testClient = new TestClients(Clients.Caller);
-                //  testClient.SetPositions("Test is successful");
-                // Clients.Caller.setPositions("Test is successful");
-                var idThread = Server.Server.CreateStream(world);
-            }
+                
+                if (Users.Count == 1)
+                {
+                    var idThread = Server.Server.CreateStream(world);
+                }
+             }
         }
         // Отправка сообщений
         public void Send(string name, string message)

@@ -34,7 +34,7 @@
                 cube: cube
             });
         };
-        
+
         $("body").keydown(function (e) {
             if (e.target.id != "message") {
                 
