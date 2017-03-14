@@ -53,17 +53,9 @@ namespace MyWebGam.Server
             SpeedY = 0;
         }
         public void Ticked(float ms)
-        {
-            NewPosX =  ms * SpeedX/ 1000;
-            NewPosY =  ms * SpeedY/ 1000;
-            if(NewPosX + SizeX < SizeWorldX && NewPosY < SizeWorldY){
-                PosX += ms * SpeedX/ 1000;
-                PosY += ms * SpeedY/ 1000;
-            }
-        }
-        private void CheckBorder()
-        {
-            
+        {            
+            PosX += ms * SpeedX/ 1000;
+            PosY += ms * SpeedY/ 1000;            
         }
     }
 

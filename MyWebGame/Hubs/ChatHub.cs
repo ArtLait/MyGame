@@ -91,7 +91,7 @@ namespace MyWebGam.Hubs
                 //  UserSession testSession = new UserSession(Clients.Caller, "Artem", "555");
                 //  testSession.SetPositions("Test message!");                
                 world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
-                world.InitialCreate(id);
+                world.InitialCreate(id, Clients.Caller);
                 //   world.players.FirstOrDefault().SetPositions("Problem is resolved");
                 //  TestClients testClient = new TestClients(Clients.Caller);
                 //  testClient.SetPositions("Test is successful");

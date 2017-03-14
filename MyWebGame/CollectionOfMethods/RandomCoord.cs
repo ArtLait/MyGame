@@ -12,8 +12,8 @@ namespace MyWebGam.Server
             Random rnd = new Random();
             return new Positions()
             {
-                x = rnd.Next(-SizeX, SizeX),
-                y = rnd.Next(-SizeY, SizeY)
+                x = rnd.Next(-SizeX/2, SizeX/2),
+                y = rnd.Next(-SizeY/2, SizeY/2)
             };
         }
     }

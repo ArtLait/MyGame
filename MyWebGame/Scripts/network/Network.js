@@ -6,9 +6,9 @@
         network.server.checkAuth();        
     });
     //-------------------For three js--------------------  
-    //network.client.initialSettings = function (worldSizeX, worldSizeY) {
-    //    plane.scale.set(worldSizeX, worldSizeY, 1);
-    //}
+    network.client.initialSettings = function (worldSizeX, worldSizeY) {       
+        plane.scale.set(worldSizeX, worldSizeY, 1);
+    }
     network.client.addMoreMembers = function (sizeX, sizeY, users) {
                 
         var users = JSON.parse(users);        
@@ -20,7 +20,8 @@
         };
         
         $("body").keydown(function (e) {
-            if (e.target.id != "message") {                
+            if (e.target.id != "message") {
+                
                 network.server.moovedDown(e.keyCode);
             }            
         });

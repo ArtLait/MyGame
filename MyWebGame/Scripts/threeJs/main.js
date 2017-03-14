@@ -10,8 +10,10 @@ var players = [];
 
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(45
-       , window.innerWidth / window.innerHeight, 0.1, 1000);
+    //camera = new THREE.PerspectiveCamera(45
+    //   , window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2 , 1, 1000)
+    console.log(camera);
     //var controls = new THREE.OrbitControls(camera);
     //controls.addEventListener('change', render);
     renderer = new THREE.WebGLRenderer();
@@ -19,13 +21,12 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     axes = new THREE.AxisHelper(20);
     scene.add(axes);
-    planeGeometry = new THREE.PlaneGeometry(60, 20, 1, 1);
+    planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
     plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = -0.5 * Math.PI;
-    plane.position.x = 15;
+    plane.position.x = 0;
     plane.position.y = 0;
-    plane.position.z = 0;
+    plane.position.z = 30;
     scene.add(plane);
     cubeGeometry = new THREE.CubeGeometry(4, 4, 4);
     cubeMaterial = new THREE.MeshBasicMaterial(
@@ -45,7 +46,7 @@ function init() {
     scene.add(sphere);
     camera.position.x = 0;
     camera.position.y = 0;
-    camera.position.z = 300;
+    camera.position.z = 0;
     camera.lookAt(scene.position);
     $("#myGame").append(renderer.domElement);
     $("#myGame").find("canvas").addClass("absolute")
