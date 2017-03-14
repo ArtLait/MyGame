@@ -45,7 +45,7 @@ namespace MyWebGam.Server
             float timeEnd;
 
             while (data.Run)
-//                for (var i = 0; i < 5; i++)
+                for (var i = 0; i < 5; i++)
               {
                     myStopwatch.Start();
 

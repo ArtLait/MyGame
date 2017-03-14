@@ -275,6 +275,7 @@
     <Compile Include="Models\PlayNowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\UnAuthorizedController.cs" />
+    <Compile Include="Server\DataForInitialCreate.cs" />
     <Compile Include="Server\PlayersData.cs" />
     <Compile Include="Server\World.cs" />
     <Compile Include="Server\ITickable.cs" />

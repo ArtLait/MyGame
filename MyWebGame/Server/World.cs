@@ -74,7 +74,8 @@ namespace MyWebGam.Server
         }
         public void InitialCreate(string id, dynamic CallerClient)
         {
-            var users = JsonConvert.SerializeObject(players);           
+            var data = players.Select(t => new DataForInitialCreate() { PosX = t.Monster.PosX, PosY = t.Monster.PosY, SizeX = t.Monster.SizeX, SizeY = t.Monster.SizeY, Color = t.Monster.Color });
+            var users = JsonConvert.SerializeObject(data);           
             UserSession CurrentClient = players.FirstOrDefault(t => t.ConnectionId == id);
             Positions newCoord = NewRandom.CoordMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
             CurrentClient.Monster.PosX = newCoord.x;

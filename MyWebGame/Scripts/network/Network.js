@@ -9,13 +9,27 @@
     network.client.initialSettings = function (worldSizeX, worldSizeY) {       
         plane.scale.set(worldSizeX, worldSizeY, 1);
     }
-    network.client.addMoreMembers = function (sizeX, sizeY, users) {
+    //network.client.addMoreMembers = function (sizeX, sizeY, users) {
                       
-        var users = JSON.parse(users);
-        console.log(users);
-        for (var i = players.length; i < users.length; i++) {
-            console.log(users[i].Monster.sizeX, users[i].Monster.sizeX);
-            var cube = createRectangle(players, users[i].Monster.PosX, users[i].Monster.PosY, users[i].Monster.SizeX, users[i].Monster.SizeY, users[i].Monster.Color);
+    //    var users = JSON.parse(users);
+    //    console.log(users);
+    //    for (var i = players.length; i < users.length; i++) {
+    //        console.log(users[i].Monster.sizeX, users[i].Monster.sizeX);
+    //        var cube = createRectangle(players, users[i].Monster.PosX,
+    //            users[i].Monster.PosY, users[i].Monster.SizeX, users[i].Monster.SizeY,
+    //            users[i].Monster.Color);
+    //        players.push({
+    //            cube: cube
+    //        });
+    //    };
+
+    network.client.addMoreMembers = function (sizeX, sizeY, users) {
+
+        var users = JSON.parse(users);        
+        for (var i = players.length; i < users.length; i++) {           
+            var cube = createRectangle(players, users[i].PosX,
+                users[i].PosY, users[i].SizeX, users[i].SizeY,
+                users[i].Color);
             players.push({
                 cube: cube
             });
