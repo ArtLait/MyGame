@@ -30,8 +30,8 @@ namespace MyWebGam.Server
     }
     public class Monster : ITickable
     {
-        public float SizeX { get; private set; }
-        public float SizeY { get; private set; }
+        public int SizeX { get; private set; }
+        public int SizeY { get; private set; }
         public float SizeWorldX { get; private set; }
         public float SizeWorldY { get; private set; }
 
@@ -43,14 +43,19 @@ namespace MyWebGam.Server
         public float NewPosZ { get; set; }
         public float SpeedX { get; set; }
         public float SpeedY { get; set; }
+        public string Color { get; set; }
 
         public Monster()
-        {
+        {            
             PosX = 0;
             PosY = 0;
             PosZ = 0;            
             SpeedX = 0;
             SpeedY = 0;
+            SizeX = 4;
+            SizeY = 4;
+            Color color = new Color();
+            Color = color.NewRandom();
         }
         public void Ticked(float ms)
         {            

@@ -10,10 +10,12 @@
         plane.scale.set(worldSizeX, worldSizeY, 1);
     }
     network.client.addMoreMembers = function (sizeX, sizeY, users) {
-                
-        var users = JSON.parse(users);        
+                      
+        var users = JSON.parse(users);
+        console.log(users);
         for (var i = players.length; i < users.length; i++) {
-            var cube = createRectangle(players, users[i].Monster.PosX, users[i].Monster.PosY);
+            console.log(users[i].Monster.sizeX, users[i].Monster.sizeX);
+            var cube = createRectangle(players, users[i].Monster.PosX, users[i].Monster.PosY, users[i].Monster.SizeX, users[i].Monster.SizeY, users[i].Monster.Color);
             players.push({
                 cube: cube
             });

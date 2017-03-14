@@ -24,7 +24,8 @@ namespace MyWebGam.Server
         {
             foreach (var player in players)
             {
-                player.Monster.Ticked(ms);
+                if(CheckTheBorder(player, ms))
+                player.Monster.Ticked(ms);                
             }            
 
             foreach (var player in players)
@@ -34,8 +35,9 @@ namespace MyWebGam.Server
                 player.SetPositions(result);
             }
         }
-        private void CheckTheBorder(UserSession player, float ms)
+        private bool CheckTheBorder(UserSession player, float ms)
         {
+            bool InWorldSize = true;
             var PosX = player.Monster.PosX;
             var PosY = player.Monster.PosY;
             var SizeMonsterX = player.Monster.SizeX;
@@ -44,13 +46,27 @@ namespace MyWebGam.Server
             var SpeedY = player.Monster.SpeedY;
             var newPosX = ms * SpeedX / 1000;
             var newPosY = ms * SpeedY / 1000;
-            if ( ((PosX + SizeMonsterX/2) < SizeX) && ((PosY + SizeMonsterY/2) < SizeY)){
-
-            }
-            else
+            if ( PosX > SizeX / 2)
             {
-
+                player.Monster.PosX = -SizeX / 2;
+                InWorldSize = false;
             }
+            if (PosY > SizeY / 2)
+            {
+                player.Monster.PosY = -SizeY / 2;
+                InWorldSize = false;
+            }
+            if (PosX  < -SizeX / 2)
+            {
+                player.Monster.PosX = SizeX / 2;
+                InWorldSize = false;
+            }
+            if (PosY  < -SizeY / 2)
+            {
+                player.Monster.PosY = +SizeY / 2;
+                InWorldSize = false;
+            }
+            return InWorldSize;
         }     
         public void AddPlayer(UserSession session)
         {
@@ -60,7 +76,7 @@ namespace MyWebGam.Server
         {
             var users = JsonConvert.SerializeObject(players);           
             UserSession CurrentClient = players.FirstOrDefault(t => t.ConnectionId == id);
-            Positions newCoord = RandomCoord.Monster((int)SizeX, (int)SizeY);
+            Positions newCoord = NewRandom.CoordMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
             CurrentClient.Monster.PosX = newCoord.x;
             CurrentClient.Monster.PosY = newCoord.y;
             CallerClient.initialSettings(SizeX, SizeY);
