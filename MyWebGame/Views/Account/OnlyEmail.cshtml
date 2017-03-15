@@ -1,14 +1,10 @@
-﻿@*@{
-    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
-    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}*@
-@model MyWebGam.Models.OnlyEmailViewModel
+﻿@model MyWebGam.Models.OnlyEmailViewModel
 <div class="container-fluid">
     @using (Html.BeginForm("OnlyEmail", "Account", FormMethod.Post, 
         new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
+        @Html.ValidationSummary(true)
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>

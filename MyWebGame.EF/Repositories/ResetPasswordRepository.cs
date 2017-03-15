@@ -22,6 +22,10 @@ namespace MyWebGam.EF
             db.ResetPasswords.Add(model);
             db.SaveChanges();
         }
+        public User GetUserWithEmail(string email)
+        {
+            return db.Users.FirstOrDefault(t => t.Email == email);
+        }
         public ResetPassword CheckKey(string key)
         {          
             return db.ResetPasswords.FirstOrDefault(t => t.Key == key);

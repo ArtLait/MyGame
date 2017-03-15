@@ -25,4 +25,9 @@ namespace MyWebGam.Server
             };
         }
     }
+    public class PositionMonster
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+    }
 }

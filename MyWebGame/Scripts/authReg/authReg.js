@@ -24,6 +24,5 @@
     $("#regPanel").click(function (e) {
         e.preventDefault();
         $("#resultAuthReg").load("http://localhost:30657/Account/Registration");
-    });
-   
+    });     
 });

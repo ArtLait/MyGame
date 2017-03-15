@@ -17,7 +17,6 @@ namespace MyWebGam.Hubs
         private static List<UserForChat> Users = new List<UserForChat>();
         private static World world = null;
         private static int idThread = 0;
-
         static ChatHub()
         {
             world = new World();
