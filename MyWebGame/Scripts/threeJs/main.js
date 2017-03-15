@@ -23,9 +23,8 @@ function init() {
     planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
     plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.position.x = 0;
-    plane.position.y = 0;
-    plane.position.z = 0;
+    plane.position.set(0, 0, -1);
+    plane.scale.set(100, 100, 100);
     scene.add(plane);        
     //sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
     //sphereMaterial = new THREE.MeshBasicMaterial(
@@ -35,10 +34,8 @@ function init() {
     //sphere.position.y = 4;
     //sphere.position.z = 2;
     //scene.add(sphere);
-    camera.position.x = 0;
-    camera.position.y = 0;
-    camera.position.z = 300;
     camera.lookAt(scene.position);
+    camera.position.set(0, 0, 2);
     $("#myGame").append(renderer.domElement);
     $("#myGame").find("canvas").addClass("absolute")
         .attr('id', 'mainCanvas').attr('tabindex', '1');

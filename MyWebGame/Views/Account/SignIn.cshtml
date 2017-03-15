@@ -10,10 +10,12 @@
     @Html.ValidationSummary(true)
     @Html.LabelFor(model => model.Name, new { @class = "label-auth-reg" })
     @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg", autofocus = "" })
-    @Html.ValidationMessageFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)   
     @Html.LabelFor(model => model.Password, new { @class = "label-auth-reg", style = "display:block" })
     @Html.PasswordFor(model => model.Password, new { required = "true", @class = "input-auth-reg" })
     @Html.ValidationMessageFor(model => model.Password)
+
+    <div class="forgot-password">@Html.ActionLink(@Resources.Web.ForgotPassword, "OnlyEmail", "Account")</div>
 
     <div id="lower">
         <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>

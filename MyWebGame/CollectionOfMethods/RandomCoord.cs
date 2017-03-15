@@ -14,7 +14,6 @@ namespace MyWebGam.Server
             {
                 x = rnd.Next(-SizeX/2 + SizeMonsterX, SizeX/2 - SizeMonsterX),
                 y = rnd.Next(-SizeY/2 + SizeMonsterY, SizeY/2 - SizeMonsterY)
-               
             };
         }       
     }   

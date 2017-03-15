@@ -170,3 +170,7 @@ form.form-auth-reg input[type=submit]:active {
     position:absolute;
     right:0;
 }
+.forgot-password{
+    padding-top:10px;
+    margin-left:18px;
+}
