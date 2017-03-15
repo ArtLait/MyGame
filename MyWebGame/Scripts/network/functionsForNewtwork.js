@@ -46,7 +46,6 @@ function messageHandler(name, network) {
 
         $('#sendmessage').click(function () {
             // Вызываем у хаба метод Send    
-            console.log(name);
             network.server.send(name, $('#message').val());
             $('#message').val('');
         });

@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Чат.
+        /// </summary>
+        public static string Chat {
+            get {
+                return ResourceManager.GetString("Chat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Чат-комната.
         /// </summary>
         public static string ChatRoom {
@@ -219,6 +228,15 @@ namespace Resources {
         public static string EntryNameError {
             get {
                 return ResourceManager.GetString("EntryNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введи никнейм.
+        /// </summary>
+        public static string EntryNickName {
+            get {
+                return ResourceManager.GetString("EntryNickName", resourceCulture);
             }
         }
         
@@ -471,6 +489,15 @@ namespace Resources {
         public static string TryingAgain {
             get {
                 return ResourceManager.GetString("TryingAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Написать сообщение. . ..
+        /// </summary>
+        public static string TypeYourMessageHere {
+            get {
+                return ResourceManager.GetString("TypeYourMessageHere", resourceCulture);
             }
         }
         

@@ -22,11 +22,10 @@
 /* Basics */
 
 .container-auth-reg {
-	position: fixed;
-	width: 340px;
-	height: 400px;	
+	position: fixed;   
+	width: 400px;	
 	left: 50%;
-    top: 15%;   	
+    top: 28%;   	
 	margin-left: -170px;
 	background: #fff;
 	border-radius: 3px;
@@ -170,4 +169,8 @@ form.form-auth-reg input[type=submit]:active {
 .close-auth-reg{
     position:absolute;
     right:0;
+}
+.forgot-password{
+    padding-top:10px;
+    margin-left:18px;
 }

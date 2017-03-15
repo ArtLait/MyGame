@@ -1,0 +1,53 @@
+﻿<div id="chatBody" class="chat-body col-sm-5 col-md-3 col-lg-3 hidden">
+    <div class="panel panel-primary">
+        <div class="panel-heading" id="accordion">
+            <span class="glyphicon glyphicon-comment"></span> @Resources.Web.Chat
+            <div class="btn-group pull-right">
+                <a type="button" id="tooglesChat" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </a>
+            </div>
+        </div>
+        <div class="panel-collapse collapse in" id="collapseOne">
+            <div id="panelBodyChat" class="panel-body">
+                <ul class="chat" id="chat">
+                    <div id="header"></div>
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input id="message" autofocus type="text" class="form-control input-sm" placeholder="@Resources.Web.TypeYourMessageHere" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning btn-sm" id="sendmessage">
+                            @Resources.Web.Send
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <p><b>@Resources.Web.AllUsers:</b></p>
+            <div id="chatusers">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="messageTmpl" type="text/x-jquery-tmpl">
+
+    <li class="left clearfix">
+        <span class="chat-img pull-left">
+            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+        </span>
+        <div class="chat-body-template clearfix" id="chatroom">
+            <div class="header">
+                <strong class="primary-font">${name}</strong> <small id="timeMessage" class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time"></span>${timeStr}
+                </small>
+            </div>
+            <p>
+                ${message}
+            </p>
+        </div>
+    </li>
+
+</script>

@@ -43,17 +43,19 @@ namespace MyWebGam
                 ));                      
 
             //Css
-            bundles.Add(new StyleBundle("~/Content/authReg").Include(
-                "~/Content/css/animate.css",
-                "~/Content/css/authReg.css"
+            bundles.Add(new StyleBundle("~/Content/authReg").Include(                
+                
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/reset.css",
                       "~/Content/bootstrap.css",
-                      "~/Content/css/site.css",
                       "~/Content/css/media.css",
-                      "~/Content/css/Chat.css"
+                      "~/Content/css/animate.css",
+                      "~/Content/css/site.css",
+                      "~/Content/css/authReg.css",
+                      "~/Content/css/chat.css",
+                      "~/Content/css/mySet.css"      
                       ));
         }
     }

@@ -157,10 +157,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\authReg.css" />
-    <Content Include="Content\css\Chat.css" />
-    <Content Include="Content\css\Media.css" />
+    <Content Include="Content\css\chat.css" />
+    <Content Include="Content\css\media.css" />
+    <Content Include="Content\css\mySet.css" />
     <Content Include="Content\css\reset.css" />
-    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\threeJs.css" />
     <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\englishFlag.png" />
     <Content Include="Content\img\russianFlag.png" />
@@ -218,6 +220,8 @@
     <Content Include="package.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\authReg\authReg.js" />
+    <Content Include="Scripts\authReg\playNow.js" />
+    <Content Include="Scripts\authReg\registration.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\lib\jquery-1.5rc1.js" />
@@ -239,6 +243,7 @@
     <Content Include="Scripts\chat\chat.js" />
     <Content Include="Scripts\network\functionsForNewtwork.js" />
     <Content Include="Scripts\network\network.js" />
+    <Content Include="Scripts\authReg\signIn.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />
@@ -251,6 +256,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CollectionOfMethods\CollectionOfMethods.cs" />
+    <Compile Include="CollectionOfMethods\RandomExt.cs" />
+    <Compile Include="CollectionOfMethods\RandomCoord.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -261,13 +268,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthorizationViewModel.cs" />
-    <Compile Include="Models\ModelsForChat.cs" />
-    <Compile Include="Models\PlayNowViewModel.cs" />
+    <Compile Include="Models\UserForChat.cs" />
     <Compile Include="Models\OnlyEmailViewModel.cs" />
     <Compile Include="Models\RegisteViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\PlayNowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\UnAuthorizedController.cs" />
+    <Compile Include="Server\DataForInitialCreate.cs" />
+    <Compile Include="Server\PlayersData.cs" />
+    <Compile Include="Server\World.cs" />
+    <Compile Include="Server\ITickable.cs" />
+    <Compile Include="Server\Server.cs" />
+    <Compile Include="Server\UserSession.cs" />
+    <Compile Include="Server\UserData.cs" />
+    <Compile Include="Server\WorldData.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -284,9 +299,9 @@
     <Content Include="Views\Account\OnlyEmail.cshtml" />
     <Content Include="Views\Shared\_LayoutAuth.cshtml" />
     <Content Include="Views\Account\PleaseConfirmedEmail.cshtml" />
-    <Content Include="Views\Home\TestView.cshtml" />
-    <Content Include="Views\Account\ResetPasswordError.cshtml" />
     <Content Include="Views\Account\PlayNow.cshtml" />
+    <Content Include="Views\Account\ResetPasswordError.cshtml" />
+    <Content Include="Views\Shared\Chat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

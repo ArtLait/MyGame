@@ -30,22 +30,7 @@ new { @class = "form-horizontal form-auth-reg", role = "form" , id = "formReg"})
         </div>
    }
 
-<script>
-    $("#formReg").submit(function (e) {
-
-        e.preventDefault();
-        if ($(this).valid()) {
-            $.post("http://localhost:30657/Account/Registration", $("#formReg").serialize())
-                .done(function (data) {
-                    console.log(data);
-                    if (data.successful) {                        
-                        $("#resultAuthReg").load("http://localhost:30657/");
-                    }                    
-                    $("#resultAuthReg").html(data);
-                });
-        };
-    });
-</script>
+<script src="~/Scripts/authReg/registration.js"></script>
 
 
 

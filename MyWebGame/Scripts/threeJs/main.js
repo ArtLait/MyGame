@@ -6,49 +6,54 @@ var planeGeometry, planeMaterial, plane, sphere,
     cubeGeometry, cubeMaterial, cube,
     sphereGeometry, sphereMaterial, sphere;
 var cross;
+var players = [];
+
 function init() {
-     scene = new THREE.Scene();
-     camera = new THREE.PerspectiveCamera(45
-        , window.innerWidth / window.innerHeight, 0.1, 1000);
+    scene = new THREE.Scene();
+    //camera = new THREE.PerspectiveCamera(45
+    //   , window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2 , 1, 1000)    
     //var controls = new THREE.OrbitControls(camera);
     //controls.addEventListener('change', render);
-     renderer = new THREE.WebGLRenderer();
-     renderer.setClearColorHex(0xEEEEEE);
-     renderer.setSize(window.innerWidth, window.innerHeight);
-     axes = new THREE.AxisHelper(20);
-     scene.add(axes);
-     planeGeometry = new THREE.PlaneGeometry(60, 20, 1, 1);
-     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
-     plane = new THREE.Mesh(planeGeometry, planeMaterial);
-     plane.rotation.x = -0.5 * Math.PI;
-     plane.position.x = 15;
-     plane.position.y = 0;
-     plane.position.z = 0;
-     scene.add(plane);
-     cubeGeometry = new THREE.CubeGeometry(4, 4, 4);
-     cubeMaterial = new THREE.MeshBasicMaterial(
-         { color: 0xff0000, wireframe: true });
-     cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-     cube.position.x = -4;
-     cube.position.y = 3;
-     cube.position.z = 0;
-     scene.add(cube);
-     sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
-     sphereMaterial = new THREE.MeshBasicMaterial(
-         { color: 0x7777ff, wireframe: true });
-     sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-     sphere.position.x = 20;
-     sphere.position.y = 4;
-     sphere.position.z = 2;
-     scene.add(sphere);
-     camera.position.x = 0;
-     camera.position.y = 0;
-     camera.position.z = 30;
-     camera.lookAt(scene.position);
-     $("#myGame").append(renderer.domElement);
-     $("#myGame").find("canvas").addClass("absolute");
-     renderer.render(scene, camera);
-     window.addEventListener('resize', onWindowResize, false);
+    renderer = new THREE.WebGLRenderer();
+    renderer.setClearColorHex(0xEEEEEE);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    axes = new THREE.AxisHelper(20);
+    scene.add(axes);
+    planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
+    planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
+    plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.position.set(0, 0, -1);
+    plane.scale.set(100, 100, 100);
+    scene.add(plane);        
+    //sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+    //sphereMaterial = new THREE.MeshBasicMaterial(
+    //    { color: 0x7777ff, wireframe: true });
+    //sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    //sphere.position.x = 20;
+    //sphere.position.y = 4;
+    //sphere.position.z = 2;
+    //scene.add(sphere);
+    camera.lookAt(scene.position);
+    camera.position.set(0, 0, 2);
+    $("#myGame").append(renderer.domElement);
+    $("#myGame").find("canvas").addClass("absolute")
+        .attr('id', 'mainCanvas').attr('tabindex', '1');
+    renderer.render(scene, camera);
+    window.addEventListener('resize', onWindowResize, false);
+}
+function createRectangle(players, x, y, sizeX, sizeY, color) {
+    
+    var cubeGeometry = new THREE.CubeGeometry(sizeX, sizeY, 4);
+    var cubeMaterial = new THREE.MeshBasicMaterial(
+        { color: color, wireframe: true });
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    cube.position.x = x;
+    cube.position.y = y;
+    cube.position.z = 0;
+    scene.add(cube);
+    render();
+    return cube;
 }
 function animate() {
     sphere.rotation.x += 2 * Math.PI / 100;
@@ -64,29 +69,7 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     render();
-} $("body").keydown(function (e) {
-    if (e.keyCode == 38 || e.keyCode == 87) {
-        cube.position.y += 2;
-        camera.position.y += 2;
-        render();
-    }
-    if (e.keyCode == 40 || e.keyCode == 83) {
-        cube.position.y -= 2;
-        camera.position.y -= 2;
-        render();
-    }
-    if (e.keyCode == 37 || e.keyCode == 65) {
-        cube.position.x -= 2;
-        camera.position.x -= 2;
-        render();
-    }
-    if (e.keyCode == 39 || e.keyCode == 68) {
-        cube.position.x += 2;
-        camera.position.x += 2;
-        render();
-    }
-    
-});
+}
 function render() {
 
     renderer.render(scene, camera);
