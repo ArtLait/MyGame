@@ -15,7 +15,15 @@ namespace MyWebGam.Hubs
         UserRepository repo;
 
         private static List<UserForChat> Users = new List<UserForChat>();
-        private static World world = new World();
+        private static World world = null;
+        private static int idThread = 0;
+
+        static ChatHub()
+        {
+            world = new World();
+            idThread = Server.Server.CreateStream(world);
+        }
+
         public ChatHub()
         {
             repo = new UserRepository();
@@ -56,11 +64,6 @@ namespace MyWebGam.Hubs
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
                               
                 world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
-                
-                if (Users.Count == 1)
-                {
-                    var idThread = Server.Server.CreateStream(world);
-                }
              }
         }
         // Отправка сообщений

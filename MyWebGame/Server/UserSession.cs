@@ -54,8 +54,7 @@ namespace MyWebGam.Server
             SpeedY = 0;
             SizeX = 4;
             SizeY = 4;
-            Color color = new Color();
-            Color = color.NewRandom();
+            Color = RandomExt.GetRandomColor();
         }
         public void Ticked(float ms)
         {            
