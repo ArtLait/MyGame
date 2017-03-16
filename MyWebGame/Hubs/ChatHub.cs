@@ -27,6 +27,10 @@ namespace MyWebGam.Hubs
         {
             repo = new UserRepository();
         }
+        public void moveAndRotate(int MousePosX, int MousePosY)
+        {
+            world.MoveAndRotate(Context.ConnectionId, MousePosX, MousePosY);
+        }
         public void moovedDown(int keycode)
         {            
             world.MooveDown(Context.ConnectionId, keycode);
@@ -35,19 +39,20 @@ namespace MyWebGam.Hubs
         {
             world.MooveUp(Context.ConnectionId, keycode);
         }
-        public void checkAuth()
+        public void checkAuth(double WindowInnerWidth, double WindowInnerHeight)
         {
             if (Context.User.Identity.IsAuthenticated)
             {
                 var name = repo.GetUserWithEmail(Context.User.Identity.Name);
                 if (name != null)
                 {
-                    Connect(name);
+                    Connect(name, WindowInnerWidth, WindowInnerHeight);
                 }
             }
         }
         // Подключение нового пользователя  
-        public void Connect(string userName)
+        public void Connect(string userName,
+            double WindowInnerWidth, double WindowInnerHeight)
         {
             string id = Context.ConnectionId;
 
@@ -61,8 +66,8 @@ namespace MyWebGam.Hubs
                 Clients.Caller.TakeUserName(userName);
                
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-                              
-                world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
+
+                world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId, WindowInnerWidth, WindowInnerHeight));
              }
         }
         // Отправка сообщений

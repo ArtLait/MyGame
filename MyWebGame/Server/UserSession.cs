@@ -13,15 +13,20 @@ namespace MyWebGam.Server
         public object TestClient { get; set; }   
         public string UserName { get; private set; }
         public string ConnectionId { get; private set; }
+        public double WindowWidth { get; set; }
+        public double WindowHeight { get; set; }
         public Monster Monster { get; private set; }
 
-        public UserSession(dynamic client, string userName, string connectionId)
+        public UserSession(dynamic client, string userName, string connectionId,
+            double WindowInnerWidth, double WindowInnerHeight)
         {
             Client = client;
             TestClient = client;
             UserName = userName;
             ConnectionId = connectionId;
-            Monster = new Monster();                       
+            Monster = new Monster();
+            WindowWidth = WindowInnerWidth;
+            WindowHeight = WindowInnerHeight;
         }
         public void SetPositions(string data)
         {
@@ -32,12 +37,10 @@ namespace MyWebGam.Server
     {
         public int SizeX { get; private set; }
         public int SizeY { get; private set; }
-        public float SizeWorldX { get; private set; }
-        public float SizeWorldY { get; private set; }
-
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float PosZ { get; set; }
+        public double Rotation { get; set; }
         public float NewPosX {get; set;}
         public float NewPosY {get; set;}
         public float NewPosZ { get; set; }
@@ -52,7 +55,7 @@ namespace MyWebGam.Server
             PosZ = 0;            
             SpeedX = 0;
             SpeedY = 0;
-            SizeX = 4;
+            SizeX = 2;
             SizeY = 4;
             Color = RandomExt.GetRandomColor();
         }

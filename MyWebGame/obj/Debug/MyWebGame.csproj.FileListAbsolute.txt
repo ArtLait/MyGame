@@ -57,7 +57,6 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MailKit.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.Core.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MimeKit.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.EF.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.Localization.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Newtonsoft.Json.dll
@@ -69,7 +68,6 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\System.Web.Webpages.Deployment.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\System.Web.Webpages.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\System.Web.Webpages.Razor.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\WebGrease.dll
-D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.AddFunctionality.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.EF.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\MyWebGame.Localization.pdb
 D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Antlr3.Runtime.pdb
@@ -216,3 +214,14 @@ D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame\bin
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame\obj\Debug\MyWebGame.csprojResolveAssemblyReference.cache
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame\obj\Debug\MyWebGam.dll
 D:\aps_net\SolbegSoft\After crashed sql server\MyGame - копия\MyWebGame\obj\Debug\MyWebGam.pdb
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Owin.dll
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\aps_net\SolbegSoft\MyGame\MyWebGame\bin\Microsoft.Owin.Security.xml

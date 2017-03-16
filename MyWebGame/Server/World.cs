@@ -30,7 +30,7 @@ namespace MyWebGam.Server
 
             foreach (var player in players)
             {
-                var resultObject = players.Select(t => new UserData(){ConnectionId = t.ConnectionId, PosX = t.Monster.PosX, PosY = t.Monster.PosY});
+                var resultObject = players.Select(t => new UserData(){ConnectionId = t.ConnectionId, PosX = t.Monster.PosX, PosY = t.Monster.PosY, Rotation = t.Monster.Rotation});
                 var result = JsonConvert.SerializeObject(resultObject);                
                 player.SetPositions(result);
             }
@@ -67,7 +67,7 @@ namespace MyWebGam.Server
                 InWorldSize = false;
             }
             return InWorldSize;
-        }     
+        }
         public void AddPlayer(UserSession session)
         {
             players.Add(session);
@@ -79,15 +79,48 @@ namespace MyWebGam.Server
             var users = JsonConvert.SerializeObject(data);
             UserSession CurrentClient = session;
             PositionMonster newCoord = RandomExt.GetRandomMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
-            CurrentClient.Monster.PosX = newCoord.x;
-            CurrentClient.Monster.PosY = newCoord.y;
+            //CurrentClient.Monster.PosX = newCoord.x;
+            //CurrentClient.Monster.PosY = newCoord.y;
+            CurrentClient.Monster.PosX = 0;
+            CurrentClient.Monster.PosY = 0;
             CurrentClient.Client.initialSettings(SizeX, SizeY);
 
             foreach (var item in players)
             {
-
                 item.Client.addMoreMembers(SizeX, SizeY, users);
             }
+        }
+        public void MoveAndRotate(string id, int MousePosX, int MousePosY)
+        {
+            var player = players.FirstOrDefault(t => t.ConnectionId == id);
+            var Monster = player.Monster;
+            double CenterMapX = player.WindowWidth / 2;
+            double CenterMapY = player.WindowHeight /2;
+            double CatheterX = MousePosX - CenterMapX;
+            double CatheterY = MousePosY - CenterMapY;
+            double Tangens = CatheterY / CatheterX * (-1);
+            double Angel = Math.Atan(Tangens);
+            double dx = 0;
+            double dy = 0;
+            if (CatheterX > 0) {
+                dx = Math.Cos(Math.Abs(Angel)) * 10;
+            }
+            else
+            {
+                 dx = -Math.Cos(Math.Abs(Angel)) * 10;
+            }
+            if (CatheterY > 0)
+            {
+                 dy = -Math.Sin(Math.Abs(Angel)) * 10;
+            }
+            else
+            {
+                 dy = +Math.Sin(Math.Abs(Angel)) * 10;
+            }
+            
+            Monster.PosX +=(float)dx;
+            Monster.PosY +=(float)dy;            
+            Monster.Rotation = Angel + Math.PI / 2;
         }
         public void MooveDown(string id, int keycode)
         {            

@@ -165,7 +165,9 @@
     <Content Include="Content\css\threeJs.css" />
     <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\englishFlag.png" />
+    <Content Include="Content\img\pacman.png" />
     <Content Include="Content\img\russianFlag.png" />
+    <Content Include="Content\img\Tank.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

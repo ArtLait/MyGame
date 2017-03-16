@@ -3,25 +3,13 @@
     
      
     $.connection.hub.start().done(function () {
-        network.server.checkAuth();        
+        network.server.checkAuth(window.innerWidth, window.innerHeight);        
     });
     //-------------------For three js--------------------  
     network.client.initialSettings = function (worldSizeX, worldSizeY) {       
         plane.scale.set(worldSizeX, worldSizeY, 1);
     }
-    //network.client.addMoreMembers = function (sizeX, sizeY, users) {
-                      
-    //    var users = JSON.parse(users);
-    //    console.log(users);
-    //    for (var i = players.length; i < users.length; i++) {
-    //        console.log(users[i].Monster.sizeX, users[i].Monster.sizeX);
-    //        var cube = createRectangle(players, users[i].Monster.PosX,
-    //            users[i].Monster.PosY, users[i].Monster.SizeX, users[i].Monster.SizeY,
-    //            users[i].Monster.Color);
-    //        players.push({
-    //            cube: cube
-    //        });
-    //    };
+    
 
     network.client.addMoreMembers = function (sizeX, sizeY, users) {
 
@@ -34,7 +22,11 @@
                 cube: cube
             });
         };
-
+        //mousemove
+        $("body").click(function (e) {
+            
+            network.server.moveAndRotate(e.pageX, e.pageY)                
+        });
         $("body").keydown(function (e) {
             if (e.target.id != "message") {
                 
@@ -53,7 +45,8 @@
         var result = JSON.parse(data);   
         for (var i = 0; i < players.length; i ++) {         
             players[i].cube.position.x = result[i].PosX;
-            players[i].cube.position.y = result[i].PosY;                      
+            players[i].cube.position.y = result[i].PosY;
+            players[i].cube.rotation.z = result[i].Rotation;
         }
         
         render();
