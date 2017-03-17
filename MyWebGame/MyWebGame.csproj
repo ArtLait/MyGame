@@ -165,6 +165,7 @@
     <Content Include="Content\css\threeJs.css" />
     <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\englishFlag.png" />
+    <Content Include="Content\img\pacman.png" />
     <Content Include="Content\img\russianFlag.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -220,8 +221,6 @@
     <Content Include="package.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\authReg\authReg.js" />
-    <Content Include="Scripts\authReg\playNow.js" />
-    <Content Include="Scripts\authReg\registration.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\lib\jquery-1.5rc1.js" />
@@ -243,7 +242,6 @@
     <Content Include="Scripts\chat\chat.js" />
     <Content Include="Scripts\network\functionsForNewtwork.js" />
     <Content Include="Scripts\network\network.js" />
-    <Content Include="Scripts\authReg\signIn.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />
@@ -257,7 +255,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CollectionOfMethods\CollectionOfMethods.cs" />
     <Compile Include="CollectionOfMethods\RandomExt.cs" />
-    <Compile Include="CollectionOfMethods\RandomCoord.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

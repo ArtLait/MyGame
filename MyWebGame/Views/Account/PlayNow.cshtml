@@ -1,18 +1,20 @@
 ﻿@model MyWebGam.Models.PlayNowViewModel
 
+<div id="playNow">
+    @using (Html.BeginForm("PlayNow", "Account", FormMethod.Post,
+        new { id = "nickNameForm",  @class = "form-horizontal form-auth-reg", role = "form" }))
+    {
 
-@using (Html.BeginForm("PlayNow", "Account", FormMethod.Post, new { id = "nickNameForm",  @class = "form-horizontal form-auth-reg", role = "form" }))
-{
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.LabelFor(model => model.Name, new { @class = "label-auth-reg" })
+        @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg", autofocus = "" })
+        @Html.ValidationMessageFor(model => model.Name)
 
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    @Html.LabelFor(model => model.Name, new { @class = "label-auth-reg" })
-    @Html.TextBoxFor(model => model.Name, new { required = "true", @class = "input-auth-reg", autofocus = "" })
-    @Html.ValidationMessageFor(model => model.Name)
-
-    <div id="lower">
-        <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
-        <input type="submit" id="submitAuth" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
-    </div>
-}
+        <div id="lower">
+            <input type="checkbox" id="checkbox-auth-reg" class="input-auth-reg"><label class="check-auth-reg label-auth-reg" for="checkbox-auth-reg">@Resources.Web.RememberMe</label>
+            <input type="submit" id="submitAuth" class="input-auth-reg" value=@Resources.Web.SignInSubmit>
+        </div>
+    }
+</div>
 <script src="~/Scripts/authReg/playNow.js"></script>

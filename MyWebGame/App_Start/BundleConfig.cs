@@ -42,10 +42,7 @@ namespace MyWebGam
                 "~/Scripts/authReg/authReg.js"
                 ));                      
 
-            //Css
-            bundles.Add(new StyleBundle("~/Content/authReg").Include(                
-                
-                ));
+            //Css        
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/reset.css",

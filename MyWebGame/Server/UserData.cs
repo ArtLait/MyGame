@@ -10,5 +10,6 @@ namespace MyWebGam.Server
         public string ConnectionId { get; set; }    
         public float PosX { get; set; }
         public float PosY { get; set; }
+        public double Rotation { get; set; }
     }    
 }

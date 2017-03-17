@@ -17,7 +17,6 @@ namespace MyWebGam.Hubs
         private static List<UserForChat> Users = new List<UserForChat>();
         private static World world = null;
         private static int idThread = 0;
-
         static ChatHub()
         {
             world = new World();
@@ -27,6 +26,10 @@ namespace MyWebGam.Hubs
         public ChatHub()
         {
             repo = new UserRepository();
+        }
+        public void moveAndRotate(int MousePosX, int MousePosY)
+        {
+            world.MoveAndRotate(Context.ConnectionId, MousePosX, MousePosY);
         }
         public void moovedDown(int keycode)
         {            
@@ -62,7 +65,7 @@ namespace MyWebGam.Hubs
                 Clients.Caller.TakeUserName(userName);
                
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
-                              
+
                 world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
              }
         }

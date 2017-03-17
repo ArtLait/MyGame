@@ -57,8 +57,9 @@ namespace MyWebGam.Controllers
             {
                 ResetPassword newData = new ResetPassword()
                 {
-                    Id = 4,
-                    Key = data.Email,                    
+                    Id = 4, 
+                    UserId = repoReset.GetUserWithEmail(data.Email).Id,
+                    Key = key,                    
                 };
                 repoReset.Save(newData);
                 EmailService emailService = new EmailService();
