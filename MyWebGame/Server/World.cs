@@ -12,29 +12,41 @@ namespace MyWebGam.Server
     public class World : ITickable
     {
         public float SizeX { get; private set; }
-        public float SizeY { get; private set; }  
+        public float SizeY { get; private set; }
 
-        public List<UserSession> players = new List<UserSession>();
+        public Dictionary<string, UserSession> Players { get; private set; }
         public World()
         {
             SizeX = 2000;
-            SizeY = 1000;        
+            SizeY = 1000;
+            Players = new Dictionary<string, UserSession>();
         }
+
         public void Ticked(float ms)
         {
-            foreach (var player in players)
+            lock (Players)
             {
-                if(CheckTheBorder(player.Monster, ms))
-                player.Monster.Ticked(ms);                
-            }            
+                foreach (var player in Players)
+                {
+                    if (CheckTheBorder(player.Value.Monster, ms))
+                        player.Value.Monster.Ticked(ms);
+                }
 
-            foreach (var player in players)
-            {
-                var resultObject = players.Select(t => new UserData(){ConnectionId = t.ConnectionId, PosX = t.Monster.PosX, PosY = t.Monster.PosY, Rotation = t.Monster.Rotation});
-                var result = JsonConvert.SerializeObject(resultObject);                
-                player.SetPositions(result);
+                foreach (var player in Players)
+                {
+                    var resultObject = Players.Select(t => new UserData()
+                    {
+                        ConnectionId = t.Value.ConnectionId,
+                        PosX = t.Value.Monster.PosX,
+                        PosY = t.Value.Monster.PosY,
+                        Rotation = t.Value.Monster.Rotation
+                    });
+                    var result = JsonConvert.SerializeObject(resultObject);
+                    player.Value.SetPositions(result);
+                }
             }
         }
+
         private bool CheckTheBorder(Monster Monster, float ms)
         {
             bool InWorldSize = true;
@@ -68,149 +80,104 @@ namespace MyWebGam.Server
             }
             return InWorldSize;
         }
+
         public void AddPlayer(UserSession session)
         {
-            players.Add(session);
-            InitialCreate(session);
-        }
-        public void InitialCreate(UserSession session)
-        {
-            var data = players.Select(t => new DataForInitialCreate() { PosX = t.Monster.PosX, PosY = t.Monster.PosY, SizeX = t.Monster.SizeX, SizeY = t.Monster.SizeY, Color = t.Monster.Color });
-            var users = JsonConvert.SerializeObject(data);
-            UserSession CurrentClient = session;
-            PositionMonster newCoord = RandomExt.GetRandomMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
-            //CurrentClient.Monster.PosX = newCoord.x;
-            //CurrentClient.Monster.PosY = newCoord.y;
-            CurrentClient.Monster.PosX = 0;
-            CurrentClient.Monster.PosY = 0;
-            CurrentClient.Client.initialSettings(SizeX, SizeY);
+            lock (Players)
+            {
+                Players.Add(session.ConnectionId, session);
 
-            foreach (var item in players)
-            {
-                item.Client.addMoreMembers(SizeX, SizeY, users);
+                var data = Players.Select(t => new DataForInitialCreate()
+                {
+                    PosX = t.Value.Monster.PosX,
+                    PosY = t.Value.Monster.PosY,
+                    SizeX = t.Value.Monster.SizeX,
+                    SizeY = t.Value.Monster.SizeY,
+                    Color = t.Value.Monster.Color
+                });
+                var users = JsonConvert.SerializeObject(data);
+                UserSession CurrentClient = session;
+                PositionMonster newCoord = RandomExt.GetRandomMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
+                CurrentClient.Monster.PosX = newCoord.x;
+                CurrentClient.Monster.PosY = newCoord.y;
+                CurrentClient.Client.initialSettings(SizeX, SizeY);
+
+                foreach (var item in Players)
+                {
+                    item.Value.Client.addMoreMembers(SizeX, SizeY, users);
+                }
             }
         }
-        public void MoveAndRotate(string id, int MousePosX, int MousePosY)
-        {
-            //-----------------------Rotation-----------------------
-            var player = players.FirstOrDefault(t => t.ConnectionId == id);
-            var Monster = player.Monster;            
-            double CenterMapX = player.WindowWidth / 2;
-            double CenterMapY = player.WindowHeight / 2;
-            double BX = CenterMapX + 100;
-            double BY = CenterMapY;
-            double BA = 100;
-            double CatheterX = MousePosX - CenterMapX; 
-            double CatheterY = MousePosY - CenterMapY;
-            double Hypotenuse = Math.Sqrt( Math.Pow(CatheterX, 2) 
-                + Math.Pow(CatheterY, 2));//AC
-            double BC = Math.Sqrt(Math.Pow(MousePosX - BX, 2) + Math.Pow(MousePosY - BY, 2));
-            double Angel = Math.Acos((Math.Pow(Hypotenuse, 2) + Math.Pow(BA, 2) - Math.Pow(BC, 2))/( 2 * Hypotenuse * BA));            
 
-            if (CatheterY > 0)
-            {
-                Angel *= -1;
-            }
-            Monster.Rotation = Angel;
-            //-------------------Move-----------------------            
-            Angel = Math.Atan(CatheterY / CatheterX);
-            double dx = 0;
-            double dy = 0;
-            if (CatheterX > 0)
-            {
-                dx = Math.Cos(Math.Abs(Angel)) * 10;
-            }
-            else
-            {
-                dx = -Math.Cos(Math.Abs(Angel)) * 10;
-            }
-            if (CatheterY > 0)
-            {
-                dy = -Math.Sin(Math.Abs(Angel)) * 10;
-            }
-            else
-            {
-                dy = +Math.Sin(Math.Abs(Angel)) * 10;
-            }        
-
-            Monster.PosX +=(float)dx;
-            Monster.PosY +=(float)dy;            
-           
-        }
-        //public void MoveAndRotate(string id, int MousePosX, int MousePosY)
-        //{
-        //    var player = players.FirstOrDefault(t => t.ConnectionId == id);
-        //    var Monster = player.Monster;
-        //    double CenterMapX = player.WindowWidth / 2;
-        //    double CenterMapY = player.WindowHeight /2;
-        //    double CatheterX = MousePosX - CenterMapX;
-        //    double CatheterY = MousePosY - CenterMapY;
-        //    double Tangens = CatheterY / CatheterX ;
-        //    double Angel = Math.Atan(Tangens);
-        //    double dx = 0;
-        //    double dy = 0;
-        //    if (CatheterX > 0) {
-        //        dx = Math.Cos(Math.Abs(Angel)) * 10;
-        //    }
-        //    else
-        //    {
-        //         dx = -Math.Cos(Math.Abs(Angel)) * 10;
-        //    }
-        //    if (CatheterY > 0)
-        //    {
-        //         dy = -Math.Sin(Math.Abs(Angel)) * 10;
-        //    }
-        //    else
-        //    {
-        //         dy = +Math.Sin(Math.Abs(Angel)) * 10;
-        //    }
-            
-        //    //Monster.PosX +=(float)dx;
-        //    //Monster.PosY +=(float)dy;            
-        //    Monster.Rotation = Angel;
-        //}
-        public void MooveDown(string id, int keycode)
+        public void MoveAndRotate(string id, float dirX, float dirY /*int MousePosX, int MousePosY*/)
         {            
-            if (keycode == 38 || keycode == 87)
+            if (!(dirX == 0.0f && dirY == 0.0f))
             {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 10;
+                lock (Players)
+                {
+                    var length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
+                    var player = Players[id];
+                    var monster = player.Monster;
+                    monster.Rotation = Math.Acos(dirX / (length + 1));
+                    if (dirY < 0f)
+                    {
+                        monster.Rotation = -monster.Rotation;
+                    }
+                    monster.SpeedX = monster.Speed * dirX / length;
+                    monster.SpeedY = monster.Speed * dirY / length;
+                }
             }
-            if (keycode == 40 || keycode == 83)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = -10;
-            }
-            if (keycode == 37 || keycode == 65)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = -10;
-            }
-            if (keycode == 39 || keycode == 68)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 10;
+        }      
+        public void MooveDown(string id, int keycode)
+        {
+            lock (Players)
+            {            
+                if (keycode == 38 || keycode == 87)
+                {
+                    Players[id].Monster.SpeedY = 10;
+                }
+                if (keycode == 40 || keycode == 83)
+                {
+                    Players[id].Monster.SpeedY = -10;
+                }
+                if (keycode == 37 || keycode == 65)
+                {
+                    Players[id].Monster.SpeedX = -10;
+                }
+                if (keycode == 39 || keycode == 68)
+                {
+                    Players[id].Monster.SpeedX = 10;
+                }
             }
         }
         public void MooveUp(string id, int keycode)
         {
-            
-            if (keycode == 38 || keycode == 87)
+            lock (Players)
             {
-               players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 0;
-            }
-            if (keycode == 40 || keycode == 83)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedY = 0;
-            }
-            if (keycode == 37 || keycode == 65)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 0;
-            }
-            if (keycode == 39 || keycode == 68)
-            {
-                players.FirstOrDefault(t => t.ConnectionId == id).Monster.SpeedX = 0;
+                if (keycode == 38 || keycode == 87)
+                {
+                    Players[id].Monster.SpeedY = 0;
+                }
+                if (keycode == 40 || keycode == 83)
+                {
+                    Players[id].Monster.SpeedY = 0;
+                }
+                if (keycode == 37 || keycode == 65)
+                {
+                    Players[id].Monster.SpeedX = 0;
+                }
+                if (keycode == 39 || keycode == 68)
+                {
+                    Players[id].Monster.SpeedX = 0;
+                }
             }
         }      
         public void RemovePlayer(UserSession session)
         {
-            players.Remove(session);
+            lock (Players)
+            {
+                Players.Remove(session.ConnectionId);
+            }
         }
     }
 }

@@ -17,16 +17,13 @@ namespace MyWebGam.Server
         public double WindowHeight { get; set; }
         public Monster Monster { get; private set; }
 
-        public UserSession(dynamic client, string userName, string connectionId,
-            double WindowInnerWidth, double WindowInnerHeight)
+        public UserSession(dynamic client, string userName, string connectionId)
         {
             Client = client;
             TestClient = client;
             UserName = userName;
             ConnectionId = connectionId;
-            Monster = new Monster();
-            WindowWidth = WindowInnerWidth;
-            WindowHeight = WindowInnerHeight;
+            Monster = new Monster();            
         }
         public void SetPositions(string data)
         {
@@ -47,6 +44,7 @@ namespace MyWebGam.Server
         public float SpeedX { get; set; }
         public float SpeedY { get; set; }
         public string Color { get; set; }
+        public float Speed { get; private set; }
 
         public Monster()
         {            
@@ -57,6 +55,7 @@ namespace MyWebGam.Server
             SpeedY = 0;
             SizeX = 10;
             SizeY = 20;
+            Speed = 20;
             Color = RandomExt.GetRandomColor();
         }
         public void Ticked(float ms)

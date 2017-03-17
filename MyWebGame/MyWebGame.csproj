@@ -221,9 +221,6 @@
     <Content Include="package.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\authReg\authReg.js" />
-    <Content Include="Scripts\authReg\onlyEmail.js" />
-    <Content Include="Scripts\authReg\playNow.js" />
-    <Content Include="Scripts\authReg\registration.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\lib\jquery-1.5rc1.js" />
@@ -245,7 +242,6 @@
     <Content Include="Scripts\chat\chat.js" />
     <Content Include="Scripts\network\functionsForNewtwork.js" />
     <Content Include="Scripts\network\network.js" />
-    <Content Include="Scripts\authReg\signIn.js" />
     <Content Include="Scripts\threeJs\lib\OrbitControls.js" />
     <Content Include="Scripts\threeJs\lib\three.js" />
     <Content Include="Scripts\threeJs\main.js" />

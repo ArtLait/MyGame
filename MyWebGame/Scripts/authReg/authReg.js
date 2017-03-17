@@ -1,6 +1,4 @@
-﻿$("document").ready(function () {
-    //alert(document.cookie);
-    // if(document.cookie.Nick)
+﻿$(document).ready(function () {  
 
     $("#modalAuthReg").on("show.bs.modal", function (e) {        
         if (e.relatedTarget.id == "authHref") {
@@ -24,5 +22,73 @@
     $("#regPanel").click(function (e) {
         e.preventDefault();
         $("#resultAuthReg").load("http://localhost:30657/Account/Registration");
-    });     
+    });
+    var network, name;
+    network = $.connection.chatHub;
+
+    name = $("#nickNameForm").find(".input-auth-reg").val();
+
+    $("#resultAuthReg").on("submit", "#nickNameForm", function (event) {               
+
+        name = $("#nickNameForm").find(".input-auth-reg").val();
+        event.preventDefault();
+
+        $.post("http://localhost:30657/Account/PlayNow", $("#nickNameForm").serialize())
+        .done(function (data) {
+            if (data.successful) {
+
+                $.connection.hub.start().done(function () {
+                    network.server.connect(name);
+                    $("#hello").show();
+                    $("#nowConnected").show();
+                    $("#userName").html(name);
+                    messageHandler(name, network);
+                });
+
+                $("#nickNameHref").hide();
+                $(".close-auth-reg").trigger("click");
+                $("#chatBody").removeClass("hidden");
+                $("#nickNamePanel").hide();
+            }
+            else {
+                $("#resultAuthReg").html(data);
+            }         
+
+        });
+    });
+    $("#resultAuthReg").on("click", "#forgot-password", function (e) {        
+        e.preventDefault();
+        $("#resultAuthReg").load("http://localhost:30657/Account/OnlyEmail");
+    });
+    $("#resultAuthReg").on("submit", "#formAuth", function (event) {
+        name = $("#formAuth").find(".input-auth-reg").val();
+        event.preventDefault();
+
+        $.post("http://localhost:30657/Account/SignIn", $("#formAuth").serialize())
+        .done(function (data) {
+
+
+            if (data.responceMessage == "successful") {
+                
+                location.href = "http://localhost:30657/";
+            }
+            else if (data.responceMessage == "emailNotConfirmed") {
+                $("#resultAuthReg").load("http://localhost:30657/Account/PleaseConfirmedEmail");
+            }
+            $("#resultAuthReg").html(data);
+        });
+    });
+    $("#resultAuthReg").on("submit", "#formReg", function (e) {
+
+        e.preventDefault();
+        if ($(this).valid()) {
+            $.post("http://localhost:30657/Account/Registration", $("#formReg").serialize())
+                .done(function (data) {                    
+                    if (data.successful) {
+                        $("#resultAuthReg").load("http://localhost:30657/");
+                    }
+                    $("#resultAuthReg").html(data);
+                });
+        };
+    });
 });

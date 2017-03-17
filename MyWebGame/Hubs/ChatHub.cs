@@ -39,20 +39,19 @@ namespace MyWebGam.Hubs
         {
             world.MooveUp(Context.ConnectionId, keycode);
         }
-        public void checkAuth(double WindowInnerWidth, double WindowInnerHeight)
+        public void checkAuth()
         {
             if (Context.User.Identity.IsAuthenticated)
             {
                 var name = repo.GetUserWithEmail(Context.User.Identity.Name);
                 if (name != null)
                 {
-                    Connect(name, WindowInnerWidth, WindowInnerHeight);
+                    Connect(name);
                 }
             }
         }
         // Подключение нового пользователя  
-        public void Connect(string userName,
-            double WindowInnerWidth, double WindowInnerHeight)
+        public void Connect(string userName)
         {
             string id = Context.ConnectionId;
 
@@ -67,7 +66,7 @@ namespace MyWebGam.Hubs
                
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
 
-                world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId, WindowInnerWidth, WindowInnerHeight));
+                world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
              }
         }
         // Отправка сообщений
