@@ -17,8 +17,8 @@ namespace MyWebGam.Server
         public List<UserSession> players = new List<UserSession>();
         public World()
         {
-            SizeX = 80;
-            SizeY = 80;        
+            SizeX = 2000;
+            SizeY = 1000;        
         }
         public void Ticked(float ms)
         {
@@ -92,36 +92,83 @@ namespace MyWebGam.Server
         }
         public void MoveAndRotate(string id, int MousePosX, int MousePosY)
         {
+            //-----------------------Rotation-----------------------
             var player = players.FirstOrDefault(t => t.ConnectionId == id);
-            var Monster = player.Monster;
+            var Monster = player.Monster;            
             double CenterMapX = player.WindowWidth / 2;
-            double CenterMapY = player.WindowHeight /2;
-            double CatheterX = MousePosX - CenterMapX;
+            double CenterMapY = player.WindowHeight / 2;
+            double BX = CenterMapX + 100;
+            double BY = CenterMapY;
+            double BA = 100;
+            double CatheterX = MousePosX - CenterMapX; 
             double CatheterY = MousePosY - CenterMapY;
-            double Tangens = CatheterY / CatheterX * (-1);
-            double Angel = Math.Atan(Tangens);
+            double Hypotenuse = Math.Sqrt( Math.Pow(CatheterX, 2) 
+                + Math.Pow(CatheterY, 2));//AC
+            double BC = Math.Sqrt(Math.Pow(MousePosX - BX, 2) + Math.Pow(MousePosY - BY, 2));
+            double Angel = Math.Acos((Math.Pow(Hypotenuse, 2) + Math.Pow(BA, 2) - Math.Pow(BC, 2))/( 2 * Hypotenuse * BA));            
+
+            if (CatheterY > 0)
+            {
+                Angel *= -1;
+            }
+            Monster.Rotation = Angel;
+            //-------------------Move-----------------------            
+            Angel = Math.Atan(CatheterY / CatheterX);
             double dx = 0;
             double dy = 0;
-            if (CatheterX > 0) {
+            if (CatheterX > 0)
+            {
                 dx = Math.Cos(Math.Abs(Angel)) * 10;
             }
             else
             {
-                 dx = -Math.Cos(Math.Abs(Angel)) * 10;
+                dx = -Math.Cos(Math.Abs(Angel)) * 10;
             }
             if (CatheterY > 0)
             {
-                 dy = -Math.Sin(Math.Abs(Angel)) * 10;
+                dy = -Math.Sin(Math.Abs(Angel)) * 10;
             }
             else
             {
-                 dy = +Math.Sin(Math.Abs(Angel)) * 10;
-            }
-            
+                dy = +Math.Sin(Math.Abs(Angel)) * 10;
+            }        
+
             Monster.PosX +=(float)dx;
             Monster.PosY +=(float)dy;            
-            Monster.Rotation = Angel + Math.PI / 2;
+           
         }
+        //public void MoveAndRotate(string id, int MousePosX, int MousePosY)
+        //{
+        //    var player = players.FirstOrDefault(t => t.ConnectionId == id);
+        //    var Monster = player.Monster;
+        //    double CenterMapX = player.WindowWidth / 2;
+        //    double CenterMapY = player.WindowHeight /2;
+        //    double CatheterX = MousePosX - CenterMapX;
+        //    double CatheterY = MousePosY - CenterMapY;
+        //    double Tangens = CatheterY / CatheterX ;
+        //    double Angel = Math.Atan(Tangens);
+        //    double dx = 0;
+        //    double dy = 0;
+        //    if (CatheterX > 0) {
+        //        dx = Math.Cos(Math.Abs(Angel)) * 10;
+        //    }
+        //    else
+        //    {
+        //         dx = -Math.Cos(Math.Abs(Angel)) * 10;
+        //    }
+        //    if (CatheterY > 0)
+        //    {
+        //         dy = -Math.Sin(Math.Abs(Angel)) * 10;
+        //    }
+        //    else
+        //    {
+        //         dy = +Math.Sin(Math.Abs(Angel)) * 10;
+        //    }
+            
+        //    //Monster.PosX +=(float)dx;
+        //    //Monster.PosY +=(float)dy;            
+        //    Monster.Rotation = Angel;
+        //}
         public void MooveDown(string id, int keycode)
         {            
             if (keycode == 38 || keycode == 87)

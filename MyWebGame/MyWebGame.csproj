@@ -167,7 +167,6 @@
     <Content Include="Content\img\englishFlag.png" />
     <Content Include="Content\img\pacman.png" />
     <Content Include="Content\img\russianFlag.png" />
-    <Content Include="Content\img\Tank.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -222,6 +221,7 @@
     <Content Include="package.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\authReg\authReg.js" />
+    <Content Include="Scripts\authReg\onlyEmail.js" />
     <Content Include="Scripts\authReg\playNow.js" />
     <Content Include="Scripts\authReg\registration.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -10,7 +10,6 @@
         plane.scale.set(worldSizeX, worldSizeY, 1);
     }
     
-
     network.client.addMoreMembers = function (sizeX, sizeY, users) {
 
         var users = JSON.parse(users);        
@@ -46,7 +45,9 @@
         for (var i = 0; i < players.length; i ++) {         
             players[i].cube.position.x = result[i].PosX;
             players[i].cube.position.y = result[i].PosY;
-            players[i].cube.rotation.z = result[i].Rotation;
+            camera.position.x = result[i].PosX;
+            camera.position.y = result[i].PosY;
+            players[i].cube.material.rotation = result[i].Rotation;
         }
         
         render();

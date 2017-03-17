@@ -1,6 +1,5 @@
 ﻿var network, name;
 network = $.connection.chatHub;
-alert("Why, you don't work");
 $("#forgot-password").click(function (e) {
     alert("forgot-password");
     e.preventDefault();

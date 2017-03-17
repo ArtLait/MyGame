@@ -1,10 +1,13 @@
-﻿var network, name;
+﻿//$("#onlyEmailForm").submit(function () {
+
+//});
+var network, name;
 network = $.connection.chatHub;
 
 name = $("#nickNameForm").find(".input-auth-reg").val();
-
+alert("I am playnow view");
 $("#nickNameForm").submit(function (event) {
-   
+    alert("I am playnow view So");
     name = $("#nickNameForm").find(".input-auth-reg").val();
     event.preventDefault();
 
