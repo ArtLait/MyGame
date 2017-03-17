@@ -22,7 +22,7 @@
             });
         };
         //mousemove
-        $("body").click(function (e) {
+        $("body").mousemove(function (e) {
             
             network.server.moveAndRotate(e.pageX, e.pageY)                
         });
