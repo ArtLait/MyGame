@@ -74,4 +74,17 @@ function messageHandler(name, network) {
         });
     }
 }
-
+function copyObject(oldObject) {
+    var newObject = {};
+    for (var key in oldObject) {              
+        newObject[key] = oldObject[key];
+    }
+    return newObject;
+}
+function findAndDeleted(connectionId) {
+    players.forEach(function (item, i) {
+        if (item.connectionId == connectionId) {
+            players.splice(index, 1);
+        }
+    });
+}

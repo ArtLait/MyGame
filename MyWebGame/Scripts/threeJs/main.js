@@ -8,6 +8,7 @@ var planeGeometry, planeMaterial, plane, sphere,
 var cross;
 var players = [];
 var someFoodArray = [];
+var connectionId;
 
 function init() {    
     scene = new THREE.Scene();

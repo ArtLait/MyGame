@@ -6,8 +6,8 @@
         network.server.checkAuth();                      
     });
     //-------------------For three js--------------------  
-    network.client.initialSettings = function (worldSizeX, worldSizeY, someFood) {
-           
+    network.client.initialSettings = function (worldSizeX, worldSizeY, someFood, currentClientConnectionId) {
+        connectionId = currentClientConnectionId;
         var someFoodUser = JSON.parse(someFood);
         for (var i = 0; i < someFoodUser.length; i++) {
 
@@ -19,17 +19,20 @@
         centerMap.x = window.innerWidth / 2;
         centerMap.y = window.innerHeight / 2;
         plane.scale.set(worldSizeX, worldSizeY, 1);
+        console.log(players);
+        console.log(connectionId);
     }
     
-    network.client.addMoreMembers = function (sizeX, sizeY, users) {
-
+    network.client.addMoreMembers = function (sizeX, sizeY, users) {        
         var users = JSON.parse(users);
         for (var i = players.length; i < users.length; i++) {
             var cube = createRectangle(players, users[i].PosX,
                 users[i].PosY, users[i].SizeX, users[i].SizeY,
                 users[i].Color);
+
             players.push({
-                cube: cube
+                cube: cube,
+                connectionId: users.ConnectionId,            
             });
         };
         //mousemove
@@ -54,12 +57,14 @@
     }  
     
     network.client.setPositions = function (data) {   
-        var result = JSON.parse(data);   
-        for (var i = 0; i < players.length; i ++) {         
+        var result = JSON.parse(data);
+        for (var i = 0; i < players.length; i++) {
+            if (result[i].ConnectionId == connectionId) {
+                camera.position.x = result[i].PosX;
+                camera.position.y = result[i].PosY;
+            }
             players[i].cube.position.x = result[i].PosX;
-            players[i].cube.position.y = result[i].PosY;
-            camera.position.x = result[i].PosX;
-            camera.position.y = result[i].PosY;
+            players[i].cube.position.y = result[i].PosY;            
             players[i].cube.material.rotation = result[i].Rotation;
         }
         
@@ -101,7 +106,10 @@
     }
 
     network.client.onUserDisconnected = function (id, name, allUsers) {
+        //--------------------For three JS
+        findAndDeleted(id);
 
+        //--------------------For chat--------------------
         $('#' + id).remove();
         $("#disconnectedUsers").append('<p class="user-disconnected">' + 'now User ' + '<b>' + name + ' </b>' + ' is disconnected' + '</p>');
         $("#networkResult").empty();

@@ -136,6 +136,7 @@ namespace MyWebGam.Server
                 var someFood = JsonConvert.SerializeObject(SomeFood);
                 var data = Players.Select(t => new DataForInitialCreate()
                 {
+                    ConnectionId = t.Key,
                     PosX = t.Value.Monster.PosX,
                     PosY = t.Value.Monster.PosY,
                     SizeX = t.Value.Monster.SizeX,
@@ -146,8 +147,8 @@ namespace MyWebGam.Server
                 UserSession CurrentClient = session;
                 ResultPosition newCoord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
                 CurrentClient.Monster.PosX = newCoord.x;
-                CurrentClient.Monster.PosY = newCoord.y;
-                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood);
+                CurrentClient.Monster.PosY = newCoord.y;               
+                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood, CurrentClient.ConnectionId);
 
                 foreach (var item in Players)
                 {
