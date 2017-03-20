@@ -41,8 +41,7 @@
                     network.server.connect(name);
                     $("#hello").show();
                     $("#nowConnected").show();
-                    $("#userName").html(name);
-                    messageHandler(name, network);
+                    $("#userName").html(name);                    
                 });
 
                 $("#nickNameHref").hide();
@@ -59,6 +58,10 @@
     $("#resultAuthReg").on("click", "#forgot-password", function (e) {        
         e.preventDefault();
         $("#resultAuthReg").load("http://localhost:30657/Account/OnlyEmail");
+    });
+    $("#resultAuthReg").on("click", "#onlyEmail", function (e) {
+        e.preventDefault();
+        $("#resultAuthReg").load("http://localhost:30657/Account/WaitingForConfirm");
     });
     $("#resultAuthReg").on("submit", "#formAuth", function (event) {
         name = $("#formAuth").find(".input-auth-reg").val();

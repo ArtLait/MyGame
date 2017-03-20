@@ -1,12 +1,21 @@
-﻿$(function () {    
+﻿$(function () {
     var network = $.connection.chatHub;
     var centerMap = { x: 0, y: 0 };
      
     $.connection.hub.start().done(function () {
-        network.server.checkAuth();        
+        network.server.checkAuth();                      
     });
     //-------------------For three js--------------------  
-    network.client.initialSettings = function (worldSizeX, worldSizeY) {
+    network.client.initialSettings = function (worldSizeX, worldSizeY, someFood) {
+           
+        var someFoodUser = JSON.parse(someFood);
+        for (var i = 0; i < someFoodUser.length; i++) {
+
+            someFoodArray.push(createSomeFood(someFoodUser[i].PosX, someFoodUser[i].PosY, someFoodUser[i].Size, someFoodUser[i].Size, someFoodUser[i].Color));
+        }
+        someFoodArray[0].testName = "Artem";
+        console.log(someFoodArray[0]);
+        console.log(someFoodArray);
         centerMap.x = window.innerWidth / 2;
         centerMap.y = window.innerHeight / 2;
         plane.scale.set(worldSizeX, worldSizeY, 1);
@@ -24,7 +33,7 @@
             });
         };
         //mousemove
-        $("body").mousemove(function (e) {
+        $("body").click(function (e) {
             var dirX = e.pageX - centerMap.x;
             var dirY = centerMap.y - e.pageY;
             network.server.moveAndRotate(dirX, dirY)
@@ -58,7 +67,7 @@
     }
   
     //---------------------For chat-----------------------
-    network.client.addMessage = function (name, message) {                
+    network.client.addMessage = function (name, message) {        
         createTemplate(name, message);
         scrollDown();
     };

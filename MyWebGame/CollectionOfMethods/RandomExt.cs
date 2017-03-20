@@ -9,23 +9,31 @@ namespace MyWebGam.Server
     {
         private static Random _rnd = new Random();
         private static string[] _arrayColor = new string[]{
-                "red", "green", "gray"
+                "red", "green", "gray", "yellow", "#A68D00", "#FFE240","#FFEA73"
             };
 
-        public static string GetRandomColor()
+        public static string GetRandomColor(int min, int max)
         {
-            return _arrayColor[_rnd.Next(0, 3)];
+            return _arrayColor[_rnd.Next(min, max)];
         }
-         public static PositionMonster GetRandomMonster(int SizeX, int SizeY, int SizeMonsterX, int SizeMonsterY)
-        {            
-            return new PositionMonster()
+        public static ResultPosition GetRandomPosition(int SizeX, int SizeY, int SizeMonsterX, int SizeMonsterY)
+        {
+            return new ResultPosition()
             {
-                x = _rnd.Next(-SizeX/2 + SizeMonsterX, SizeX/2 - SizeMonsterX),
-                y = _rnd.Next(-SizeY/2 + SizeMonsterY, SizeY/2 - SizeMonsterY)
+                x = _rnd.Next(-SizeX / 2 + SizeMonsterX, SizeX / 2 - SizeMonsterX),
+                y = _rnd.Next(-SizeY / 2 + SizeMonsterY, SizeY / 2 - SizeMonsterY)
             };
         }
+        public static float GetRandomSize(int minSize, int maxSize)
+        {
+            return (float)_rnd.Next(minSize, maxSize);
+        }
+        public static int GetRandomWeight(int minWeight, int maxWeight)
+        {
+            return _rnd.Next(minWeight, maxWeight);
+        }
     }
-    public class PositionMonster
+    public class ResultPosition
     {
         public int x { get; set; }
         public int y { get; set; }

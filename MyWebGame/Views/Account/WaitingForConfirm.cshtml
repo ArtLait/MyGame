@@ -1,9 +1,5 @@
-﻿@*@{
-    if (User.Identity.IsAuthenticated) { Layout = "~/Views/Shared/_LayoutAuth.cshtml"; }
-    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}*@
-@model MyWebGam.Models.AuthorizationViewModel
+﻿@model MyWebGam.Models.AuthorizationViewModel
 
 <div class="container-fluid">   
-    <h1>@Resources.Web.WaitingForPasswordConfirmation</h1>
+    <h3>@Resources.Web.WaitingForPasswordConfirmation</h3>
 </div>

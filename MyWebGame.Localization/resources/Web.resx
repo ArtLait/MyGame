@@ -207,6 +207,12 @@
   <data name="MailBusy" xml:space="preserve">
     <value>Эта почта занята,попробуйте ввести другую</value>
   </data>
+  <data name="MaxLengthJqueryValid" xml:space="preserve">
+    <value>Максимальное число символо - 40</value>
+  </data>
+  <data name="MinLengthJqueryValid" xml:space="preserve">
+    <value>Сообщение должен быть минимум 2 символа</value>
+  </data>
   <data name="Minutes" xml:space="preserve">
     <value>минут</value>
   </data>

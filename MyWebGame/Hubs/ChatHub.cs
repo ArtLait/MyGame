@@ -15,6 +15,7 @@ namespace MyWebGam.Hubs
         UserRepository repo;
 
         private static List<UserForChat> Users = new List<UserForChat>();
+       
         private static World world = null;
         private static int idThread = 0;
         static ChatHub()
@@ -57,15 +58,13 @@ namespace MyWebGam.Hubs
 
             if (!Users.Any(x => x.ConnectionId == id))
             {
-
+                // chat
                 Users.Add(new UserForChat { ConnectionId = id, Name = userName });
-             
                 Clients.Caller.onConnected(id, userName, Users);
-
                 Clients.Caller.TakeUserName(userName);
-               
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
 
+                // game
                 world.AddPlayer(new UserSession(Clients.Caller, userName, Context.ConnectionId));
              }
         }

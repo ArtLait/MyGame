@@ -207,6 +207,12 @@
   <data name="MailBusy" xml:space="preserve">
     <value>This mail is busy</value>
   </data>
+  <data name="MaxLengthJqueryValid" xml:space="preserve">
+    <value>The maximum number of characters is 40</value>
+  </data>
+  <data name="MinLengthJqueryValid" xml:space="preserve">
+    <value>Message must be at least 2 characters long</value>
+  </data>
   <data name="Minutes" xml:space="preserve">
     <value>minutes</value>
   </data>

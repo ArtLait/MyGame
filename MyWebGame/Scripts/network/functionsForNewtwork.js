@@ -44,10 +44,28 @@ function checkSpaces(str) {
 function messageHandler(name, network) {
     if (name != "") {
 
-        $('#sendmessage').click(function () {
-            // Вызываем у хаба метод Send    
-            network.server.send(name, $('#message').val());
-            $('#message').val('');
+        $('#collapseOne').submit(function (e) {
+            // Вызываем у хаба метод Send                                                 
+                $("#collapseOne").validate({
+                    rules: {
+                        messageValue: {
+                            minlength: 2,
+                            maxlength: 40
+                        }
+                    },
+                    messages: {
+                        messageValue: {
+                            minlength: resources.minLengthJqueryValid,
+                            maxlength: resources.maxLengthJqueryValid,
+                        }
+                    }
+                });
+                if ($(this).valid()) {
+                    $("#labelForMessage").css("display", "block");
+                    network.server.send(name, $('#message').val());
+                    $('#message').val('');
+                }               
+            e.preventDefault();
         });
         $('#message').keydown(function (e) {
             if (e.keyCode == 13) {
@@ -56,3 +74,4 @@ function messageHandler(name, network) {
         });
     }
 }
+

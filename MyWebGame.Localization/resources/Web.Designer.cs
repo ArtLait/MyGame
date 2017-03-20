@@ -331,6 +331,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Максимальное число символо - 40.
+        /// </summary>
+        public static string MaxLengthJqueryValid {
+            get {
+                return ResourceManager.GetString("MaxLengthJqueryValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сообщение должен быть минимум 2 символа.
+        /// </summary>
+        public static string MinLengthJqueryValid {
+            get {
+                return ResourceManager.GetString("MinLengthJqueryValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на минут.
         /// </summary>
         public static string Minutes {

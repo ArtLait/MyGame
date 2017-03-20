@@ -21,14 +21,15 @@ namespace MyWebGam
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate.js",
-                        "~/Scripts/jquery.validate-vsdoc.js"));
+                        "~/Scripts/jquery.validate-vsdoc.js",
+                        "~/Scripts/jquery.validate.unobtrusive.js"));
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-{version}.js",
                 "~/Scripts/chat/chat.js",
                 "~/Scripts/chat/templatesForChat.js"                
                 ));
             bundles.Add(new ScriptBundle("~/bundles/jqueryTemplate").Include(              
-                "~/Scripts/chat/lib/jquery.tmpl.min.js"
+                "~/Scripts/network/lib/jquery.tmpl.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/threeJs").Include(
             "~/Scripts/threeJs/lib/three.js",

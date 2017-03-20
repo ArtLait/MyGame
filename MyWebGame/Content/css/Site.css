@@ -11,7 +11,16 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.error{
+    display:none;
+    color: red;
+}
+.input-group-addon, .input-group-btn {
+    vertical-align:bottom;
+}
+.outputMessage{
+    word-break: break-all;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

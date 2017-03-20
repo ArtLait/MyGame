@@ -7,8 +7,8 @@
         @Html.ValidationSummary(true)   
         @Html.LabelFor(model => model.Email, new { @class = "label-auth-reg" })                
         @Html.TextBoxFor(model => model.Email, new { required = "true", @class = "input-auth-reg", autofocus = "" })
-        @Html.ValidationMessageFor(model => model.Email)       
-        
-        <input type="submit" value=@Resources.Web.ChangePassword class="btn btn-default" />
+        @Html.ValidationMessageFor(model => model.Email)
+
+    <input type="submit" id="onlyEmail" class="btn-warning input-auth-reg" value=@Resources.Web.ChangePassword class="btn btn-default" />
     }
 </div>

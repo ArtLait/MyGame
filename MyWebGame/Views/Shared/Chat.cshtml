@@ -8,15 +8,16 @@
                 </a>
             </div>
         </div>
-        <div class="panel-collapse collapse in" id="collapseOne">
+        <form class="panel-collapse collapse in" id="collapseOne">
             <div id="panelBodyChat" class="panel-body">
                 <ul class="chat" id="chat">
                     <div id="header"></div>
                 </ul>
             </div>
             <div class="panel-footer">
-                <div class="input-group">
-                    <input id="message" autofocus type="text" class="form-control input-sm" placeholder="@Resources.Web.TypeYourMessageHere" />
+                <div class="input-group">    
+                    <label id="labelForMessage" for="message" generated="true" class="error" style="">Сообщение должен быть минимум 2 символа</label>                               
+                    <input id="message" name="messageValue" autofocus type="text" class="form-control input-sm" placeholder="@Resources.Web.TypeYourMessageHere" />
                     <span class="input-group-btn">
                         <button class="btn btn-warning btn-sm" id="sendmessage">
                             @Resources.Web.Send
@@ -28,7 +29,7 @@
             <div id="chatusers">
                 
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -44,7 +45,7 @@
                     <span class="glyphicon glyphicon-time"></span>${timeStr}
                 </small>
             </div>
-            <p>
+            <p class="outputMessage">
                 ${message}
             </p>
         </div>

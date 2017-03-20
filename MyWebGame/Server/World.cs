@@ -13,15 +13,61 @@ namespace MyWebGam.Server
     {
         public float SizeX { get; private set; }
         public float SizeY { get; private set; }
-
+        public float SizeCellX { get; private set; }
+        public float SizeCellY { get; private set; }
+        public int CountOfFood { get; private set; }
         public Dictionary<string, UserSession> Players { get; private set; }
+        public List<Food> SomeFood { get; private set; }
+        public List<Ceil> Grid { get; private set; }
         public World()
         {
             SizeX = 2000;
             SizeY = 1000;
+            SizeCellX = 200;
+            SizeCellY = 200;            
+            CountOfFood = 20;
             Players = new Dictionary<string, UserSession>();
+            SomeFood = new List<Food>();
+            Grid = new List<Ceil>();
+//            SomeFood.Add(new Food() { PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color="red" });
+            CreateGrid();
+            FillingGridWithFood();
+            SetSomeFood();            
+        }      
+        private void SetSomeFood()
+        {
+            for (var i = 0; i < CountOfFood; i++)
+            {
+                ResultPosition coord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, Food.MaxSize, Food.MaxSize);
+                SomeFood.Add(new Food()
+                {
+                    Size = RandomExt.GetRandomSize(Food.MinSize, Food.MaxSize),
+                    Weight = RandomExt.GetRandomWeight(Food.MinWeight, Food.MaxWeight),
+                    PosX = coord.x,
+                    PosY = coord.y,
+                    Color = RandomExt.GetRandomColor(3, 7)
+                });
+            }
         }
-
+        public void CreateGrid()
+        {
+            for (float i = 0; i < SizeX; i += SizeCellX)
+            {
+                for (float j = 0; j < SizeY; j += SizeCellY)
+                {
+                    Grid.Add(new Ceil() { XCell = i, YCell = j });
+                }
+            }
+        }
+        public void FillingGridWithFood()
+        {            
+            foreach(Food item in SomeFood)
+            {
+              item.XCell = Math.Round(item.PosX / SizeCellX);
+              item.YCell = Math.Round(item.PosY / SizeCellY);
+              Grid.FirstOrDefault(t => t.XCell == item.XCell && t.YCell == item.YCell).FoodInCeil.Add(item);
+            }
+        }
         public void Ticked(float ms)
         {
             lock (Players)
@@ -32,16 +78,17 @@ namespace MyWebGam.Server
                         player.Value.Monster.Ticked(ms);
                 }
 
+                var resultObject = Players.Select(t => new UserData()
+                {
+                    ConnectionId = t.Value.ConnectionId,
+                    PosX = t.Value.Monster.PosX,
+                    PosY = t.Value.Monster.PosY,
+                    Rotation = t.Value.Monster.Rotation
+                });
+                var result = JsonConvert.SerializeObject(resultObject);
+
                 foreach (var player in Players)
                 {
-                    var resultObject = Players.Select(t => new UserData()
-                    {
-                        ConnectionId = t.Value.ConnectionId,
-                        PosX = t.Value.Monster.PosX,
-                        PosY = t.Value.Monster.PosY,
-                        Rotation = t.Value.Monster.Rotation
-                    });
-                    var result = JsonConvert.SerializeObject(resultObject);
                     player.Value.SetPositions(result);
                 }
             }
@@ -86,7 +133,7 @@ namespace MyWebGam.Server
             lock (Players)
             {
                 Players.Add(session.ConnectionId, session);
-
+                var someFood = JsonConvert.SerializeObject(SomeFood);
                 var data = Players.Select(t => new DataForInitialCreate()
                 {
                     PosX = t.Value.Monster.PosX,
@@ -97,10 +144,10 @@ namespace MyWebGam.Server
                 });
                 var users = JsonConvert.SerializeObject(data);
                 UserSession CurrentClient = session;
-                PositionMonster newCoord = RandomExt.GetRandomMonster((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
+                ResultPosition newCoord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
                 CurrentClient.Monster.PosX = newCoord.x;
                 CurrentClient.Monster.PosY = newCoord.y;
-                CurrentClient.Client.initialSettings(SizeX, SizeY);
+                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood);
 
                 foreach (var item in Players)
                 {
