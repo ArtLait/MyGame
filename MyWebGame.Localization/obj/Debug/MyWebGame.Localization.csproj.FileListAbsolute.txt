@@ -45,4 +45,3 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localiza
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\en\MyWebGame.Localization.resources.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.pdb
-D:\aps_net\SolbegSoft\MyGame\MyWebGame.Localization\obj\Debug\MyWebGame.Localization.csprojResolveAssemblyReference.cache

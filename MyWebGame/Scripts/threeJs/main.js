@@ -17,11 +17,7 @@ function init() {
     renderer.setClearColorHex(0xEEEEEE);
     renderer.setSize(window.innerWidth, window.innerHeight);
     axes = new THREE.AxisHelper(20);
-    scene.add(axes);
-    var spriteMap = new THREE.TextureLoader().load("/Content/img/pacman.png");
-    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
-    var sprite = new THREE.Sprite(spriteMaterial);
-    scene.add(sprite);
+    scene.add(axes);   
     planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
     plane = new THREE.Mesh(planeGeometry, planeMaterial);
