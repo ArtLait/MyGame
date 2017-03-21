@@ -45,6 +45,8 @@ namespace MyWebGam.Server
         public float SpeedY { get; set; }
         public string Color { get; set; }
         public float Speed { get; private set; }
+        public int i { get; set; }
+        public int j { get; set; }
 
         public Monster()
         {            
@@ -56,6 +58,8 @@ namespace MyWebGam.Server
             SizeX = 200;
             SizeY = 200;
             Speed = 400;
+            i = -1;
+            j = -1;
             Color = RandomExt.GetRandomColor(0, 3);
         }
         public void Ticked(float ms)

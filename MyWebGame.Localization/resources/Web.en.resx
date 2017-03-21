@@ -157,7 +157,7 @@
     <value>Password do not match</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Enter you email</value>
+    <value>Enter your email</value>
   </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Email not confirmed!</value>
@@ -217,7 +217,7 @@
     <value>minutes</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Enter you name</value>
+    <value>Enter your name</value>
   </data>
   <data name="NameIsTooLength" xml:space="preserve">
     <value>Name is too length</value>
@@ -226,10 +226,10 @@
     <value>No such user</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
-    <value>Please, authorized now</value>
+    <value>Please, Sign in</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Enter you password</value>
+    <value>Enter your password</value>
   </data>
   <data name="PlayNow" xml:space="preserve">
     <value>Play now</value>
@@ -259,7 +259,7 @@
     <value>sign in</value>
   </data>
   <data name="SignInSubmit" xml:space="preserve">
-    <value>Sign in</value>
+    <value>SignIn</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>signout</value>

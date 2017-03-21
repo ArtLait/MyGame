@@ -157,7 +157,7 @@
     <value>Пароли не совпадают</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Введите емаил</value>
+    <value>Введите адрес электронной почты</value>
   </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Емаил не подтвержден!</value>
@@ -247,7 +247,7 @@
     <value>Запомнить меня</value>
   </data>
   <data name="RepeatPassword" xml:space="preserve">
-    <value>Повторите, пожалуйста, пароль</value>
+    <value>Повторите пароль</value>
   </data>
   <data name="Russian" xml:space="preserve">
     <value>Русский</value>
@@ -274,7 +274,7 @@
     <value>Спасибо,что зашли к нам </value>
   </data>
   <data name="WaitingForPasswordConfirmation" xml:space="preserve">
-    <value>Пожалуйста, проверьте почту емаил</value>
+    <value>Пожалуйста, проверьте электронную почту</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Добро пожаловать</value>

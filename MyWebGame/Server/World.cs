@@ -19,20 +19,22 @@ namespace MyWebGam.Server
         public Dictionary<string, UserSession> Players { get; private set; }
         public List<Food> SomeFood { get; private set; }
         public List<Ceil> Grid { get; private set; }
+        public Ceil[,] ArrayGrid { get; set; }
         public World()
         {
             SizeX = 2000;
             SizeY = 1000;
             SizeCellX = 200;
-            SizeCellY = 200;            
+            SizeCellY = 100;            
             CountOfFood = 20;
             Players = new Dictionary<string, UserSession>();
             SomeFood = new List<Food>();
             Grid = new List<Ceil>();
+            ArrayGrid = new Ceil[(int)(SizeX / SizeCellX), (int)(SizeY / SizeCellY)];
 //            SomeFood.Add(new Food() { PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color="red" });
             CreateGrid();
-            FillingGridWithFood();
-            SetSomeFood();            
+            SetSomeFood(); 
+            FillingGridWithFood();                       
         }      
         private void SetSomeFood()
         {
@@ -51,22 +53,32 @@ namespace MyWebGam.Server
         }
         public void CreateGrid()
         {
-            for (float i = 0; i < SizeX; i += SizeCellX)
+            float xStep = 0;
+            float yStep = 0;
+            for (float i = 0; i < SizeX / SizeCellX; i ++ )
             {
-                for (float j = 0; j < SizeY; j += SizeCellY)
+                for (float j = 0; j < SizeY / SizeCellY ; j ++ )
                 {
-                    Grid.Add(new Ceil() { XCell = i, YCell = j });
+                    xStep += SizeCellX;
+                    yStep += SizeCellY;
+                    ArrayGrid[(int)i,(int)j] = new Ceil() { XCell = xStep, YCell = yStep, I = i, J = j };
+                //    Grid.Add(new Ceil() { XCell = i, YCell = j, I = i, J = j });
                 }
             }
         }
         public void FillingGridWithFood()
         {            
-            foreach(Food item in SomeFood)
+            foreach(var item in SomeFood)
             {
-              item.XCell = Math.Round(item.PosX / SizeCellX);
-              item.YCell = Math.Round(item.PosY / SizeCellY);
-              Grid.FirstOrDefault(t => t.XCell == item.XCell && t.YCell == item.YCell).FoodInCeil.Add(item);
+              item.IFood = Math.Round(((item.PosX + SizeX / 2) / SizeCellX));
+              item.JFood= Math.Round(((item.PosY + SizeY / 2) / SizeCellY));
+              ArrayGrid[(int) item.IFood,(int) item.JFood].FoodInCeil.Add(item);
+           //   Grid.FirstOrDefault(t => t.I == item.IFood && t.J == item.JFood).FoodInCeil.Add(item);
             }
+        }
+        public void TestCollision()
+        {
+
         }
         public void Ticked(float ms)
         {
@@ -127,6 +139,12 @@ namespace MyWebGam.Server
             }
             return InWorldSize;
         }
+        public void AddPlayerInArrayGrid(UserSession player)
+        {
+            player.Monster.i = (int)Math.Round((player.Monster.PosX + SizeX / 2) / SizeCellX);
+            player.Monster.j = (int)Math.Round((player.Monster.PosY + SizeY / 2) / SizeCellY);
+            ArrayGrid[player.Monster.i, player.Monster.j].PlayersInCeil.Add(player);
+        }
 
         public void AddPlayer(UserSession session)
         {
@@ -147,8 +165,9 @@ namespace MyWebGam.Server
                 UserSession CurrentClient = session;
                 ResultPosition newCoord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
                 CurrentClient.Monster.PosX = newCoord.x;
-                CurrentClient.Monster.PosY = newCoord.y;               
-                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood, CurrentClient.ConnectionId);
+                CurrentClient.Monster.PosY = newCoord.y;
+                AddPlayerInArrayGrid(CurrentClient);
+                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood, CurrentClient.ConnectionId, users);
 
                 foreach (var item in Players)
                 {

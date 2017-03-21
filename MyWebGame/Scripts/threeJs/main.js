@@ -8,9 +8,8 @@ var planeGeometry, planeMaterial, plane, sphere,
 var cross;
 var players = [];
 var someFoodArray = [];
-var connectionId;
 
-function init() {    
+function init() {
     scene = new THREE.Scene();
     camera = new THREE.OrthographicCamera(window.innerWidth / -2,
         window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 1, 1000)
@@ -22,7 +21,7 @@ function init() {
     var spriteMap = new THREE.TextureLoader().load("/Content/img/pacman.png");
     var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
     var sprite = new THREE.Sprite(spriteMaterial);
-    scene.add(sprite);    
+    scene.add(sprite);
     planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
     plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -42,20 +41,20 @@ function createRectangle(players, x, y, sizeX, sizeY, color) {
     var spriteMap = new THREE.ImageUtils.loadTexture("/Content/img/pacman.png");
     var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: color });
     var cube = new THREE.Sprite(spriteMaterial);
-    spriteMaterial.map.needsUpdate = true;    
+    spriteMaterial.map.needsUpdate = true;
     cube.position.x = x;
     cube.position.y = y;
     cube.scale.set(sizeX, sizeY, 1);
-    
-    scene.add(cube);    
+
+    scene.add(cube);
     return cube;
 }
 function createSomeFood(x, y, sizeX, sizeY, color) {
-    
+
     var spriteMap = new THREE.ImageUtils.loadTexture("/Content/img/pacman.png");
-    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: color});
+    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: color });
     var cube = new THREE.Sprite(spriteMaterial);
-    spriteMaterial.map.needsUpdate = true;    
+    spriteMaterial.map.needsUpdate = true;
     cube.position.x = x;
     cube.position.y = y;
     cube.scale.set(sizeX, sizeY, 1);

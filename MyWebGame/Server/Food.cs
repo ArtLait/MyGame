@@ -16,8 +16,8 @@ namespace MyWebGam.Server
         public float Size { get; set; }
         public int Weight { get; set; }
         public string Color { get; set; }
-        public double XCell { get; set; }
-        public double YCell { get; set; }
+        public double IFood { get; set; }
+        public double JFood { get; set; }
         public Food()
         {            
 
