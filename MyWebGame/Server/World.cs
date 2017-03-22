@@ -120,7 +120,7 @@ namespace MyWebGam.Server
                        {
                            user.Value.Client.clashWithPlayer(item.ConnectionId, itemWithNewCoord);
                        }
-                       player.Client.newWeight(player.Weight);
+                       player.Client.newWeight(player.Weight, player.ConnectionId);
                    }
                    else
                    {
@@ -132,7 +132,7 @@ namespace MyWebGam.Server
                        {
                            user.Value.Client.clashWithPlayer(player.ConnectionId, playerWithNewCoord);
                        }
-                       item.Client.newWeight(item.Weight);
+                       item.Client.newWeight(item.Weight, item.ConnectionId);
                    }                 
                }
            }
@@ -144,7 +144,7 @@ namespace MyWebGam.Server
                    player.Weight += item.Weight;
                    var newFood = JsonConvert
                        .SerializeObject(ChangeLocation(item));
-                   player.Client.newWeight(player.Weight);
+                   player.Client.newWeight(player.Weight, player.ConnectionId);
                    foreach (var user in Players){                       
                         user.Value.Client.clashWithFood(food, newFood, player.Weight);
                    }

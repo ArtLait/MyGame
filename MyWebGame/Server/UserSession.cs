@@ -50,9 +50,9 @@ namespace MyWebGam.Server
             PosZ = 0;            
             SpeedX = 0;
             SpeedY = 0;
-            SizeX = 200;
-            SizeY = 200;
-            Speed = 400;           
+            SizeX = 20;
+            SizeY = 20;
+            Speed = 40;           
             I = -1;
             J = -1;
             Color = RandomExt.GetRandomColor(0, 3);

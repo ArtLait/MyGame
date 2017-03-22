@@ -33,10 +33,11 @@
 
         //mousemove
         $("body").click(function (e) {
-
-            var dirX = e.pageX - centerMap.x;
-            var dirY = centerMap.y - e.pageY;
-            network.server.moveAndRotate(dirX, dirY)
+            if (e.target.id != "message") {
+                var dirX = e.pageX - centerMap.x;
+                var dirY = centerMap.y - e.pageY;
+                network.server.moveAndRotate(dirX, dirY);
+            }
         });
 
         $("body").keydown(function (e) {
@@ -85,9 +86,12 @@
         someFoodCollection[newPositionPlayer.Id] = player;
     }
    
-    network.client.newWeight = function (weight) {
+    network.client.newWeight = function (weight, id) {
+        console.log(id);
         $("#weightUser").empty(weight)
         $("#weightUser").append(weight);
+        players[id].scale.x += weight * 10;
+        players[id].scale.y += weight * 10;
     }
 
     //---------------------For chat-----------------------

@@ -15,9 +15,7 @@ function init() {
         window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 1, 1000)
     renderer = new THREE.WebGLRenderer();
     renderer.setClearColorHex(0xEEEEEE);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    axes = new THREE.AxisHelper(20);
-    scene.add(axes);   
+    renderer.setSize(window.innerWidth, window.innerHeight);     
     planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     planeMaterial = new THREE.MeshBasicMaterial({ color: 0xcccccc });
     plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -26,6 +24,7 @@ function init() {
     scene.add(plane);
     camera.position.set(0, 0, 400);
     camera.lookAt(scene.position);
+    //console.log(createRectangle(0, 0, 20, 20, "red"));
     $("#myGame").append(renderer.domElement);
     $("#myGame").find("canvas").addClass("absolute")
         .attr('id', 'mainCanvas').attr('tabindex', '1');
