@@ -111,7 +111,29 @@ namespace MyWebGam.Server
            {
                if (TestCollisionWithOtherPlayers(player, item))
                {
-                 //  player.Client.clashWithFood("");
+                   if (player.Weight > item.Weight)
+                   {
+                       player.Weight += item.Weight;
+                       item.Weight = 0;
+                       var itemWithNewCoord = JsonConvert.SerializeObject(ChangeLocationDeadPLayer(item));                       
+                       foreach (var user in Players)
+                       {
+                           user.Value.Client.clashWithPlayer(item.ConnectionId, itemWithNewCoord);
+                       }
+                       player.Client.newWeight(player.Weight);
+                   }
+                   else
+                   {
+                       item.Weight += player.Weight;
+                       player.Weight = 0;
+                       var playerWithNewCoord = JsonConvert
+                           .SerializeObject(ChangeLocationDeadPLayer(player));                       
+                       foreach (var user in Players)
+                       {
+                           user.Value.Client.clashWithPlayer(player.ConnectionId, playerWithNewCoord);
+                       }
+                       item.Client.newWeight(item.Weight);
+                   }                 
                }
            }
            foreach (Food item in ArrayGrid[player.Monster.I, player.Monster.J].FoodInCeil.ToList())
@@ -119,13 +141,30 @@ namespace MyWebGam.Server
                if (TestCollisionWithFood(player, item))
                {                
                    var food = JsonConvert.SerializeObject(item);
+                   player.Weight += item.Weight;
                    var newFood = JsonConvert
                        .SerializeObject(ChangeLocation(item));
+                   player.Client.newWeight(player.Weight);
                    foreach (var user in Players){                       
-                        user.Value.Client.clashWithFood(food, newFood);
+                        user.Value.Client.clashWithFood(food, newFood, player.Weight);
                    }
                }
            }
+        }
+        public UserSession ChangeLocationDeadPLayer(UserSession deadPlayer)
+        {
+            ArrayGrid[deadPlayer.Monster.J, deadPlayer.Monster.J]
+                       .PlayersInCeil.Remove(deadPlayer);
+            ResultPosition coord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY,
+                Food.MaxSize, Food.MaxSize);
+            int newI = (int)Math.Floor((coord.x + SizeX / 2) / SizeCellX);
+            int newJ = (int)Math.Floor((coord.y + SizeY / 2) / SizeCellY);
+            deadPlayer.Monster.PosX = coord.x;
+            deadPlayer.Monster.PosY = coord.y;
+            deadPlayer.Monster.I = newI;
+            deadPlayer.Monster.J = newJ;
+            ArrayGrid[newI, newJ].PlayersInCeil.Add(deadPlayer);
+            return deadPlayer;
         }
         public Food ChangeLocation(Food food)
         {

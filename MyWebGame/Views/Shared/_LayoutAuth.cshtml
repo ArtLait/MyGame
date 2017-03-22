@@ -30,6 +30,12 @@
                 <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "en" })> <img class="lang-img" src="~/Content/img/englishFlag.png" /> </a>
                 <a class="hover-text-decoration-none" href=@Url.Action("ChangeCulture", "Home", new { lang = "ru" })> <img class="lang-img" src="~/Content/img/russianFlag.png" /> </a>
             </div>
+            <div class="container-with-weight">
+                You weight:
+                <span id="weightUser">
+
+                </span>
+            </div>
             @Html.Partial("~/Views/Shared/Chat.cshtml")
             @RenderBody()
 

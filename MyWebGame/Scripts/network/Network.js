@@ -14,8 +14,7 @@
                     item.Size, item.Size, item.Color); 
             someFoodCollection[item.Id] = food;
                                
-        });        
-        console.log(someFoodCollection);
+        });                
         centerMap.x = window.innerWidth / 2;
         centerMap.y = window.innerHeight / 2;
         plane.scale.set(worldSizeX, worldSizeY, 1);
@@ -68,16 +67,27 @@
 
         render();
     }
-    var testIterator = 0;
     network.client.clashWithFood = function (deletedFood, newPositionFood) {
-        
+
         var idFood = someFoodCollection[JSON.parse(deletedFood).Id];
         scene.remove(idFood);
         var newPositionFood = JSON.parse(newPositionFood);
         var food = createSomeFood(newPositionFood.PosX, newPositionFood.PosY,
                     newPositionFood.Size, newPositionFood.Size, newPositionFood.Color);
         someFoodCollection[newPositionFood.Id] = food;
-        console.log(someFoodCollection);
+    }
+    network.client.clashWithPlayer = function (idPlayer, newPositionPlayer) {
+                
+        scene.remove(idPlayer);
+        var newPositionPlayer = JSON.parse(newPositionPlayer);
+        var player = createRectangle(newPositionPlayer.PosX, newPositionPlayer.PosY,
+                    newPositionPlayer.Size, newPositionPlayer.Size, newPositionPlayer.Color);
+        someFoodCollection[newPositionPlayer.Id] = player;
+    }
+   
+    network.client.newWeight = function (weight) {
+        $("#weightUser").empty(weight)
+        $("#weightUser").append(weight);
     }
 
     //---------------------For chat-----------------------
