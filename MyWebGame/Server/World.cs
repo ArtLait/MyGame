@@ -112,26 +112,32 @@ namespace MyWebGam.Server
            {
                if (TestCollisionWithOtherPlayers(player, item))
                {
-                   if (player.Weight > item.Weight)
+                   if (player.Weight >= item.Weight)
                    {
                        player.Weight += item.Weight;
-                       player.Monster.SizeX = player.Weight * MyltiplayWeightConst;
-                       player.Monster.SizeY = player.Weight * MyltiplayWeightConst;
-                       player.Monster.Speed -= player.Weight;
+                       player.Monster.SizeX += player.Weight * MyltiplayWeightConst;
+                       player.Monster.SizeY += player.Weight * MyltiplayWeightConst;
+                       player.Monster.Speed -= item.Weight;
                        item.Weight = 0;
+                       item.Monster.SizeX = item.Monster.StartSizeX;
+                       item.Monster.StartSizeY = item.Monster.StartSizeY;                       
                        var itemWithNewCoord = JsonConvert.SerializeObject(ChangeLocationDeadPLayer(item));                       
                        foreach (var user in Players)
                        {
                            user.Value.Client.clashWithPlayer(item.ConnectionId, itemWithNewCoord, player.Weight, player.ConnectionId);
                        }
                        player.Client.newWeight(player.Weight);
+                       item.Client.newWeight(item.Weight);
                    }
                    else
-                   {
+                   {                      
                        item.Weight += player.Weight;
-                       item.Monster.SizeX += item.Weight * MyltiplayWeightConst;
-                       item.Monster.SizeY += item.Weight * MyltiplayWeightConst;
+                       item.Monster.SizeX += item.Weight;
+                       item.Monster.SizeY += item.Weight;
+                       item.Monster.Speed -= player.Weight;
                        player.Weight = 0;
+                       player.Monster.SizeX = player.Monster.StartSizeX;
+                       player.Monster.SizeY = player.Monster.StartSizeY; 
                        var playerWithNewCoord = JsonConvert
                            .SerializeObject(ChangeLocationDeadPLayer(player));                       
                        foreach (var user in Players)
@@ -139,6 +145,7 @@ namespace MyWebGam.Server
                            user.Value.Client.clashWithPlayer(player.ConnectionId, playerWithNewCoord, item.Weight, item.ConnectionId);
                        }
                        item.Client.newWeight(item.Weight);
+                       player.Client.newWeight(player.Weight);
                    }                 
                }
            }

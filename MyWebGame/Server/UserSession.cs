@@ -32,6 +32,8 @@ namespace MyWebGam.Server
     {
         public int SizeX { get; set; }
         public int SizeY { get; set; }
+        public int StartSizeX { get; set; }
+        public int StartSizeY { get; set; }
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float PosZ { get; set; }
@@ -52,6 +54,8 @@ namespace MyWebGam.Server
             SpeedY = 0;
             SizeX = 20;
             SizeY = 20;
+            StartSizeX = 20;
+            StartSizeY = 20;
             Speed = 80;           
             I = -1;
             J = -1;
