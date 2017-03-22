@@ -11,5 +11,7 @@ namespace MyWebGam.Server
         public float PosX { get; set; }
         public float PosY { get; set; }
         public double Rotation { get; set; }
+        public double SizeX { get; set; }
+        public double SizeY { get; set; }
     }    
 }

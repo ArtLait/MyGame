@@ -9,20 +9,18 @@ namespace MyWebGam.Server
 {
     public class UserSession : Hub
     {
-        public dynamic Client { get; set; }
-        public object TestClient { get; set; }   
+        public dynamic Client { get; set; }        
         public string UserName { get; private set; }
         public string ConnectionId { get; private set; }
-        public double WindowWidth { get; set; }
-        public double WindowHeight { get; set; }
+        public int Weight { get; set; }
         public Monster Monster { get; private set; }
 
         public UserSession(dynamic client, string userName, string connectionId)
         {
-            Client = client;
-            TestClient = client;
+            Client = client;            
             UserName = userName;
             ConnectionId = connectionId;
+            Weight = 0;
             Monster = new Monster();            
         }
         public void SetPositions(string data)
@@ -32,20 +30,21 @@ namespace MyWebGam.Server
     }
     public class Monster : ITickable
     {
-        public int SizeX { get; private set; }
-        public int SizeY { get; private set; }
+        public int SizeX { get; set; }
+        public int SizeY { get; set; }
+        public int StartSizeX { get; set; }
+        public int StartSizeY { get; set; }
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float PosZ { get; set; }
         public double Rotation { get; set; }
-        public float NewPosX {get; set;}
-        public float NewPosY {get; set;}
-        public float NewPosZ { get; set; }
         public float SpeedX { get; set; }
         public float SpeedY { get; set; }
         public string Color { get; set; }
-        public float Speed { get; private set; }
-
+        public float Speed { get; set; }
+        public int I { get; set; }
+        public int J { get; set; }
+      
         public Monster()
         {            
             PosX = 0;
@@ -53,9 +52,13 @@ namespace MyWebGam.Server
             PosZ = 0;            
             SpeedX = 0;
             SpeedY = 0;
-            SizeX = 10;
+            SizeX = 20;
             SizeY = 20;
-            Speed = 20;
+            StartSizeX = 20;
+            StartSizeY = 20;
+            Speed = 80;           
+            I = -1;
+            J = -1;
             Color = RandomExt.GetRandomColor(0, 3);
         }
         public void Ticked(float ms)

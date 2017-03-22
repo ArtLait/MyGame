@@ -7,6 +7,7 @@ namespace MyWebGam.Server
 {
     public class DataForInitialCreate
     {
+        public string ConnectionId { get; set; }
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float SizeX { get; set; }

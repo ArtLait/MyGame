@@ -178,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Введите емаил.
+        ///   Ищет локализованную строку, похожую на Введите адрес электронной почты.
         /// </summary>
         public static string Email {
             get {
@@ -340,7 +340,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Сообщение должен быть минимум 2 символа.
+        ///   Ищет локализованную строку, похожую на Сообщение не должно быть пустым.
         /// </summary>
         public static string MinLengthJqueryValid {
             get {
@@ -448,7 +448,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Повторите, пожалуйста, пароль.
+        ///   Ищет локализованную строку, похожую на Повторите пароль.
         /// </summary>
         public static string RepeatPassword {
             get {
@@ -529,7 +529,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Пожалуйста, проверьте почту емаил.
+        ///   Ищет локализованную строку, похожую на Пожалуйста, проверьте электронную почту.
         /// </summary>
         public static string WaitingForPasswordConfirmation {
             get {
