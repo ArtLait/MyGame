@@ -172,7 +172,7 @@
     <value>Entry login</value>
   </data>
   <data name="EntryNameError" xml:space="preserve">
-    <value>Entry name</value>
+    <value>Enter your nickname</value>
   </data>
   <data name="EntryNickName" xml:space="preserve">
     <value>Entry nick name</value>
@@ -196,10 +196,10 @@
     <value>Join the game</value>
   </data>
   <data name="LengthRequiredMoreThan1AndLessThan20" xml:space="preserve">
-    <value>Length word must be more than 1 and less than 20</value>
+    <value>Word length  must be more than 1 and less than 20</value>
   </data>
   <data name="LengthRequiredMoreThan5AndLessThan24" xml:space="preserve">
-    <value>Length word must be more than 5 and less than 24</value>
+    <value>Word length  must be more than 5 and less than 24</value>
   </data>
   <data name="MailAddressIsIncorrect" xml:space="preserve">
     <value>Mail addres is incorrect</value>
@@ -211,7 +211,7 @@
     <value>The maximum number of characters is 40</value>
   </data>
   <data name="MinLengthJqueryValid" xml:space="preserve">
-    <value>Message must be at least 2 characters long</value>
+    <value>The message must not be empty</value>
   </data>
   <data name="Minutes" xml:space="preserve">
     <value>minutes</value>

@@ -9,16 +9,14 @@ namespace MyWebGam.Server
 {
     public class UserSession : Hub
     {
-        public dynamic Client { get; set; }
-        public object TestClient { get; set; }   
+        public dynamic Client { get; set; }        
         public string UserName { get; private set; }
         public string ConnectionId { get; private set; }
         public Monster Monster { get; private set; }
 
         public UserSession(dynamic client, string userName, string connectionId)
         {
-            Client = client;
-            TestClient = client;
+            Client = client;            
             UserName = userName;
             ConnectionId = connectionId;
             Monster = new Monster();            
@@ -42,6 +40,7 @@ namespace MyWebGam.Server
         public float Speed { get; private set; }
         public int I { get; set; }
         public int J { get; set; }
+        public int Weight { get; set; }
 
         public Monster()
         {            
@@ -53,6 +52,7 @@ namespace MyWebGam.Server
             SizeX = 200;
             SizeY = 200;
             Speed = 400;
+            Weight = 0;
             I = -1;
             J = -1;
             Color = RandomExt.GetRandomColor(0, 3);

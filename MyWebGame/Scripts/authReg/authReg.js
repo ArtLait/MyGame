@@ -37,8 +37,8 @@
         .done(function (data) {
             if (data.successful) {
 
-                $.connection.hub.start().done(function () {
-                    network.server.connect(name);
+                $.connection.hub.start().done(function () {                   
+                    network.server.connect(name)
                     $("#hello").show();
                     $("#nowConnected").show();
                     $("#userName").html(name);                    

@@ -17,8 +17,7 @@ namespace MyWebGam.Server
         public float SizeCellY { get; private set; }
         public int CountOfFood { get; private set; }
         public Dictionary<string, UserSession> Players { get; private set; }
-        public List<Food> SomeFood { get; private set; }
-        public List<Ceil> Grid { get; private set; }
+        public List<Food> SomeFood { get; private set; }        
         public Ceil[,] ArrayGrid { get; set; }
         public World()
         {
@@ -28,10 +27,9 @@ namespace MyWebGam.Server
             SizeCellY = 100;            
             CountOfFood = 20;
             Players = new Dictionary<string, UserSession>();
-            SomeFood = new List<Food>();
-            Grid = new List<Ceil>();
+            SomeFood = new List<Food>();           
             ArrayGrid = new Ceil[(int)(SizeX / SizeCellX), (int)(SizeY / SizeCellY)];
-//            SomeFood.Add(new Food() { PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color = "red" });
+            SomeFood.Add(new Food() {Id = "200", PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color = "red" });
             CreateGrid();
             SetSomeFood(); 
             FillingGridWithFood();                            
@@ -42,7 +40,8 @@ namespace MyWebGam.Server
             {
                 ResultPosition coord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, Food.MaxSize, Food.MaxSize);
                 SomeFood.Add(new Food()
-                {
+                {   
+                    Id = i.ToString(),
                     Size = RandomExt.GetRandomSize(Food.MinSize, Food.MaxSize),
                     Weight = RandomExt.GetRandomWeight(Food.MinWeight, Food.MaxWeight),
                     PosX = coord.x,
@@ -50,7 +49,7 @@ namespace MyWebGam.Server
                     Color = RandomExt.GetRandomColor(3, 7)
                 });
             }
-        }
+        }       
         public void CreateGrid()
         {
             float xStep = 0;
@@ -61,8 +60,7 @@ namespace MyWebGam.Server
                 {
                     xStep += SizeCellX;
                     yStep += SizeCellY;
-                    ArrayGrid[(int)i,(int)j] = new Ceil() { XCell = xStep, YCell = yStep, I = i, J = j };
-                //    Grid.Add(new Ceil() { XCell = i, YCell = j, I = i, J = j });
+                    ArrayGrid[(int)i,(int)j] = new Ceil() { XCell = xStep, YCell = yStep, I = i, J = j };               
                 }
             }
         }
@@ -70,8 +68,8 @@ namespace MyWebGam.Server
         {            
             foreach(var item in SomeFood)
             {
-              item.IFood = Math.Floor(((item.PosX + SizeX / 2) / SizeCellX));
-              item.JFood = Math.Floor(((item.PosY + SizeY / 2) / SizeCellY));
+              item.IFood = (int) Math.Floor(((item.PosX + SizeX / 2) / SizeCellX));
+              item.JFood = (int) Math.Floor(((item.PosY + SizeY / 2) / SizeCellY));
                 try
                 {
                     ArrayGrid[(int)item.IFood, (int)item.JFood].FoodInCeil.Add(item);
@@ -80,33 +78,69 @@ namespace MyWebGam.Server
                 catch(Exception e)
                 {
                     var b = 0;
-                }
-              
+                }              
            //   Grid.FirstOrDefault(t => t.I == item.IFood && t.J == item.JFood).FoodInCeil.Add(item);
             }
         }
         public void AddPlayerInArrayGrid(UserSession player)
-        {
-            player.Monster.I = (int)Math.Round((player.Monster.PosX + SizeX / 2) / SizeCellX);
-            player.Monster.J = (int)Math.Round((player.Monster.PosY + SizeY / 2) / SizeCellY);
-            ArrayGrid[player.Monster.I, player.Monster.J].PlayersInCeil.Add(player);
+          {            
+            var newI = (int)Math.Floor((player.Monster.PosX + SizeX / 2) / SizeCellX);
+            var newJ = (int)Math.Floor((player.Monster.PosY + SizeY / 2) / SizeCellY);
+            if (newI != player.Monster.I || newJ != player.Monster.J)
+            {
+                if (player.Monster.I != -1)
+                {
+                    var oldUser = ArrayGrid[player.Monster.I, player.Monster.J]
+                        .PlayersInCeil.FirstOrDefault(t => t.Monster.I == player.Monster.I
+                            && t.Monster.J == player.Monster.J);
+                    ArrayGrid[player.Monster.I, player.Monster.J].PlayersInCeil.Remove(oldUser);
+                }
+                if (newI >= 10) newI = 0;
+                if (newJ >= 10) newJ = 0;
+                if (newI <= 0) newI = 0;
+                if (newJ <= 0) newJ = 0;
+                player.Monster.I = newI;
+                player.Monster.J = newJ;                
+                ArrayGrid[newI, newJ].PlayersInCeil.Add(player);
+            }
         }
+        
         public void TestCollision(UserSession player)
         {
            foreach(UserSession item in ArrayGrid[player.Monster.I, player.Monster.J].PlayersInCeil.ToList())
            {
                if (TestCollisionWithOtherPlayers(player, item))
                {
-                   
+                 //  player.Client.clashWithFood("");
                }
            }
            foreach (Food item in ArrayGrid[player.Monster.I, player.Monster.J].FoodInCeil.ToList())
            {
                if (TestCollisionWithFood(player, item))
-               {
-
+               {                
+                   var food = JsonConvert.SerializeObject(item);
+                   var newFood = JsonConvert
+                       .SerializeObject(ChangeLocation(item));
+                   foreach (var user in Players){                       
+                        user.Value.Client.clashWithFood(food, newFood);
+                   }
                }
            }
+        }
+        public Food ChangeLocation(Food food)
+        {
+            ArrayGrid[food.IFood, food.JFood]
+                       .FoodInCeil.Remove(food);   
+            ResultPosition coord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY,
+                Food.MaxSize, Food.MaxSize);
+            int newI = (int)Math.Floor((coord.x + SizeX / 2) / SizeCellX);
+            int newJ = (int)Math.Floor((coord.y + SizeY / 2) / SizeCellY);
+            food.PosX = coord.x;
+            food.PosY = coord.y;
+            food.IFood = newI;
+            food.JFood = newJ;
+            ArrayGrid[newI, newJ].FoodInCeil.Add(food);
+            return food;
         }
         public bool TestCollisionWithOtherPlayers(UserSession ourPlayer, UserSession otherPlayer)
         {            
@@ -160,7 +194,9 @@ namespace MyWebGam.Server
                 var result = JsonConvert.SerializeObject(resultObject);
 
                 foreach (var player in Players)
-                {
+                {                    
+                    AddPlayerInArrayGrid(player.Value);
+                    TestCollision(player.Value);
                     player.Value.SetPositions(result);
                 }
             }
@@ -187,12 +223,12 @@ namespace MyWebGam.Server
                 Monster.PosY = -SizeY / 2;
                 InWorldSize = false;
             }
-            if (PosX  < -SizeX / 2)
+            if (PosX < -SizeX / 2)
             {
                 Monster.PosX = SizeX / 2;
                 InWorldSize = false;
             }
-            if (PosY  < -SizeY / 2)
+            if (PosY < -SizeY / 2)
             {
                 Monster.PosY = +SizeY / 2;
                 InWorldSize = false;
@@ -218,13 +254,12 @@ namespace MyWebGam.Server
                 var users = JsonConvert.SerializeObject(data);
                 UserSession CurrentClient = session;
                 ResultPosition newCoord = RandomExt.GetRandomPosition((int)SizeX, (int)SizeY, CurrentClient.Monster.SizeX, CurrentClient.Monster.SizeY);
-                CurrentClient.Monster.PosX = newCoord.x;
-                CurrentClient.Monster.PosY = newCoord.y;              
-                
-                AddPlayerInArrayGrid(CurrentClient);
-                TestCollision(CurrentClient);
-                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood, CurrentClient.ConnectionId, users);
-
+                //CurrentClient.Monster.PosX = newCoord.x;
+                //CurrentClient.Monster.PosY = newCoord.y;              
+                CurrentClient.Monster.PosX = 0;
+                CurrentClient.Monster.PosY = 0; 
+                AddPlayerInArrayGrid(CurrentClient);                
+                CurrentClient.Client.initialSettings(SizeX, SizeY, someFood, CurrentClient.ConnectionId);                
                 foreach (var item in Players)
                 {
                     item.Value.Client.addMoreMembers(SizeX, SizeY, users);

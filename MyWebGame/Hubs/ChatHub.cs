@@ -82,7 +82,7 @@ namespace MyWebGam.Hubs
                 Users.Remove(item);
                 var id = Context.ConnectionId;
                 var deletedUser = world.Players[id];
-              //  world.RemovePlayer(deletedUser);
+                world.RemovePlayer(deletedUser);
                 Clients.All.onUserDisconnected(id, item.Name, Users);
             }
 

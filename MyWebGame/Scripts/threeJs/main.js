@@ -6,8 +6,8 @@ var planeGeometry, planeMaterial, plane, sphere,
     cubeGeometry, cubeMaterial, cube,
     sphereGeometry, sphereMaterial, sphere;
 var cross;
-var players = [];
-var someFoodArray = [];
+var players = {};
+var someFoodCollection = {};
 
 function init() {
     scene = new THREE.Scene();
@@ -32,7 +32,7 @@ function init() {
     renderer.render(scene, camera);
     window.addEventListener('resize', onWindowResize, false);
 }
-function createRectangle(players, x, y, sizeX, sizeY, color) {
+function createRectangle(x, y, sizeX, sizeY, color) {
 
     var spriteMap = new THREE.ImageUtils.loadTexture("/Content/img/pacman.png");
     var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: color });
@@ -40,13 +40,13 @@ function createRectangle(players, x, y, sizeX, sizeY, color) {
     spriteMaterial.map.needsUpdate = true;
     cube.position.x = x;
     cube.position.y = y;
-    cube.scale.set(sizeX, sizeY, 1);
+    cube.scale.set(sizeX, sizeY, 2);
 
     scene.add(cube);
     return cube;
 }
 function createSomeFood(x, y, sizeX, sizeY, color) {
-
+    
     var spriteMap = new THREE.ImageUtils.loadTexture("/Content/img/pacman.png");
     var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: color });
     var cube = new THREE.Sprite(spriteMaterial);
