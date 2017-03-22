@@ -16,6 +16,7 @@ namespace MyWebGam.Server
         public float SizeCellX { get; private set; }
         public float SizeCellY { get; private set; }
         public int CountOfFood { get; private set; }
+        private const int MyltiplayWeightConst = 5;
         public Dictionary<string, UserSession> Players { get; private set; }
         public List<Food> SomeFood { get; private set; }        
         public Ceil[,] ArrayGrid { get; set; }
@@ -25,11 +26,11 @@ namespace MyWebGam.Server
             SizeY = 1000;
             SizeCellX = 200;
             SizeCellY = 100;            
-            CountOfFood = 20;
+            CountOfFood = 20;            
             Players = new Dictionary<string, UserSession>();
             SomeFood = new List<Food>();           
             ArrayGrid = new Ceil[(int)(SizeX / SizeCellX), (int)(SizeY / SizeCellY)];
-            SomeFood.Add(new Food() {Id = "200", PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color = "red" });
+//            SomeFood.Add(new Food() {Id = "200", PosX = 0, PosY = 0, Size = 1000, Weight = 1, Color = "red" });
             CreateGrid();
             SetSomeFood(); 
             FillingGridWithFood();                            
@@ -114,25 +115,30 @@ namespace MyWebGam.Server
                    if (player.Weight > item.Weight)
                    {
                        player.Weight += item.Weight;
+                       player.Monster.SizeX = player.Weight * MyltiplayWeightConst;
+                       player.Monster.SizeY = player.Weight * MyltiplayWeightConst;
+                       player.Monster.Speed -= player.Weight;
                        item.Weight = 0;
                        var itemWithNewCoord = JsonConvert.SerializeObject(ChangeLocationDeadPLayer(item));                       
                        foreach (var user in Players)
                        {
-                           user.Value.Client.clashWithPlayer(item.ConnectionId, itemWithNewCoord);
+                           user.Value.Client.clashWithPlayer(item.ConnectionId, itemWithNewCoord, player.Weight, player.ConnectionId);
                        }
-                       player.Client.newWeight(player.Weight, player.ConnectionId);
+                       player.Client.newWeight(player.Weight);
                    }
                    else
                    {
                        item.Weight += player.Weight;
+                       item.Monster.SizeX += item.Weight * MyltiplayWeightConst;
+                       item.Monster.SizeY += item.Weight * MyltiplayWeightConst;
                        player.Weight = 0;
                        var playerWithNewCoord = JsonConvert
                            .SerializeObject(ChangeLocationDeadPLayer(player));                       
                        foreach (var user in Players)
                        {
-                           user.Value.Client.clashWithPlayer(player.ConnectionId, playerWithNewCoord);
+                           user.Value.Client.clashWithPlayer(player.ConnectionId, playerWithNewCoord, item.Weight, item.ConnectionId);
                        }
-                       item.Client.newWeight(item.Weight, item.ConnectionId);
+                       item.Client.newWeight(item.Weight);
                    }                 
                }
            }
@@ -142,11 +148,13 @@ namespace MyWebGam.Server
                {                
                    var food = JsonConvert.SerializeObject(item);
                    player.Weight += item.Weight;
+                   player.Monster.SizeX += player.Weight * MyltiplayWeightConst;
+                   player.Monster.SizeY += player.Weight * MyltiplayWeightConst;
                    var newFood = JsonConvert
                        .SerializeObject(ChangeLocation(item));
-                   player.Client.newWeight(player.Weight, player.ConnectionId);
+                   player.Client.newWeight(player.Weight);
                    foreach (var user in Players){                       
-                        user.Value.Client.clashWithFood(food, newFood, player.Weight);
+                        user.Value.Client.clashWithFood(food, newFood, player.Weight, player.ConnectionId);
                    }
                }
            }
@@ -228,7 +236,9 @@ namespace MyWebGam.Server
                     ConnectionId = t.Value.ConnectionId,
                     PosX = t.Value.Monster.PosX,
                     PosY = t.Value.Monster.PosY,
-                    Rotation = t.Value.Monster.Rotation
+                    Rotation = t.Value.Monster.Rotation,
+                    SizeX = t.Value.Monster.SizeX,
+                    SizeY = t.Value.Monster.SizeY
                 });
                 var result = JsonConvert.SerializeObject(resultObject);
 

@@ -64,4 +64,3 @@ D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGam.EF.Migrations.Chang
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csproj.GenerateResource.Cache
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.dll
 D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.pdb
-D:\aps_net\SolbegSoft\MyGame\MyWebGame.EF\obj\Debug\MyWebGame.EF.csprojResolveAssemblyReference.cache

@@ -30,8 +30,8 @@ namespace MyWebGam.Server
     }
     public class Monster : ITickable
     {
-        public int SizeX { get; private set; }
-        public int SizeY { get; private set; }
+        public int SizeX { get; set; }
+        public int SizeY { get; set; }
         public float PosX { get; set; }
         public float PosY { get; set; }
         public float PosZ { get; set; }
@@ -39,7 +39,7 @@ namespace MyWebGam.Server
         public float SpeedX { get; set; }
         public float SpeedY { get; set; }
         public string Color { get; set; }
-        public float Speed { get; private set; }
+        public float Speed { get; set; }
         public int I { get; set; }
         public int J { get; set; }
       
@@ -52,7 +52,7 @@ namespace MyWebGam.Server
             SpeedY = 0;
             SizeX = 20;
             SizeY = 20;
-            Speed = 40;           
+            Speed = 80;           
             I = -1;
             J = -1;
             Color = RandomExt.GetRandomColor(0, 3);

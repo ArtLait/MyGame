@@ -64,11 +64,13 @@
             players[item.ConnectionId].position.x = item.PosX;
             players[item.ConnectionId].position.y = item.PosY;
             players[item.ConnectionId].material.rotation = item.Rotation;
+            players[item.ConnectionId].scale.x = item.SizeX;
+            players[item.ConnectionId].scale.y = item.SizeY;
         });
 
         render();
     }
-    network.client.clashWithFood = function (deletedFood, newPositionFood) {
+    network.client.clashWithFood = function (deletedFood, newPositionFood, weightDestroyer, idDestroyer) {
 
         var idFood = someFoodCollection[JSON.parse(deletedFood).Id];
         scene.remove(idFood);
@@ -76,22 +78,24 @@
         var food = createSomeFood(newPositionFood.PosX, newPositionFood.PosY,
                     newPositionFood.Size, newPositionFood.Size, newPositionFood.Color);
         someFoodCollection[newPositionFood.Id] = food;
+        players[idDestroyer].scale.x = weightDestroyer * 10;
+        players[idDestroyer].scale.y = weightDestroyer * 10;
     }
-    network.client.clashWithPlayer = function (idPlayer, newPositionPlayer) {
+    network.client.clashWithPlayer = function (idDeletedPlayer, newPositionPlayer, weightDestroyer, idDestroyer) {
                 
-        scene.remove(idPlayer);
+        scene.remove(idDeletedPlayer);
         var newPositionPlayer = JSON.parse(newPositionPlayer);
         var player = createRectangle(newPositionPlayer.PosX, newPositionPlayer.PosY,
                     newPositionPlayer.Size, newPositionPlayer.Size, newPositionPlayer.Color);
-        someFoodCollection[newPositionPlayer.Id] = player;
+        someFoodCollection[newPositionPlayer.Id] = player;       
+        players[idDestroyer].scale.x = weightDestroyer * 10;
+        players[idDestroyer].scale.y = weightDestroyer * 10;       
     }
    
-    network.client.newWeight = function (weight, id) {
-        console.log(id);
+    network.client.newWeight = function (weight) {
+        
         $("#weightUser").empty(weight)
-        $("#weightUser").append(weight);
-        players[id].scale.x += weight * 10;
-        players[id].scale.y += weight * 10;
+        $("#weightUser").append(weight);        
     }
 
     //---------------------For chat-----------------------
